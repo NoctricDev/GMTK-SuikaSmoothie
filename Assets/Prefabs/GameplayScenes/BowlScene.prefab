@@ -61,6 +61,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6369d108c5f4fcf81dcab7458ccf042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1685797843367419455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3002881217656028188}
+  - component: {fileID: 544591969083463786}
+  - component: {fileID: 8800797750335422760}
+  m_Layer: 0
+  m_Name: DestroyFruitsCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3002881217656028188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685797843367419455}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5972409974077932644}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &544591969083463786
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685797843367419455}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 0.047925085, z: 2}
+  m_Center: {x: 0, y: -0.47603744, z: 0}
+--- !u!114 &8800797750335422760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685797843367419455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3f966dece3004a428ac5460caded8fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1701895818328201858
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,6 +173,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipes:
   - {fileID: 11400000, guid: a87e2d9c9ff81c348a8d2e420a19582e, type: 2}
+  - {fileID: 11400000, guid: b4e7f5421d13c624393bb91f15b0701e, type: 2}
+  - {fileID: 11400000, guid: 4e5882a09ecd6d248beacae12dac4263, type: 2}
 --- !u!1 &2073954094787874428
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,6 +350,7 @@ Transform:
   - {fileID: 6769870637282148781}
   - {fileID: 2212586956193485325}
   - {fileID: 6292675622892466907}
+  - {fileID: 3002881217656028188}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6027241883339084552
@@ -473,7 +542,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6769870637282148781}
-  - component: {fileID: 7506976482387705400}
+  - component: {fileID: 3287271815652868502}
   m_Layer: 0
   m_Name: FruitDrop
   m_TagString: Untagged
@@ -496,7 +565,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5972409974077932644}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7506976482387705400
+--- !u!114 &3287271815652868502
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -511,7 +580,7 @@ MonoBehaviour:
   inputManager: {fileID: 11400000, guid: 540685f8bfeb8ed4e93ec33aafac89b0, type: 2}
   testFruit: {fileID: 11400000, guid: 821bfe6b4a7a353418de97f9fcc31659, type: 2}
   spawnerPoint: {fileID: 6673046608011353644}
-  dropHeight: 0.225
+  dropHeight: {fileID: 11400000, guid: 8d7eeb8ffdfb76241a5183b82b01278f, type: 2}
 --- !u!1 &8998386292103534379
 GameObject:
   m_ObjectHideFlags: 0

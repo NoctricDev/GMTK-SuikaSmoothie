@@ -3,6 +3,11 @@ namespace Fruits
     public enum FruitType
     {
         Blueberry,
-        Strawberry
+        Strawberry,
+        Plum,
+        Guave,
+        Pear,
+        Apple,
+        Mango
     }
 }

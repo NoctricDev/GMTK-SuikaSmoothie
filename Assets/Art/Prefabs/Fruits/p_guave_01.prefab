@@ -85,7 +85,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3539539202065190343, guid: 5029c78589059e34c81bd4803fe837f3, type: 3}
       propertyPath: m_Name
-      value: p_guave_01 Variant
+      value: p_guave_01
       objectReference: {fileID: 0}
     - target: {fileID: 7222626044292931805, guid: 5029c78589059e34c81bd4803fe837f3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: -2255337851447096497, guid: aa1c986c1e60a774e9046e6e3571fe00, type: 3}
+    - target: {fileID: 7809090978983351024, guid: 5029c78589059e34c81bd4803fe837f3, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

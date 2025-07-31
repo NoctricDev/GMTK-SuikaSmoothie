@@ -1,5 +1,4 @@
 #nullable enable
-using System;
 using UnityEngine;
 
 namespace Fruits
@@ -8,7 +7,7 @@ namespace Fruits
     {
         public const string FRUIT_LAYER = "Fruit";
         
-        public bool requestedMerge;
+        [HideInInspector] public bool requestedMerge;
         
         public FruitType FruitType { get; private set; }
         
@@ -29,7 +28,7 @@ namespace Fruits
                 return;
             
             requestedMerge = true;
-            Debug.Log(otherFruit.requestedMerge);
+            otherFruit.requestedMerge = true;
             FruitMergeManager.Instance.MergeFruits(this, otherFruit, newFruit);
         }
     }

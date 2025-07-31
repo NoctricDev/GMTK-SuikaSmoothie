@@ -1,5 +1,6 @@
 using Fruits;
 using Input;
+using JohaToolkit.UnityEngine.ScriptableObjects.Variables;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -16,25 +17,26 @@ namespace FruitBowlScene
         [SerializeField] private FruitSpawner spawnerPoint;
         
         [Title("Settings")]
-        [SerializeField] private float dropHeight;
+        [SerializeField] private FloatVariable dropHeight;
 
         private UnityEngine.Camera _mainCam;
 
         private void OnEnable()
         {
-            inputManager.DropFruitEvent += OnDropFruit;
+            inputManager.InteractPrimaryEvent += OnInteractPrimary;
             _mainCam = UnityEngine.Camera.main;
         }
 
         private void OnDisable()
         {
-            inputManager.DropFruitEvent -= OnDropFruit;
+            inputManager.InteractPrimaryEvent -= OnInteractPrimary;
         }
 
-        private void OnDropFruit()
+        private void OnInteractPrimary()
         {
             // TODO: Drop Checks:
-            spawnerPoint.SpawnFruit(testFruit);
+            Ray ray = _mainCam.ScreenPointToRay(Mouse.current.position.ReadValue());
+            spawnerPoint.SpawnFruit(testFruit, ray.GetPoint(GetDistanceToDropPoint(ray)));
             
         }
 
@@ -49,7 +51,7 @@ namespace FruitBowlScene
         private float GetDistanceToDropPoint(Ray ray)
         {
             float angle = Vector3.Angle(Vector3.up, ray.direction);
-            float heightDiff = dropHeight - ray.origin.y;
+            float heightDiff = dropHeight.Value - ray.origin.y;
             return heightDiff / Mathf.Cos(angle * Mathf.Deg2Rad);
         }
     }

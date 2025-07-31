@@ -5,7 +5,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "fa4553c5f686a4d67b6560ec6fee13532217e6bc"
+      "hash": "bb2870e09bdc63a6b6c5a295249dd4a7925a8ff8"
     },
     "com.johatoolkit.unityengine.cheatconsole": {
       "version": "https://github.com/Carjana/com.johatoolkit.unityengine.cheatconsole.git",

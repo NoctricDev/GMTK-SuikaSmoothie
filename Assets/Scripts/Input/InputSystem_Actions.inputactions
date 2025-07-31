@@ -531,7 +531,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "DropFruit",
+                    "name": "InteractPrimary",
                     "type": "Button",
                     "id": "3f6f005b-b2db-4b8d-82db-e19cac684afd",
                     "expectedControlType": "",
@@ -581,7 +581,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "DropFruit",
+                    "action": "InteractPrimary",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

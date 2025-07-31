@@ -26,7 +26,7 @@ namespace Input
         
         public event Action<float> BowlSceneCameraMoveEvent;
         
-        public event Action DropFruitEvent;
+        public event Action InteractPrimaryEvent;
 
         #endregion
         
@@ -94,10 +94,10 @@ namespace Input
             BowlSceneCameraMoveEvent?.Invoke(context.ReadValue<float>());
         }
 
-        public void OnDropFruit(InputAction.CallbackContext context)
+        public void OnInteractPrimary(InputAction.CallbackContext context)
         {
             if(context.performed)
-                DropFruitEvent?.Invoke();
+                InteractPrimaryEvent?.Invoke();
         }
     }
 }
