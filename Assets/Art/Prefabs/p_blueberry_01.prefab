@@ -60,7 +60,12 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7809090978983351024, guid: 5029c78589059e34c81bd4803fe837f3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -8927371970211764797, guid: 5029c78589059e34c81bd4803fe837f3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7222626044292931805, guid: 5029c78589059e34c81bd4803fe837f3, type: 3}
