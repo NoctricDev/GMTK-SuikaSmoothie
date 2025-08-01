@@ -4,7 +4,8 @@ namespace Scenes
 {
     public enum GameplayScenes
     {
-        Bowl
+        Bowl,
+        Mixer
     }
     public interface IGameplayScene
     {

@@ -7,7 +7,18 @@ namespace Helper
 {
     public static class ScreenToWorldHelper
     {
-        public static Ray GetMouseToWorldRay(UnityEngine.Camera _camera) => GetScreenToWorldRay(_camera, Mouse.current.position.ReadValue());
+        public static Ray GetMouseToWorldRay(UnityEngine.Camera _camera)
+        {
+            Ray ray = GetScreenToWorldRay(_camera, LimitToScreenBounds(Mouse.current.position.ReadValue()));
+            return ray;
+        }
+        
+        public static Vector2 LimitToScreenBounds(Vector2 position)
+        {
+            position.x = Mathf.Clamp(position.x, 0, Screen.width);
+            position.y = Mathf.Clamp(position.y, 0, Screen.height);
+            return position;
+        }
 
         public static Ray GetScreenToWorldRay(UnityEngine.Camera _camera, Vector2 position) => _camera.ScreenPointToRay(position);
 
@@ -15,6 +26,13 @@ namespace Helper
         {
             float angle = Vector3.Angle(Vector3.up, ray.direction);
             float heightDiff = height - ray.origin.y;
+            return heightDiff / Mathf.Cos(angle * Mathf.Deg2Rad);
+        }
+
+        public static float GetRayDistanceToWorldSpaceForward(Ray ray, Vector3 forward)
+        {
+            float angle = Vector3.Angle(forward.normalized, ray.direction);
+            float heightDiff = forward.magnitude;
             return heightDiff / Mathf.Cos(angle * Mathf.Deg2Rad);
         }
 

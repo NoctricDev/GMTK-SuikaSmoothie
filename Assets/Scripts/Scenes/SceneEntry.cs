@@ -5,13 +5,17 @@ using UnityEngine;
 
 namespace Scenes
 {
-    public class BowlScene : SerializedMonoBehaviour, IGameplayScene
+    public class SceneEntry : SerializedMonoBehaviour, IGameplayScene
     {
         [SerializeField, Required] private InputManagerSO inputManager;
-        [SerializeField] private GameObject bowlSceneCamera;
+        [SerializeField] private GameObject sceneCamera;
 
         [SerializeField] private IGameplaySceneObject[] sceneObjects;
-        public GameplayScenes Scene => GameplayScenes.Bowl;
+
+        [SerializeField] private GameplayScenes gameplayScene;
+        [SerializeField] private InputManagerSO.ActionMaps[] actionMaps;
+        
+        public GameplayScenes Scene => gameplayScene;
 
         private void Awake()
         {
@@ -20,7 +24,7 @@ namespace Scenes
 
         public void LoadStart(float durationTime)
         {
-            bowlSceneCamera.SetActive(true);
+            sceneCamera.SetActive(true);
             Debug.Log("Loading Started");
             sceneObjects.ForEach(s => s.LoadStart(durationTime));
         }
@@ -28,15 +32,15 @@ namespace Scenes
         public void LoadEnd()
         {
             Debug.Log("Loading Completed");
-            inputManager.EnableActionMap(InputManagerSO.ActionMaps.BowlScene);
+            actionMaps.ForEach(inputManager.EnableActionMap);
             sceneObjects.ForEach(s => s.LoadEnd());
         }
 
         public void Unload()
         {
             sceneObjects.ForEach(s => s.Unload());
-            inputManager.DisableActionMap(InputManagerSO.ActionMaps.BowlScene);
-            bowlSceneCamera.SetActive(false);
+            actionMaps.ForEach(inputManager.DisableActionMap);
+            sceneCamera.SetActive(false);
         }
     }
 }

@@ -44,23 +44,29 @@ namespace Helper
         private void DrawGiz()
         {
             Gizmos.color = gizmoColor;
+            Matrix4x4 mat = Gizmos.matrix;
+            
+            Gizmos.matrix = transform.localToWorldMatrix;
+            
             switch (shape)
             {
                 case Shapes.Sphere when !showWired:
-                    Gizmos.DrawSphere(transform.position + offset, radius);
+                    Gizmos.DrawSphere(offset, radius);
                     break;
                 case Shapes.Sphere when showWired:
-                    Gizmos.DrawWireSphere(transform.position + offset, radius);
+                    Gizmos.DrawWireSphere(offset, radius);
                     break;
                 case Shapes.Cube when !showWired:
-                    Gizmos.DrawCube(transform.position + offset, cubeSize);
+                    Gizmos.DrawCube(offset, cubeSize);
                     break;
                 case Shapes.Cube when showWired:
-                    Gizmos.DrawWireCube(transform.position + offset, cubeSize);
+                    Gizmos.DrawWireCube(offset, cubeSize);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+
+            Gizmos.matrix = mat;
         }
     }
 }

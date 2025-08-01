@@ -674,6 +674,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "MixerScene",
+            "id": "6599cb20-b4f4-46f5-bbbf-6bdf1cf53cb6",
+            "actions": [
+                {
+                    "name": "InteractPrimary",
+                    "type": "Button",
+                    "id": "97e7c074-e655-449e-8cf9-a964f153f9ca",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "fd4feade-96cd-46c0-a29a-e5cd29a6dc98",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "InteractPrimary",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

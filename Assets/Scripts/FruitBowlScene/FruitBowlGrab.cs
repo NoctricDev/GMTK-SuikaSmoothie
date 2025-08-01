@@ -51,7 +51,6 @@ namespace FruitBowlScene
 
         private void OnInteractSecondary()
         {
-            Debug.Log("Testing");
             if (_isCarrying)
             {
                 return;

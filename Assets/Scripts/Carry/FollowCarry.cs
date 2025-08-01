@@ -13,6 +13,7 @@ namespace Carry
 
         [Title("Settings")] 
         [SerializeField] private bool resetTransform = true;
+        [SerializeField] private float transitionDuration = 0.2f;
         
         public event Action CarryStartedEvent;
         public event Action CarryStoppedEvent;
@@ -21,7 +22,8 @@ namespace Carry
         private Transform _carryTransform;
         
         public ICarrieAbleMouse MouseCarry { get; protected set; }
-        
+
+        private float _transitionTimer;
         
         public bool TryStartCarry(Transform carryTransform, ICarrieAbleMouse mouseCarry)
         {
@@ -32,6 +34,7 @@ namespace Carry
             _isCarried = true;
             CarryStartedEvent?.Invoke();
             transform.SetParent(null);
+            _transitionTimer = 0;
             return true;
         }
 
@@ -49,8 +52,9 @@ namespace Carry
         {
             if (!_isCarried || _carryTransform == null)
                 return;
-            
-            thisTransform.position = _carryTransform.position;
+
+            _transitionTimer += Time.deltaTime / transitionDuration;
+            thisTransform.position = Vector3.Lerp(thisTransform.position, _carryTransform.position, Mathf.Clamp01(_transitionTimer));
         }
         
         public Vector3 GetPosition() => transform.position;

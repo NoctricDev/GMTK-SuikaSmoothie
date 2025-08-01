@@ -1,5 +1,73 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1236065244293910774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6696142597243374319}
+  - component: {fileID: 4654070366046954322}
+  - component: {fileID: 6407857363422935890}
+  m_Layer: 0
+  m_Name: ComboManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6696142597243374319
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236065244293910774}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5972409974077932644}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4654070366046954322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236065244293910774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2361cca3ecf3c9d408f912968ed73483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fruitMergeEvent: {fileID: 11400000, guid: 05b17ad66892e144b8d98fd9dedee509, type: 2}
+  payloadDroppedEvent: {fileID: 11400000, guid: 89973c176ec0bbe438c27cc8ab8c6c76, type: 2}
+  currentComboCounter: {fileID: 11400000, guid: e9504fa33f425d746a2c0160b807d9a4, type: 2}
+--- !u!114 &6407857363422935890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236065244293910774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9c7a678e37d75f459224b08d0b03f6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comboCount: {fileID: 11400000, guid: e9504fa33f425d746a2c0160b807d9a4, type: 2}
+  comboSounds:
+  - {fileID: 11400000, guid: e636beb1c36de984fbf82d89cf07ae21, type: 2}
+  - {fileID: 11400000, guid: ef9540d691e8120429817de8e8d3133e, type: 2}
+  - {fileID: 11400000, guid: 13bcac9dae9d6a64db6689a2635384f7, type: 2}
+  - {fileID: 11400000, guid: f1d868bf3aa5ade4d82186a137cff6f8, type: 2}
+  - {fileID: 11400000, guid: 39746d713f282fa47a08d3674e02da0f, type: 2}
+  - {fileID: 11400000, guid: b2e7269af828d8049a629b757a4dffcb, type: 2}
 --- !u!1 &1685797843367419455
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,6 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1d7bc975e093a478c3f1f73efadd94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fruitMergedGameEvent: {fileID: 11400000, guid: 05b17ad66892e144b8d98fd9dedee509, type: 2}
   recipes:
   - {fileID: 11400000, guid: a87e2d9c9ff81c348a8d2e420a19582e, type: 2}
   - {fileID: 11400000, guid: b4e7f5421d13c624393bb91f15b0701e, type: 2}
@@ -443,6 +512,7 @@ Transform:
   - {fileID: 5556799423754000323}
   - {fileID: 4207504375851821047}
   - {fileID: 1568695454436750655}
+  - {fileID: 6696142597243374319}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6027241883339084552
@@ -463,6 +533,7 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 119558845891385513}
     - {fileID: 8530832002701934530}
+    - {fileID: 8711028905721845199}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -473,13 +544,16 @@ MonoBehaviour:
       Data: 0|Scenes.IGameplaySceneObject[], Assembly-CSharp
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 3
     - Name: 
       Entry: 10
       Data: 0
     - Name: 
       Entry: 10
       Data: 1
+    - Name: 
+      Entry: 10
+      Data: 2
     - Name: 
       Entry: 13
       Data: 
@@ -805,7 +879,7 @@ MonoBehaviour:
   shape: 1
   showWired: 0
   radius: 0.5
-  cubeSize: {x: 1, y: 0, z: 1}
+  cubeSize: {x: 0.41, y: 0, z: 0.4}
   offset: {x: 0, y: 0, z: 0}
   gizmoColor: {r: 0, g: 1, b: 0.21038437, a: 0.2627451}
   dropHeight: {fileID: 11400000, guid: 8d7eeb8ffdfb76241a5183b82b01278f, type: 2}

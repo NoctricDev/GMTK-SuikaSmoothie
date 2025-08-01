@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 namespace Input
 {
     [CreateAssetMenu(fileName = "InputManagerSO", menuName = "Scriptable Objects/InputManagerSO")]
-    public class InputManagerSO : RuntimeScriptableObject, InputSystem_Actions.IBowlSceneActions
+    public class InputManagerSO : RuntimeScriptableObject, InputSystem_Actions.IBowlSceneActions, InputSystem_Actions.IMixerSceneActions
     {
         public static InputManagerSO Instance { get; private set; }
         public enum ActionMaps
@@ -40,8 +40,16 @@ namespace Input
             _enabledActionMaps = new List<ActionMaps>();
             _inputActions = new InputSystem_Actions();
             _inputActions.Enable();
-            _inputActions.BowlScene.Disable();
+            SetupInputActions();
+        }
+
+        private void SetupInputActions()
+        {
             _inputActions.BowlScene.SetCallbacks(this);
+            _inputActions.MixerScene.SetCallbacks(this);
+            
+            _inputActions.BowlScene.Disable();
+            _inputActions.MixerScene.Disable();
         }
 
         private void OnDisable()

@@ -30,13 +30,17 @@ namespace FruitBowlScene
 
         private UnityEngine.Camera _mainCam;
 
+        private bool _isSceneLoaded;
+
         public void LoadEnd()
         {
             inputManager.InteractPrimaryEvent += OnInteractPrimary;
+            _isSceneLoaded = true;
         }
 
         public void Unload()
         {
+            _isSceneLoaded = false;
             StopCarry();
             inputManager.InteractPrimaryEvent -= OnInteractPrimary;
         }
@@ -102,6 +106,8 @@ namespace FruitBowlScene
         
         private void Update()
         {
+            if (!_isSceneLoaded)
+                return;
             UpdateMousePosition();
         }
 
