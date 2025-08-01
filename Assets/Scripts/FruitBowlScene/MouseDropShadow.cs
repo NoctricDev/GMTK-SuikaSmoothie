@@ -1,4 +1,5 @@
 using Carry;
+using Events;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -7,12 +8,13 @@ namespace FruitBowlScene
     public class MouseDropShadow : MonoBehaviour
     {
         [Title("References")]
-        [SerializeField, Required] private FruitBowlMouse fruitBowlMouse;
+        [SerializeField] private GameEventICarrieAble payloadPickedUpGameEvent;
+        [SerializeField] private GameEventICarrieAble payloadDroppedGameEvent;
 
         private void Awake()
         {
-            fruitBowlMouse.PayloadPickedUpEvent += OnPayLoadPickedUp;
-            fruitBowlMouse.PayloadDroppedEvent += OnPayLoadDropped;
+            payloadPickedUpGameEvent.Subscribe(OnPayLoadPickedUp);
+            payloadDroppedGameEvent.Subscribe(OnPayLoadDropped);
         }
 
         private void Start()
@@ -20,8 +22,8 @@ namespace FruitBowlScene
             gameObject.SetActive(false);
         }
 
-        private void OnPayLoadDropped(ICarrieAble _) => gameObject.SetActive(false);
+        private void OnPayLoadDropped(object sender, ICarrieAble _) => gameObject.SetActive(false);
 
-        private void OnPayLoadPickedUp(ICarrieAble _) => gameObject.SetActive(true);
+        private void OnPayLoadPickedUp(object sender, ICarrieAble _) => gameObject.SetActive(true);
     }
 }

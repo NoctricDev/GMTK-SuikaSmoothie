@@ -1,12 +1,13 @@
-using System;
 using Carry;
+using Events;
+using Helper;
 using Input;
 using JetBrains.Annotations;
 using JohaToolkit.UnityEngine.Extensions;
 using JohaToolkit.UnityEngine.ScriptableObjects.Variables;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 namespace FruitBowlScene
 {
@@ -21,20 +22,20 @@ namespace FruitBowlScene
         [SerializeField] private Vector2 minMaxDistance;
 
         [CanBeNull] private ICarrieAble _currentPayload;
-
-        public event Action<ICarrieAble> PayloadPickedUpEvent;
-        public event Action<ICarrieAble> PayloadDroppedEvent;
+        
+        public GameEventICarrieAble PayloadPickedUpGameEvent;
+        public GameEventICarrieAble PayloadDroppedGameEvent;
 
         private UnityEngine.Camera _mainCam;
         
         private void OnEnable()
         {
-            inputManager.InteractPrimaryEvent += OnInteract;
+            inputManager.InteractPrimaryEvent += OnInteractPrimary;
         }
 
         private void OnDisable()
         {
-            inputManager.InteractPrimaryEvent -= OnInteract;
+            inputManager.InteractPrimaryEvent -= OnInteractPrimary;
         }
 
         private void Awake()
@@ -42,38 +43,62 @@ namespace FruitBowlScene
             _mainCam = UnityEngine.Camera.main;
         }
 
-        private void OnInteract()
+        private void OnInteractPrimary()
         {
+            //if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            if(ScreenToWorldHelper.IsMouseOverUI())
+            {
+                return;
+            }
+            
             if (_currentPayload != null)
             {
-                PayloadDroppedEvent?.Invoke(_currentPayload);
+                PayloadDroppedGameEvent?.RaiseEvent(this, _currentPayload);
                 _currentPayload.StopCarry();
                 _currentPayload = null;
                 return;
             }
+            
+            if(!GetFirstOverlappingPayload(out ICarrieAble carrieAble))
+                return;
+            
+            
+            StartCarry(carrieAble);
+        }
 
+        public void StartCarry(ICarrieAble carry)
+        {
+            if (!carry.TryStartCarry(transform, out ICarrieAble activeCarrieAble))
+                return;
+            PayloadPickedUpGameEvent?.RaiseEvent(this, activeCarrieAble);
+            _currentPayload = activeCarrieAble;
+        }
+
+        private bool GetFirstOverlappingPayload(out ICarrieAble carrieAble)
+        {
+            carrieAble = null;
             Collider[] overlaps = Physics.OverlapSphere(transform.position, interactionRadius);
 
             foreach (Collider col in overlaps)
             {
-                if (!col.TryGetComponent(out ICarrieAble carrieAble)) 
+                if (!col.TryGetComponent(out carrieAble)) 
                     continue;
-                
-                if(!carrieAble.TryStartCarry(transform, out ICarrieAble activeCarrieAble))
-                    break;
-                
-                PayloadPickedUpEvent?.Invoke(activeCarrieAble);
-                _currentPayload = activeCarrieAble;
-                return;
+
+                return true;
             }
 
-            _currentPayload = null;
+            return false;
         }
         
         private void Update()
         {
-            Ray ray = _mainCam.ScreenPointToRay(Mouse.current.position.ReadValue());
-            float dist = GetDistanceToDropPoint(ray);
+            UpdateMousePosition();
+        }
+
+        private void UpdateMousePosition()
+        {
+            Ray ray = ScreenToWorldHelper.GetMouseToWorldRay(_mainCam);
+            float dist = ScreenToWorldHelper.GetRayDistanceToWorldSpaceHeight(ray, dropHeight.Value);
             float horizontalDist = (ray.GetPoint(dist).SetY(0) - _mainCam.transform.position.SetY(0)).magnitude;
             
             Debug.DrawRay(ray.origin, ray.direction * dist, Color.red);
@@ -84,13 +109,6 @@ namespace FruitBowlScene
             }
 
             transform.position = ray.GetPoint(dist);
-        }
-
-        private float GetDistanceToDropPoint(Ray ray)
-        {
-            float angle = Vector3.Angle(Vector3.up, ray.direction);
-            float heightDiff = dropHeight.Value - ray.origin.y;
-            return heightDiff / Mathf.Cos(angle * Mathf.Deg2Rad);
         }
     }
 }

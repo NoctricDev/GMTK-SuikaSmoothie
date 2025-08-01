@@ -19,7 +19,7 @@ MonoBehaviour:
   OnPlayModeFlashScreen: 0
   OnPlayModeSetup:
     Profile: 0
-    ProfileAsset: {fileID: 0}
+    ProfileAsset: {fileID: 11400000, guid: d8168c22c57b1594dbd7a49b9e419299, type: 2}
   OnBuild: 0
   OnBuildIfWarnings: 0
   OnBuildIfErrors: 3

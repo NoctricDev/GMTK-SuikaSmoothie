@@ -624,6 +624,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InteractSecondary"",
+                    ""type"": ""Button"",
+                    ""id"": ""4778e61b-0e4b-42d6-9cf8-1af9fb9ff0cb"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -668,6 +677,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""InteractPrimary"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7b1a4959-bf3a-4854-a1b4-505d825f2c42"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InteractSecondary"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -801,6 +821,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_BowlScene = asset.FindActionMap("BowlScene", throwIfNotFound: true);
         m_BowlScene_MoveCamera = m_BowlScene.FindAction("MoveCamera", throwIfNotFound: true);
         m_BowlScene_InteractPrimary = m_BowlScene.FindAction("InteractPrimary", throwIfNotFound: true);
+        m_BowlScene_InteractSecondary = m_BowlScene.FindAction("InteractSecondary", throwIfNotFound: true);
         // Cheats
         m_Cheats = asset.FindActionMap("Cheats", throwIfNotFound: true);
         m_Cheats_OpenConsole = m_Cheats.FindAction("OpenConsole", throwIfNotFound: true);
@@ -1084,6 +1105,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private List<IBowlSceneActions> m_BowlSceneActionsCallbackInterfaces = new List<IBowlSceneActions>();
     private readonly InputAction m_BowlScene_MoveCamera;
     private readonly InputAction m_BowlScene_InteractPrimary;
+    private readonly InputAction m_BowlScene_InteractSecondary;
     /// <summary>
     /// Provides access to input actions defined in input action map "BowlScene".
     /// </summary>
@@ -1103,6 +1125,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "BowlScene/InteractPrimary".
         /// </summary>
         public InputAction @InteractPrimary => m_Wrapper.m_BowlScene_InteractPrimary;
+        /// <summary>
+        /// Provides access to the underlying input action "BowlScene/InteractSecondary".
+        /// </summary>
+        public InputAction @InteractSecondary => m_Wrapper.m_BowlScene_InteractSecondary;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1135,6 +1161,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @InteractPrimary.started += instance.OnInteractPrimary;
             @InteractPrimary.performed += instance.OnInteractPrimary;
             @InteractPrimary.canceled += instance.OnInteractPrimary;
+            @InteractSecondary.started += instance.OnInteractSecondary;
+            @InteractSecondary.performed += instance.OnInteractSecondary;
+            @InteractSecondary.canceled += instance.OnInteractSecondary;
         }
 
         /// <summary>
@@ -1152,6 +1181,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @InteractPrimary.started -= instance.OnInteractPrimary;
             @InteractPrimary.performed -= instance.OnInteractPrimary;
             @InteractPrimary.canceled -= instance.OnInteractPrimary;
+            @InteractSecondary.started -= instance.OnInteractSecondary;
+            @InteractSecondary.performed -= instance.OnInteractSecondary;
+            @InteractSecondary.canceled -= instance.OnInteractSecondary;
         }
 
         /// <summary>
@@ -1456,6 +1488,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteractPrimary(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "InteractSecondary" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInteractSecondary(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Cheats" which allows adding and removing callbacks.

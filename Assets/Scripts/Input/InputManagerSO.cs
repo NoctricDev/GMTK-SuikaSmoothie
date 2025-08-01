@@ -28,6 +28,8 @@ namespace Input
         
         public event Action InteractPrimaryEvent;
 
+        public event Action InteractSecondaryEvent;
+        
         #endregion
         
         private void OnEnable()
@@ -98,6 +100,12 @@ namespace Input
         {
             if(context.performed)
                 InteractPrimaryEvent?.Invoke();
+        }
+
+        public void OnInteractSecondary(InputAction.CallbackContext context)
+        {
+            if(context.performed)
+                InteractSecondaryEvent?.Invoke();
         }
     }
 }

@@ -57,9 +57,19 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2d5b0b596dc0cf49bd8643d638bccbc, type: 3}
+--- !u!23 &4620097535807728493 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7271493668410742664, guid: f2d5b0b596dc0cf49bd8643d638bccbc, type: 3}
+  m_PrefabInstance: {fileID: 2662870704716119269}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5031272260186413318 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7000495677983024611, guid: f2d5b0b596dc0cf49bd8643d638bccbc, type: 3}
+  m_PrefabInstance: {fileID: 2662870704716119269}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6225850120946159827 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8255876016458984502, guid: f2d5b0b596dc0cf49bd8643d638bccbc, type: 3}
   m_PrefabInstance: {fileID: 2662870704716119269}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3623822378905500376
@@ -76,7 +86,7 @@ PrefabInstance:
       objectReference: {fileID: 8767812066603243884, guid: 01c2698ecf4b93e47a35bcce13887be6, type: 3}
     - target: {fileID: 1004845796224441026, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: m_Name
-      value: BlueBerry
+      value: Blueberry
       objectReference: {fileID: 0}
     - target: {fileID: 2323635907409908644, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: m_LocalPosition.x
@@ -118,6 +128,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5213437046920537188, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
+      propertyPath: meshRenderer
+      value: 
+      objectReference: {fileID: 6225850120946159827}
+    - target: {fileID: 5213437046920537188, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
+      propertyPath: meshRenderer.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5213437046920537188, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
+      propertyPath: 'meshRenderer.Array.data[0]'
+      value: 
+      objectReference: {fileID: 6225850120946159827}
+    - target: {fileID: 5213437046920537188, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
+      propertyPath: 'meshRenderer.Array.data[1]'
+      value: 
+      objectReference: {fileID: 4620097535807728493}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

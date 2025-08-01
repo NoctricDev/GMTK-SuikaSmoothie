@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: -2996569502568984771, guid: 3e9094532fe2b3144a4d7e4178ff91ff, type: 3}
     - target: {fileID: 1004845796224441026, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: m_Name
-      value: Pear Variant
+      value: Pear
       objectReference: {fileID: 0}
     - target: {fileID: 2323635907409908644, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: m_LocalPosition.x
@@ -55,6 +55,18 @@ PrefabInstance:
     - target: {fileID: 2323635907409908644, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5213437046920537188, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
+      propertyPath: 'meshRenderer.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3517484536499560195}
+    - target: {fileID: 5713328058650582091, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
+      propertyPath: m_ImplicitCom
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5713328058650582091, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
+      propertyPath: m_CenterOfMass.y
+      value: 0.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -126,6 +138,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deed45cb67a94d2429afb9df8e507526, type: 3}
+--- !u!23 &3517484536499560195 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1818370745192168385, guid: deed45cb67a94d2429afb9df8e507526, type: 3}
+  m_PrefabInstance: {fileID: 3020995074534696130}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4590355062055993229 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1610191451769740111, guid: deed45cb67a94d2429afb9df8e507526, type: 3}

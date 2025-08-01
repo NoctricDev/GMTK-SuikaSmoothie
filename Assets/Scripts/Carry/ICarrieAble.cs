@@ -8,5 +8,7 @@ namespace Carry
 
         public void StopCarry();
 
+        public Vector3 GetPosition();
+
     }
 }

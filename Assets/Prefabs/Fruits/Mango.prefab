@@ -62,6 +62,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1188317809235667757, guid: 0fbef51c71df933458c9efc4b6a07b38, type: 3}
   m_PrefabInstance: {fileID: 1518845727301052312}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &4307933681507494624 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3376816811320790392, guid: 0fbef51c71df933458c9efc4b6a07b38, type: 3}
+  m_PrefabInstance: {fileID: 1518845727301052312}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5244776819479255913
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -76,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 7243451953156398600, guid: 7e21a0de4ee612a488bb564db2f13f7f, type: 3}
     - target: {fileID: 1004845796224441026, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: m_Name
-      value: Mango Variant
+      value: Mango
       objectReference: {fileID: 0}
     - target: {fileID: 2323635907409908644, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: m_LocalPosition.x
@@ -118,6 +123,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5213437046920537188, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
+      propertyPath: 'meshRenderer.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4307933681507494624}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

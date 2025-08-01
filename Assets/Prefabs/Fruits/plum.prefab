@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 4424915704992696017, guid: 2bef4ae87a4a2e14a914118b1fcb62e6, type: 3}
     - target: {fileID: 1004845796224441026, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: m_Name
-      value: Plum Variant
+      value: plum
       objectReference: {fileID: 0}
     - target: {fileID: 2323635907409908644, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5213437046920537188, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
+      propertyPath: 'meshRenderer.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2486097362221702502}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -126,6 +130,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1122a009bcde91a48be073ede5848617, type: 3}
+--- !u!23 &2486097362221702502 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7797743984616747419, guid: 1122a009bcde91a48be073ede5848617, type: 3}
+  m_PrefabInstance: {fileID: 5672075613549604093}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2627680150070248618 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7692191711775156311, guid: 1122a009bcde91a48be073ede5848617, type: 3}

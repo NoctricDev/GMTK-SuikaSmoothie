@@ -9,6 +9,9 @@ namespace Carry
     {
         [Title("References")]
         [SerializeField] private Transform thisTransform;
+
+        [Title("Settings")] 
+        [SerializeField] private bool resetTransform = true;
         
         public event Action CarryStartedEvent;
         public event Action CarryStoppedEvent;
@@ -27,6 +30,7 @@ namespace Carry
             _isCarried = true;
             CarryStartedEvent?.Invoke();
             carrieAble = this;
+            transform.SetParent(null);
             return true;
         }
 
@@ -40,12 +44,14 @@ namespace Carry
             CarryStoppedEvent?.Invoke();
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             if (!_isCarried || _carryTransform == null)
                 return;
             
             thisTransform.position = _carryTransform.position;
         }
+        
+        public Vector3 GetPosition() => transform.position;
     }
 }
