@@ -23,6 +23,7 @@ namespace FruitBowlScene
         private UnityEngine.Camera _mainCam;
         
         private ICarrieAble _activePayload;
+        private GameObject _activePayloadGameObject;
         
         private CancellationTokenSource _cancellationTokenSource;
         
@@ -54,8 +55,6 @@ namespace FruitBowlScene
             if (ScreenToWorldHelper.IsMouseOverUI())
                 return;
             
-            // Drop if has active Payload
-            
             Ray ray = ScreenToWorldHelper.GetMouseToWorldRay(_mainCam);
             ray.direction = ray.direction.normalized * 100;
             if (!Physics.Raycast(ray, out RaycastHit hit, 10, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
@@ -64,18 +63,32 @@ namespace FruitBowlScene
             if (!hit.collider.TryGetComponent(out ICarrieAble carrieAble))
                 return;
 
-            if (!carrieAble.TryStartCarry(travelStartPoint, out ICarrieAble activePayload))
+            
+            if (_activePayload == carrieAble)
+            {
+                _cancellationTokenSource?.Cancel();
+                carrieAble.StopCarry();
+                _activePayload = null;
+                _activePayloadGameObject = null;
+                return;
+            }
+            
+            if (_activePayloadGameObject)
                 return;
 
-            travelStartPoint.position = activePayload.GetPosition();
+            if (!carrieAble.TryStartCarry(travelStartPoint))
+                return;
+
+            travelStartPoint.position = carrieAble.GetPosition();
             
             _activePayload = carrieAble;
-
-            _ = WaitForPayloadToArrive(_activePayload);
+            _activePayloadGameObject = carrieAble.GetAttachedGameObject();
+            _cancellationTokenSource = new CancellationTokenSource();
+            _ = WaitForPayloadToArrive();
 
         }
         
-        private async Awaitable WaitForPayloadToArrive(ICarrieAble payload)
+        private async Awaitable WaitForPayloadToArrive()
         {
             Vector3 startPos = travelStartPoint.position;
             float timer = 0;
@@ -83,6 +96,11 @@ namespace FruitBowlScene
             while (timer < 1)
             {
                 _cancellationTokenSource.Token.ThrowIfCancellationRequested();
+                if (!_activePayloadGameObject)
+                {
+                    _activePayload = null;
+                    return;
+                }
                 timer += Time.deltaTime / 0.5f;
                 travelStartPoint.position = Vector3.Lerp(startPos, travelEndPoint.position, timer);
                 await Awaitable.EndOfFrameAsync(_cancellationTokenSource.Token);

@@ -68,10 +68,10 @@ namespace FruitBowlScene
 
         public void StartCarry(ICarrieAble carry)
         {
-            if (!carry.TryStartCarry(transform, out ICarrieAble activeCarrieAble))
+            if (!carry.TryStartCarry(transform))
                 return;
-            PayloadPickedUpGameEvent?.RaiseEvent(this, activeCarrieAble);
-            _currentPayload = activeCarrieAble;
+            PayloadPickedUpGameEvent?.RaiseEvent(this, carry);
+            _currentPayload = carry;
         }
 
         private bool GetFirstOverlappingPayload(out ICarrieAble carrieAble)

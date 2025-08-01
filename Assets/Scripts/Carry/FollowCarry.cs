@@ -20,16 +20,14 @@ namespace Carry
         private Transform _carryTransform;
         
         
-        public bool TryStartCarry(Transform carryTransform, [CanBeNull] out ICarrieAble carrieAble)
+        public bool TryStartCarry(Transform carryTransform)
         {
-            carrieAble = null;
             if (_isCarried)
                 return false;
             
             _carryTransform = carryTransform;
             _isCarried = true;
             CarryStartedEvent?.Invoke();
-            carrieAble = this;
             transform.SetParent(null);
             return true;
         }
@@ -53,5 +51,6 @@ namespace Carry
         }
         
         public Vector3 GetPosition() => transform.position;
+        public GameObject GetAttachedGameObject() => thisTransform.gameObject;
     }
 }
