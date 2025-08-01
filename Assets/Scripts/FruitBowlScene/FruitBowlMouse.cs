@@ -5,13 +5,13 @@ using Input;
 using JetBrains.Annotations;
 using JohaToolkit.UnityEngine.Extensions;
 using JohaToolkit.UnityEngine.ScriptableObjects.Variables;
+using Scenes;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace FruitBowlScene
 {
-    public class FruitBowlMouse : MonoBehaviour
+    public class FruitBowlMouse : MonoBehaviour, IGameplaySceneObject, ICarrieAbleMouse
     {
         [Title("References")]
         [SerializeField, Required] private InputManagerSO inputManager;
@@ -23,18 +23,21 @@ namespace FruitBowlScene
 
         [CanBeNull] private ICarrieAble _currentPayload;
         
+        public bool HasPayload => _currentPayload != null;
+        
         public GameEventICarrieAble PayloadPickedUpGameEvent;
         public GameEventICarrieAble PayloadDroppedGameEvent;
 
         private UnityEngine.Camera _mainCam;
-        
-        private void OnEnable()
+
+        public void LoadEnd()
         {
             inputManager.InteractPrimaryEvent += OnInteractPrimary;
         }
 
-        private void OnDisable()
+        public void Unload()
         {
+            StopCarry();
             inputManager.InteractPrimaryEvent -= OnInteractPrimary;
         }
 
@@ -45,7 +48,6 @@ namespace FruitBowlScene
 
         private void OnInteractPrimary()
         {
-            //if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
             if(ScreenToWorldHelper.IsMouseOverUI())
             {
                 return;
@@ -53,9 +55,7 @@ namespace FruitBowlScene
             
             if (_currentPayload != null)
             {
-                PayloadDroppedGameEvent?.RaiseEvent(this, _currentPayload);
-                _currentPayload.StopCarry();
-                _currentPayload = null;
+                StopCarry();
                 return;
             }
             
@@ -66,9 +66,19 @@ namespace FruitBowlScene
             StartCarry(carrieAble);
         }
 
+        public void StopCarry()
+        {
+            if (_currentPayload == null)
+                return;
+            
+            PayloadDroppedGameEvent?.RaiseEvent(this, _currentPayload);
+            _currentPayload.OnStopCarry();
+            _currentPayload = null;
+        }
+
         public void StartCarry(ICarrieAble carry)
         {
-            if (!carry.TryStartCarry(transform))
+            if (!carry.TryStartCarry(transform, this))
                 return;
             PayloadPickedUpGameEvent?.RaiseEvent(this, carry);
             _currentPayload = carry;

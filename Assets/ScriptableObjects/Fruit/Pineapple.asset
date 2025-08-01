@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceed6c95e1cf85540a327207e05c9c1f, type: 3}
+  m_Name: Pineapple
+  m_EditorClassIdentifier: 
+  fruitType: 9
+  fruitPrefab: {fileID: 3649969967450310526, guid: ecd0b7441acb11546b0c3d2eda63ebb4, type: 3}

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af337739eb7d4405be7ddf301ee7e209, type: 3}
-  m_Name: BlueberryToStrawberry
+  m_Name: 6_PearToApple
   m_EditorClassIdentifier: 
-  fruitA: 0
-  fruitB: 0
-  resultFruit: {fileID: 11400000, guid: d2756fbbc223e0a48a1b05961dfde3b1, type: 2}
+  fruitA: 5
+  fruitB: 5
+  resultFruit: {fileID: 11400000, guid: e492dd8ce177dca41a6c289a01ac61c0, type: 2}

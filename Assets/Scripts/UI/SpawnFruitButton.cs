@@ -1,9 +1,11 @@
 using System;
 using FruitBowlScene;
 using Fruits;
+using Input;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace UI
@@ -11,6 +13,7 @@ namespace UI
     public class SpawnFruitButton : MonoBehaviour
     {
         [Title("References")]
+        [SerializeField] private InputManagerSO inputManager;
         [SerializeField] private FruitSpawner fruitSpawner;
         [SerializeField] private Button spawnButton;
         [SerializeField] private TextMeshProUGUI buttonText;
@@ -19,16 +22,31 @@ namespace UI
         
         private void Awake()
         {
+            inputManager.SpawnFruitHotkeyEvent += OnSpawnFruitHotkeyPressed;
             spawnButton.onClick.AddListener(() =>
             {
-                fruitSpawner.SpawnFruit(_nextFruit);
+                if (!fruitSpawner.SpawnFruit(_nextFruit))
+                    return;
                 PrepareNextFruit();
             });
         }
 
+        private void OnSpawnFruitHotkeyPressed(bool started)
+        {
+            if(started)
+                ExecuteEvents.Execute(spawnButton.gameObject, new PointerEventData(EventSystem.current), ExecuteEvents.pointerDownHandler);
+            else
+            {
+                ExecuteEvents.Execute(spawnButton.gameObject, new PointerEventData(EventSystem.current),
+                    ExecuteEvents.pointerClickHandler);
+                ExecuteEvents.Execute(spawnButton.gameObject, new PointerEventData(EventSystem.current),
+                    ExecuteEvents.pointerUpHandler);
+            }
+        }
+
         private void Start()
         {
-         PrepareNextFruit();   
+            PrepareNextFruit();
         }
 
         private void PrepareNextFruit()

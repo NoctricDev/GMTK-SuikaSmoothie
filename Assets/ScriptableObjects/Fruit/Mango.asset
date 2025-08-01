@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceed6c95e1cf85540a327207e05c9c1f, type: 3}
   m_Name: Mango
   m_EditorClassIdentifier: 
-  fruitType: 6
+  fruitType: 7
   fruitPrefab: {fileID: 4204011735390969774, guid: 247f624942251f3489389180be1d0147, type: 3}

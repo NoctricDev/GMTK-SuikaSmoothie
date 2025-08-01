@@ -5,12 +5,13 @@ using DG.Tweening;
 using Events;
 using Helper;
 using Input;
+using Scenes;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace FruitBowlScene
 {
-    public class FruitBowlGrab : MonoBehaviour
+    public class FruitBowlGrab : MonoBehaviour, IGameplaySceneObject, ICarrieAbleMouse
     {
         [Title("References")] 
         [SerializeField, Required] private InputManagerSO inputManager;
@@ -27,7 +28,9 @@ namespace FruitBowlScene
         
         private CancellationTokenSource _cancellationTokenSource;
         
-        private void OnEnable()
+        public bool HasPayload => _activePayloadGameObject;
+        
+        public void LoadEnd()
         {
             _mainCam = UnityEngine.Camera.main;
             inputManager.InteractSecondaryEvent += OnInteractSecondary;
@@ -35,8 +38,9 @@ namespace FruitBowlScene
             payloadDroppedGameEvent.Subscribe(OnPayLoadDropped);
         }
 
-        private void OnDisable()
+        public void Unload()
         {
+            StopCarry();
             inputManager.InteractSecondaryEvent -= OnInteractSecondary;
             payloadPickedUpGameEvent.Unsubscribe(OnPayLoadPickedUp);
             payloadDroppedGameEvent.Unsubscribe(OnPayLoadDropped);
@@ -47,6 +51,7 @@ namespace FruitBowlScene
 
         private void OnInteractSecondary()
         {
+            Debug.Log("Testing");
             if (_isCarrying)
             {
                 return;
@@ -66,28 +71,40 @@ namespace FruitBowlScene
             
             if (_activePayload == carrieAble)
             {
-                _cancellationTokenSource?.Cancel();
-                carrieAble.StopCarry();
-                _activePayload = null;
-                _activePayloadGameObject = null;
+                StopCarry();
                 return;
             }
             
+            StartCarry(carrieAble);
+        }
+
+        public void StartCarry(ICarrieAble carrieAble)
+        {
             if (_activePayloadGameObject)
                 return;
 
-            if (!carrieAble.TryStartCarry(travelStartPoint))
+            if (!carrieAble.TryStartCarry(travelStartPoint, this))
                 return;
 
-            travelStartPoint.position = carrieAble.GetPosition();
+            travelStartPoint.position = carrieAble.GetAttachedGameObject().transform.position;
             
             _activePayload = carrieAble;
             _activePayloadGameObject = carrieAble.GetAttachedGameObject();
             _cancellationTokenSource = new CancellationTokenSource();
             _ = WaitForPayloadToArrive();
-
         }
-        
+
+        public void StopCarry()
+        {
+            if (_activePayload == null || !_activePayloadGameObject)
+                return;
+            
+            _cancellationTokenSource?.Cancel();
+            _activePayload.OnStopCarry();
+            _activePayload = null;
+            _activePayloadGameObject = null;
+        }
+
         private async Awaitable WaitForPayloadToArrive()
         {
             Vector3 startPos = travelStartPoint.position;

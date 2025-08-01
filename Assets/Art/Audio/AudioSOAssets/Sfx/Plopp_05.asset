@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b787999b0f01467494e7a1cfcf98e245, type: 3}
+  m_Name: Plopp_05
+  m_EditorClassIdentifier: 
+  soundData:
+  - tag: 
+    clip: {fileID: 8300000, guid: d5ac3bbe19737b046a723d7be1af7a3b, type: 3}
+    output: {fileID: -1995491430363757941, guid: 5c3ea0c3a0be23f47a7967fa5cc39c18, type: 2}
+    isFrequentSound: 1
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    randomPitch: 0
+    pitchRange: {x: 0, y: 0}
+    defaultPitch: 1
+    stereoPan: 0
+    reverbZoneMix: 1

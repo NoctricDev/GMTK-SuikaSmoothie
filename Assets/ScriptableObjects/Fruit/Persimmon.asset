@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af337739eb7d4405be7ddf301ee7e209, type: 3}
-  m_Name: PlumToGuave
+  m_Script: {fileID: 11500000, guid: ceed6c95e1cf85540a327207e05c9c1f, type: 3}
+  m_Name: Persimmon
   m_EditorClassIdentifier: 
-  fruitA: 2
-  fruitB: 2
-  resultFruit: {fileID: 11400000, guid: 8c01b5de2e3552e4096dd10cbc8260ba, type: 2}
+  fruitType: 8
+  fruitPrefab: {fileID: 1434059223248534022, guid: 00c0508280617f5429696067e7f56069, type: 3}

@@ -30,10 +30,13 @@ namespace FruitBowlScene
 
         private void OnDropHeightChanged(float dropHeightValue) => transform.position = transform.position.SetY(dropHeightValue);
 
-        public void SpawnFruit(FruitSO fruitSO)
+        public bool SpawnFruit(FruitSO fruitSO)
         {
+            if (fruitBowlMouse.HasPayload)
+                return false;
             Fruit spawnedFruit = FruitFactory.SpawnFruit(fruitSO, fruitBowlMouse.transform.position, Quaternion.identity, null);
             fruitBowlMouse.StartCarry(spawnedFruit.GetComponent<ICarrieAble>());
+            return true;
         }
 
         public FruitSO GetRandomFruitFromSpawnPool() => fruitSpawnPool.Random();

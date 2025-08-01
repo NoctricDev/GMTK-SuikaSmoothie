@@ -1,14 +1,13 @@
+using FruitBowlScene;
 using UnityEngine;
 
 namespace Carry
 {
     public interface ICarrieAble
     {
-        public bool TryStartCarry(Transform carryTransform);
+        public bool TryStartCarry(Transform carryTransform, ICarrieAbleMouse mouseCarry);
 
-        public void StopCarry();
-
-        public Vector3 GetPosition();
+        public void OnStopCarry();
 
         public GameObject GetAttachedGameObject();
 

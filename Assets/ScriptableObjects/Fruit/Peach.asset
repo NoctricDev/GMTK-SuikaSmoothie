@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af337739eb7d4405be7ddf301ee7e209, type: 3}
-  m_Name: StrawberryToPlum
+  m_Script: {fileID: 11500000, guid: ceed6c95e1cf85540a327207e05c9c1f, type: 3}
+  m_Name: Peach
   m_EditorClassIdentifier: 
-  fruitA: 1
-  fruitB: 1
-  resultFruit: {fileID: 11400000, guid: dd3b24f80f666f14ba572f903990921b, type: 2}
+  fruitType: 4
+  fruitPrefab: {fileID: 659376818583508322, guid: 7e51a15809f43da47bd223fefb2aa8ca, type: 3}

@@ -30,6 +30,8 @@ namespace Input
 
         public event Action InteractSecondaryEvent;
         
+        public event Action<bool> SpawnFruitHotkeyEvent;
+        
         #endregion
         
         private void OnEnable()
@@ -106,6 +108,14 @@ namespace Input
         {
             if(context.performed)
                 InteractSecondaryEvent?.Invoke();
+        }
+
+        public void OnSpawnFruitHotkey(InputAction.CallbackContext context)
+        {
+            if(context.started)
+                SpawnFruitHotkeyEvent?.Invoke(true);
+            else if(context.canceled)
+                SpawnFruitHotkeyEvent?.Invoke(false);
         }
     }
 }

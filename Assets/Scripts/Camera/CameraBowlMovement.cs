@@ -1,12 +1,13 @@
 using System;
 using Input;
+using Scenes;
 using Sirenix.OdinInspector;
 using Unity.Cinemachine;
 using UnityEngine;
 
 namespace Camera
 {
-    public class CameraBowlMovement : MonoBehaviour
+    public class CameraBowlMovement : MonoBehaviour, IGameplaySceneObject
     {
         [Title("References")]
         [SerializeField, Required] private InputManagerSO inputManager;
@@ -20,11 +21,6 @@ namespace Camera
         private float _currentPosition;
         private float _desiredDelta;
 
-        private void OnEnable()
-        {
-            inputManager.BowlSceneCameraMoveEvent += OnCameraMove;
-        }
-
         private void OnCameraMove(float dir)
         {
             _desiredDelta = dir * speed;
@@ -35,6 +31,18 @@ namespace Camera
             _currentPosition += (invert? -1 : 1) * _desiredDelta * Time.deltaTime;
             _currentPosition %= 1;
             cinemachineSplineDolly.CameraPosition = _currentPosition;
+        }
+
+        public void LoadStart(float durationTime) { }
+
+        public void LoadEnd()
+        {
+            inputManager.BowlSceneCameraMoveEvent += OnCameraMove;
+        }
+
+        public void Unload()
+        {
+            inputManager.BowlSceneCameraMoveEvent -= OnCameraMove;
         }
     }
 }

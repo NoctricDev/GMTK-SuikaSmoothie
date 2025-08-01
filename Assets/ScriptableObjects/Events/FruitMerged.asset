@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af337739eb7d4405be7ddf301ee7e209, type: 3}
-  m_Name: PearToApple
+  m_Script: {fileID: 11500000, guid: 3817ba42fdd9459409706ad5842ce500, type: 3}
+  m_Name: FruitMerged
   m_EditorClassIdentifier: 
-  fruitA: 4
-  fruitB: 4
-  resultFruit: {fileID: 11400000, guid: e492dd8ce177dca41a6c289a01ac61c0, type: 2}

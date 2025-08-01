@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceed6c95e1cf85540a327207e05c9c1f, type: 3}
   m_Name: Pear
   m_EditorClassIdentifier: 
-  fruitType: 4
+  fruitType: 5
   fruitPrefab: {fileID: 8975187192023448713, guid: 977d90a67b910b9468a5782ac24f33aa, type: 3}

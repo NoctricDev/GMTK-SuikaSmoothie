@@ -5,9 +5,14 @@ namespace Fruits
         Blueberry,
         Strawberry,
         Plum,
-        Guave,
+        Guava,
+        Peach,
         Pear,
         Apple,
-        Mango
+        Mango,
+        Persimmon,
+        Pineapple,
+        Cantaloupe,
+        Watermelon
     }
 }

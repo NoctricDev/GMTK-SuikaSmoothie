@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceed6c95e1cf85540a327207e05c9c1f, type: 3}
   m_Name: Apple
   m_EditorClassIdentifier: 
-  fruitType: 5
+  fruitType: 6
   fruitPrefab: {fileID: 5813592831374681062, guid: 3531469426f37dc46ab4e626282a9592, type: 3}

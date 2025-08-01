@@ -9,8 +9,10 @@ namespace Scenes
     public interface IGameplayScene
     {
         public GameplayScenes Scene { get; }
-        public void LoadStart(float durationTime);
-        public void LoadEnd();
-        public void Unload();
+
+        public void LoadStart(float durationTime) { }
+
+        public void LoadEnd() { }
+        public void Unload() { }
     }
 }

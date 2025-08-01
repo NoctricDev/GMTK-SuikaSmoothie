@@ -633,6 +633,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SpawnFruitHotkey"",
+                    ""type"": ""Button"",
+                    ""id"": ""ebf367d5-18e7-4e9a-b01a-f4f8236c26ad"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -675,7 +684,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""InteractPrimary"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -686,8 +695,19 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""InteractSecondary"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6f6c98f1-a4f9-4efc-9f2d-828a83d556f0"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""SpawnFruitHotkey"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -822,6 +842,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_BowlScene_MoveCamera = m_BowlScene.FindAction("MoveCamera", throwIfNotFound: true);
         m_BowlScene_InteractPrimary = m_BowlScene.FindAction("InteractPrimary", throwIfNotFound: true);
         m_BowlScene_InteractSecondary = m_BowlScene.FindAction("InteractSecondary", throwIfNotFound: true);
+        m_BowlScene_SpawnFruitHotkey = m_BowlScene.FindAction("SpawnFruitHotkey", throwIfNotFound: true);
         // Cheats
         m_Cheats = asset.FindActionMap("Cheats", throwIfNotFound: true);
         m_Cheats_OpenConsole = m_Cheats.FindAction("OpenConsole", throwIfNotFound: true);
@@ -1106,6 +1127,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_BowlScene_MoveCamera;
     private readonly InputAction m_BowlScene_InteractPrimary;
     private readonly InputAction m_BowlScene_InteractSecondary;
+    private readonly InputAction m_BowlScene_SpawnFruitHotkey;
     /// <summary>
     /// Provides access to input actions defined in input action map "BowlScene".
     /// </summary>
@@ -1129,6 +1151,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "BowlScene/InteractSecondary".
         /// </summary>
         public InputAction @InteractSecondary => m_Wrapper.m_BowlScene_InteractSecondary;
+        /// <summary>
+        /// Provides access to the underlying input action "BowlScene/SpawnFruitHotkey".
+        /// </summary>
+        public InputAction @SpawnFruitHotkey => m_Wrapper.m_BowlScene_SpawnFruitHotkey;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1164,6 +1190,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @InteractSecondary.started += instance.OnInteractSecondary;
             @InteractSecondary.performed += instance.OnInteractSecondary;
             @InteractSecondary.canceled += instance.OnInteractSecondary;
+            @SpawnFruitHotkey.started += instance.OnSpawnFruitHotkey;
+            @SpawnFruitHotkey.performed += instance.OnSpawnFruitHotkey;
+            @SpawnFruitHotkey.canceled += instance.OnSpawnFruitHotkey;
         }
 
         /// <summary>
@@ -1184,6 +1213,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @InteractSecondary.started -= instance.OnInteractSecondary;
             @InteractSecondary.performed -= instance.OnInteractSecondary;
             @InteractSecondary.canceled -= instance.OnInteractSecondary;
+            @SpawnFruitHotkey.started -= instance.OnSpawnFruitHotkey;
+            @SpawnFruitHotkey.performed -= instance.OnSpawnFruitHotkey;
+            @SpawnFruitHotkey.canceled -= instance.OnSpawnFruitHotkey;
         }
 
         /// <summary>
@@ -1495,6 +1527,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteractSecondary(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SpawnFruitHotkey" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSpawnFruitHotkey(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Cheats" which allows adding and removing callbacks.

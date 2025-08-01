@@ -1,4 +1,5 @@
 using System;
+using FruitBowlScene;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -19,12 +20,14 @@ namespace Carry
         private bool _isCarried;
         private Transform _carryTransform;
         
+        public ICarrieAbleMouse MouseCarry { get; protected set; }
         
-        public bool TryStartCarry(Transform carryTransform)
+        
+        public bool TryStartCarry(Transform carryTransform, ICarrieAbleMouse mouseCarry)
         {
             if (_isCarried)
                 return false;
-            
+            MouseCarry = mouseCarry;
             _carryTransform = carryTransform;
             _isCarried = true;
             CarryStartedEvent?.Invoke();
@@ -32,7 +35,7 @@ namespace Carry
             return true;
         }
 
-        public void StopCarry()
+        public void OnStopCarry()
         {
             if (!_isCarried)
                 return;

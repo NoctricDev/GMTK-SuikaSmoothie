@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af337739eb7d4405be7ddf301ee7e209, type: 3}
-  m_Name: AppleToMango
+  m_Name: 7_MangoToPersimmon
   m_EditorClassIdentifier: 
-  fruitA: 5
-  fruitB: 5
-  resultFruit: {fileID: 11400000, guid: e9b84194e195d4c49a9e02652e59b632, type: 2}
+  fruitA: 7
+  fruitB: 7
+  resultFruit: {fileID: 11400000, guid: 6cbd48855624c7444b08cb1f0fa23cd1, type: 2}
