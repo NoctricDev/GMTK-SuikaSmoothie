@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Guave
   m_EditorClassIdentifier: 
   fruitType: 3
-  fruitPrefab: {fileID: 4456138556716534449, guid: 48bf977d75686cf41ae53b5dc46f044c, type: 3}
+  fruitPrefab: {fileID: 4302476230957608631, guid: e8db7213d0c71df4eb87cb6505618a92, type: 3}

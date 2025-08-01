@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceed6c95e1cf85540a327207e05c9c1f, type: 3}
   m_Name: Blueberry
   m_EditorClassIdentifier: 
-  fruitPrefab: {fileID: 5722708225301533637, guid: f661dcac201b26f499a28b2f3d59ff66, type: 3}
+  fruitType: 0
+  fruitPrefab: {fileID: 4671624365858307615, guid: ee95d86f9b0ded048a6d4d6b2f15c386, type: 3}

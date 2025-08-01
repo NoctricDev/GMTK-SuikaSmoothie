@@ -1,4 +1,5 @@
 using System;
+using Carry;
 using Input;
 using JetBrains.Annotations;
 using JohaToolkit.UnityEngine.Extensions;
@@ -58,11 +59,11 @@ namespace FruitBowlScene
                 if (!col.TryGetComponent(out ICarrieAble carrieAble)) 
                     continue;
                 
-                if(!carrieAble.TryStartCarry(transform))
+                if(!carrieAble.TryStartCarry(transform, out ICarrieAble activeCarrieAble))
                     break;
                 
-                PayloadPickedUpEvent?.Invoke(carrieAble);
-                _currentPayload = carrieAble;
+                PayloadPickedUpEvent?.Invoke(activeCarrieAble);
+                _currentPayload = activeCarrieAble;
                 return;
             }
 

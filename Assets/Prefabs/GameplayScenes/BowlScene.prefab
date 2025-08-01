@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1085419039185504059
+--- !u!1 &380905369626383147
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,59 +8,106 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2212586956193485325}
-  - component: {fileID: 2917196509203405871}
-  - component: {fileID: 6673046608011353644}
+  - component: {fileID: 8118795800462381547}
+  - component: {fileID: 2774377491992824209}
+  - component: {fileID: 2132792974448314552}
+  - component: {fileID: 2873116440026732421}
   m_Layer: 0
-  m_Name: FruitDropSpawnPoint
+  m_Name: SpawnPlate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2212586956193485325
+--- !u!4 &8118795800462381547
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1085419039185504059}
+  m_GameObject: {fileID: 380905369626383147}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.07, y: 0.01, z: 0.07}
+  m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5972409974077932644}
+  m_Father: {fileID: 4207504375851821047}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2917196509203405871
-MonoBehaviour:
+--- !u!33 &2774377491992824209
+MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1085419039185504059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed4e868f06838d9438c4527320ba608a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drawGizmos: 1
-  drawGizmosSelected: 0
-  radius: 0.01
-  gizmoColor: {r: 1, g: 0, b: 0, a: 1}
---- !u!114 &6673046608011353644
-MonoBehaviour:
+  m_GameObject: {fileID: 380905369626383147}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &2132792974448314552
+MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1085419039185504059}
+  m_GameObject: {fileID: 380905369626383147}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6369d108c5f4fcf81dcab7458ccf042, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2873116440026732421
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380905369626383147}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1685797843367419455
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,6 +119,7 @@ GameObject:
   - component: {fileID: 3002881217656028188}
   - component: {fileID: 544591969083463786}
   - component: {fileID: 8800797750335422760}
+  - component: {fileID: 4796108394383800930}
   m_Layer: 0
   m_Name: DestroyFruitsCollider
   m_TagString: Untagged
@@ -127,6 +175,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f966dece3004a428ac5460caded8fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4796108394383800930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685797843367419455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4e868f06838d9438c4527320ba608a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawGizmos: 1
+  drawGizmosSelected: 0
+  shape: 1
+  showWired: 0
+  radius: 0.5
+  cubeSize: {x: 2, y: 0.04792508, z: 2}
+  offset: {x: 0, y: -0.4760374, z: 0}
+  gizmoColor: {r: 1, g: 0, b: 0, a: 0.4392157}
 --- !u!1 &1701895818328201858
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,6 +243,79 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a87e2d9c9ff81c348a8d2e420a19582e, type: 2}
   - {fileID: 11400000, guid: b4e7f5421d13c624393bb91f15b0701e, type: 2}
   - {fileID: 11400000, guid: 4e5882a09ecd6d248beacae12dac4263, type: 2}
+  - {fileID: 11400000, guid: 8fd2a25cf0fa44744b1ed0a66263f9f2, type: 2}
+  - {fileID: 11400000, guid: deebc62e82ef38a4a868203285bdbdab, type: 2}
+  - {fileID: 11400000, guid: 6dd3a6862d97c6345ad51f8ec78a22f6, type: 2}
+--- !u!1 &1767251993519447470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 292138852950333445}
+  - component: {fileID: 524980665470359752}
+  - component: {fileID: 6069741339734968036}
+  m_Layer: 0
+  m_Name: DropShadow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &292138852950333445
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767251993519447470}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.70710576, y: -0, z: -0, w: 0.7071079}
+  m_LocalPosition: {x: 0, y: 0.208, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5719544321086014498}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &524980665470359752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767251993519447470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e296dc690064d848e77b1ae2c1918d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fruitBowlMouse: {fileID: 8530832002701934530}
+--- !u!114 &6069741339734968036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767251993519447470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: ad672ce84c0281b429959577abd710ac, type: 2}
+  m_DrawDistance: 1000
+  m_FadeScale: 0.9
+  m_StartAngleFade: 180
+  m_EndAngleFade: 180
+  m_UVScale: {x: 1, y: 1}
+  m_UVBias: {x: 0, y: 0}
+  m_DecalLayerMask: 1
+  m_ScaleMode: 0
+  m_Offset: {x: 0, y: 0, z: 1.16}
+  m_Size: {x: 0.05, y: 0.05, z: 2.32}
+  m_FadeFactor: 1
 --- !u!1 &2073954094787874428
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,10 +488,11 @@ Transform:
   m_Children:
   - {fileID: 7005068485747725382}
   - {fileID: 4235061608815537355}
-  - {fileID: 6769870637282148781}
-  - {fileID: 2212586956193485325}
   - {fileID: 6292675622892466907}
   - {fileID: 3002881217656028188}
+  - {fileID: 5719544321086014498}
+  - {fileID: 5556799423754000323}
+  - {fileID: 4207504375851821047}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6027241883339084552
@@ -533,7 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AutoSmooth: 0
---- !u!1 &8664876694276485386
+--- !u!1 &4483196954212914614
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -541,46 +683,167 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6769870637282148781}
-  - component: {fileID: 3287271815652868502}
+  - component: {fileID: 5556799423754000323}
+  - component: {fileID: 9104434833135689126}
   m_Layer: 0
-  m_Name: FruitDrop
+  m_Name: DropHeigthPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6769870637282148781
+--- !u!4 &5556799423754000323
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8664876694276485386}
+  m_GameObject: {fileID: 4483196954212914614}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5972409974077932644}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3287271815652868502
+--- !u!114 &9104434833135689126
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8664876694276485386}
+  m_GameObject: {fileID: 4483196954212914614}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de2c84d122c9ca446a0927060a7c93f0, type: 3}
+  m_Script: {fileID: 11500000, guid: f7849f40dbdcc6e40892fdab3ba235a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawGizmos: 1
+  drawGizmosSelected: 1
+  shape: 1
+  showWired: 0
+  radius: 0.5
+  cubeSize: {x: 1, y: 0, z: 1}
+  offset: {x: 0, y: 0, z: 0}
+  gizmoColor: {r: 0, g: 1, b: 0.21038437, a: 0.2627451}
+  dropHeight: {fileID: 11400000, guid: 8d7eeb8ffdfb76241a5183b82b01278f, type: 2}
+--- !u!1 &7342985412592450736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5719544321086014498}
+  - component: {fileID: 8530832002701934530}
+  - component: {fileID: 2864491256306444560}
+  m_Layer: 0
+  m_Name: BowlMouse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5719544321086014498
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7342985412592450736}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0219, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 292138852950333445}
+  m_Father: {fileID: 5972409974077932644}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8530832002701934530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7342985412592450736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8797e624f38118e4f93e02c5543e7586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inputManager: {fileID: 11400000, guid: 540685f8bfeb8ed4e93ec33aafac89b0, type: 2}
-  testFruit: {fileID: 11400000, guid: 821bfe6b4a7a353418de97f9fcc31659, type: 2}
-  spawnerPoint: {fileID: 6673046608011353644}
   dropHeight: {fileID: 11400000, guid: 8d7eeb8ffdfb76241a5183b82b01278f, type: 2}
+  interactionRadius: 0.02
+  minMaxDistance: {x: 0, y: 2}
+--- !u!114 &2864491256306444560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7342985412592450736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4e868f06838d9438c4527320ba608a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawGizmos: 1
+  drawGizmosSelected: 1
+  shape: 0
+  showWired: 0
+  radius: 0.02
+  cubeSize: {x: 1, y: 1, z: 1}
+  offset: {x: 0, y: 0, z: 0}
+  gizmoColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!1 &7871961283951680703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4207504375851821047}
+  - component: {fileID: 1923444554359419372}
+  m_Layer: 0
+  m_Name: FruitSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4207504375851821047
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7871961283951680703}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.3102, y: 0.193, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8118795800462381547}
+  m_Father: {fileID: 5972409974077932644}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1923444554359419372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7871961283951680703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6369d108c5f4fcf81dcab7458ccf042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
 --- !u!1 &8998386292103534379
 GameObject:
   m_ObjectHideFlags: 0

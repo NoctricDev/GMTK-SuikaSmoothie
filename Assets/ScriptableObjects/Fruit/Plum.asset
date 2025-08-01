@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Plum
   m_EditorClassIdentifier: 
   fruitType: 2
-  fruitPrefab: {fileID: 8259617190791705023, guid: a4b1a48fb56b6904188c3cec2ac7cff3, type: 3}
+  fruitPrefab: {fileID: 6328683249657759620, guid: 93132119a0a241947be31dad49ed546a, type: 3}

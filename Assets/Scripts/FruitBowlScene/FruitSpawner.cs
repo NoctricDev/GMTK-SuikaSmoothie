@@ -1,25 +1,66 @@
-using System;
+using Carry;
 using Fruits;
+using JetBrains.Annotations;
+using JohaToolkit.UnityEngine.Extensions;
+using JohaToolkit.UnityEngine.ScriptableObjects.Variables;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace FruitBowlScene
 {
-    public class FruitSpawner : MonoBehaviour
+    public class FruitSpawner : MonoBehaviour, ICarrieAble
     {
-        private void Awake()
+        [Title("References")] 
+        [SerializeField] private Transform spawnPoint;
+        [SerializeField] private FruitSO[] fruitSpawnPool;
+
+        [SerializeField, OnValueChanged(nameof(DropHeightVarChanged))] private FloatVariable dropHeight;
+
+        private Fruit _spawnedFruit;
+        
+        private void DropHeightVarChanged(FloatVariable newHeight)
         {
+            if (newHeight == null)
+                return;
+            OnDropHeightChanged(newHeight.Value);
+        }
+        
+        private void Start()
+        {
+            OnDropHeightChanged(dropHeight.Value);
+            dropHeight.OnValueChanged += OnDropHeightChanged;
+            SpawnFruit();
         }
 
-        public void SpawnFruit(FruitSO fruitSO, Vector3 position)
+        private void OnDropHeightChanged(float dropHeightValue) => transform.position = transform.position.SetY(dropHeightValue);
+
+        private void OnTriggerExit(Collider other)
         {
-            FruitFactory.SpawnFruit(fruitSO, position, Quaternion.identity, null);
-            // TODO: INIT Fruit with the FruitSO data
+            if(!other.transform.TryGetComponent(out Fruit fruit) || fruit != _spawnedFruit)
+                return;
+            
+            SpawnFruit();
         }
 
-        private void OnDrawGizmos()
+        private void SpawnFruit()
         {
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(transform.position, 0.1f);
+            _spawnedFruit = FruitFactory.SpawnFruit(fruitSpawnPool.Random(), spawnPoint.position, Quaternion.identity, null);
+        }
+
+        public bool TryStartCarry(Transform carryTransform, out ICarrieAble carrieAble)
+        {
+            carrieAble = null;
+            if (_spawnedFruit == null)
+                return false;
+
+            bool result = _spawnedFruit.GetComponent<ICarrieAble>().TryStartCarry(carryTransform, out ICarrieAble activeCarrieAble);
+            carrieAble = result ? activeCarrieAble : null;
+            return result;
+        }
+
+        public void StopCarry()
+        {
+            Debug.LogError("This should not happen! FruitSpawner should not be stopped directly.");
         }
     }
 }

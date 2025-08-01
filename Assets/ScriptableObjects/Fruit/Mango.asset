@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Mango
   m_EditorClassIdentifier: 
   fruitType: 6
-  fruitPrefab: {fileID: 1822298535660316562, guid: ceb294fc17833954b8b5e02f1fbaae1a, type: 3}
+  fruitPrefab: {fileID: 4204011735390969774, guid: 247f624942251f3489389180be1d0147, type: 3}
