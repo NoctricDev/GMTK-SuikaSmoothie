@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Fruits
 {
-    public class Fruit : SerializedMonoBehaviour
+    public class Fruit : MonoBehaviour
     {
         public const string FRUIT_LAYER = "Fruit";
         public const string FRUIT_MERGEREGION_TAG = "FruitMergeRegion";

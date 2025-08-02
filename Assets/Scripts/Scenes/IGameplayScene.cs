@@ -1,11 +1,10 @@
-using Input;
-
 namespace Scenes
 {
     public enum GameplayScenes
     {
         Bowl,
-        Mixer
+        Mixer,
+        Customer
     }
     public interface IGameplayScene
     {

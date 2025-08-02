@@ -788,6 +788,34 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""CustomerScene"",
+            ""id"": ""7467b3ae-42e1-4ba4-9fd0-e40d4493001f"",
+            ""actions"": [
+                {
+                    ""name"": ""InteractPrimary"",
+                    ""type"": ""Button"",
+                    ""id"": ""15305061-f506-44db-9876-67b8a5d744ef"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a385e6f3-eec5-400a-9439-73c83c344c4c"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""InteractPrimary"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -878,6 +906,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         // MixerScene
         m_MixerScene = asset.FindActionMap("MixerScene", throwIfNotFound: true);
         m_MixerScene_InteractPrimary = m_MixerScene.FindAction("InteractPrimary", throwIfNotFound: true);
+        // CustomerScene
+        m_CustomerScene = asset.FindActionMap("CustomerScene", throwIfNotFound: true);
+        m_CustomerScene_InteractPrimary = m_CustomerScene.FindAction("InteractPrimary", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -886,6 +917,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         UnityEngine.Debug.Assert(!m_BowlScene.enabled, "This will cause a leak and performance issues, InputSystem_Actions.BowlScene.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Cheats.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Cheats.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_MixerScene.enabled, "This will cause a leak and performance issues, InputSystem_Actions.MixerScene.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_CustomerScene.enabled, "This will cause a leak and performance issues, InputSystem_Actions.CustomerScene.Disable() has not been called.");
     }
 
     /// <summary>
@@ -1484,6 +1516,102 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="MixerSceneActions" /> instance referencing this action map.
     /// </summary>
     public MixerSceneActions @MixerScene => new MixerSceneActions(this);
+
+    // CustomerScene
+    private readonly InputActionMap m_CustomerScene;
+    private List<ICustomerSceneActions> m_CustomerSceneActionsCallbackInterfaces = new List<ICustomerSceneActions>();
+    private readonly InputAction m_CustomerScene_InteractPrimary;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "CustomerScene".
+    /// </summary>
+    public struct CustomerSceneActions
+    {
+        private @InputSystem_Actions m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public CustomerSceneActions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "CustomerScene/InteractPrimary".
+        /// </summary>
+        public InputAction @InteractPrimary => m_Wrapper.m_CustomerScene_InteractPrimary;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_CustomerScene; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="CustomerSceneActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(CustomerSceneActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="CustomerSceneActions" />
+        public void AddCallbacks(ICustomerSceneActions instance)
+        {
+            if (instance == null || m_Wrapper.m_CustomerSceneActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CustomerSceneActionsCallbackInterfaces.Add(instance);
+            @InteractPrimary.started += instance.OnInteractPrimary;
+            @InteractPrimary.performed += instance.OnInteractPrimary;
+            @InteractPrimary.canceled += instance.OnInteractPrimary;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="CustomerSceneActions" />
+        private void UnregisterCallbacks(ICustomerSceneActions instance)
+        {
+            @InteractPrimary.started -= instance.OnInteractPrimary;
+            @InteractPrimary.performed -= instance.OnInteractPrimary;
+            @InteractPrimary.canceled -= instance.OnInteractPrimary;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="CustomerSceneActions.UnregisterCallbacks(ICustomerSceneActions)" />.
+        /// </summary>
+        /// <seealso cref="CustomerSceneActions.UnregisterCallbacks(ICustomerSceneActions)" />
+        public void RemoveCallbacks(ICustomerSceneActions instance)
+        {
+            if (m_Wrapper.m_CustomerSceneActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="CustomerSceneActions.AddCallbacks(ICustomerSceneActions)" />
+        /// <seealso cref="CustomerSceneActions.RemoveCallbacks(ICustomerSceneActions)" />
+        /// <seealso cref="CustomerSceneActions.UnregisterCallbacks(ICustomerSceneActions)" />
+        public void SetCallbacks(ICustomerSceneActions instance)
+        {
+            foreach (var item in m_Wrapper.m_CustomerSceneActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_CustomerSceneActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="CustomerSceneActions" /> instance referencing this action map.
+    /// </summary>
+    public CustomerSceneActions @CustomerScene => new CustomerSceneActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -1691,6 +1819,21 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     /// <seealso cref="MixerSceneActions.AddCallbacks(IMixerSceneActions)" />
     /// <seealso cref="MixerSceneActions.RemoveCallbacks(IMixerSceneActions)" />
     public interface IMixerSceneActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "InteractPrimary" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInteractPrimary(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "CustomerScene" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="CustomerSceneActions.AddCallbacks(ICustomerSceneActions)" />
+    /// <seealso cref="CustomerSceneActions.RemoveCallbacks(ICustomerSceneActions)" />
+    public interface ICustomerSceneActions
     {
         /// <summary>
         /// Method invoked when associated input action "InteractPrimary" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.

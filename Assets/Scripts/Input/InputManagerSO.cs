@@ -8,16 +8,18 @@ using UnityEngine.InputSystem;
 namespace Input
 {
     [CreateAssetMenu(fileName = "InputManagerSO", menuName = "Scriptable Objects/InputManagerSO")]
-    public class InputManagerSO : RuntimeScriptableObject, InputSystem_Actions.IBowlSceneActions, InputSystem_Actions.IMixerSceneActions
+    public class InputManagerSO : RuntimeScriptableObject, InputSystem_Actions.IBowlSceneActions, InputSystem_Actions.IMixerSceneActions, InputSystem_Actions.ICustomerSceneActions
     {
         public static InputManagerSO Instance { get; private set; }
         public enum ActionMaps
         {
-            BowlScene
+            BowlScene,
+            MixerScene,
+            CustomerScene
         }
         
         private InputSystem_Actions _inputActions;
-
+        public InputSystem_Actions InputActions => _inputActions;
         private List<ActionMaps> _enabledActionMaps;
 
         #region Events
@@ -47,9 +49,11 @@ namespace Input
         {
             _inputActions.BowlScene.SetCallbacks(this);
             _inputActions.MixerScene.SetCallbacks(this);
+            _inputActions.CustomerScene.SetCallbacks(this);
             
             _inputActions.BowlScene.Disable();
             _inputActions.MixerScene.Disable();
+            _inputActions.CustomerScene.Disable();
         }
 
         private void OnDisable()
@@ -73,6 +77,13 @@ namespace Input
             else
                 Instance.DisableActionMap(actionMap);
         }
+        
+        [CheatCommand]
+        public static void PrintActiveActionMaps()
+        {
+            Debug.Log("Mixer: " + Instance.InputActions.MixerScene.enabled);
+            Debug.Log("Bowl: " + Instance.InputActions.BowlScene.enabled);
+        }
 
         #endregion
 
@@ -81,6 +92,7 @@ namespace Input
             if(_enabledActionMaps.Contains(actionMap)) 
                 return;
             EnumToActionMap(actionMap).Enable();
+            _enabledActionMaps.Add(actionMap);
             ActionMapActiveEvent?.Invoke(actionMap, true);
         }
         
@@ -88,6 +100,7 @@ namespace Input
         {
             if(!_enabledActionMaps.Contains(actionMap)) 
                 return;
+            _enabledActionMaps.Remove(actionMap);
             EnumToActionMap(actionMap).Disable();
             ActionMapActiveEvent?.Invoke(actionMap, false);
         }
@@ -97,6 +110,8 @@ namespace Input
             return actionMap switch
             {
                 ActionMaps.BowlScene => _inputActions.BowlScene,
+                ActionMaps.MixerScene => _inputActions.MixerScene,
+                ActionMaps.CustomerScene => _inputActions.CustomerScene,
                 _ => throw new ArgumentOutOfRangeException(nameof(actionMap), actionMap, null)
             };
         }

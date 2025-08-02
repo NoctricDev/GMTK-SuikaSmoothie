@@ -1,6 +1,5 @@
 using System;
 using FruitBowlScene;
-using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -12,7 +11,6 @@ namespace Carry
         [SerializeField] private Transform thisTransform;
 
         [Title("Settings")] 
-        [SerializeField] private bool resetTransform = true;
         [SerializeField] private float transitionDuration = 0.2f;
         
         public event Action CarryStartedEvent;
