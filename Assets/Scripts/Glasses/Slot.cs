@@ -1,3 +1,4 @@
+using System;
 using Carry;
 using FruitBowlScene;
 using UnityEngine;
@@ -12,6 +13,8 @@ namespace Glasses
 
         public bool HasPayload => CurrentCarrieAble != null;
         public bool IsLocked { get; set; }
+
+        public Action<ICarrieAble?> SlotContentChangedEvent;
 
         public void SetSlot(ICarrieAble carrieAble)
         {
@@ -49,6 +52,7 @@ namespace Glasses
             
             CurrentCarrieAble = carry;
             carry.TryStartCarry(slotTransform, null);
+            SlotContentChangedEvent?.Invoke(CurrentCarrieAble);
         }
 
         public void StopCarry()
