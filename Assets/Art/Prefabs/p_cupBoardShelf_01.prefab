@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3539539202065190343, guid: ad80d35a47754e7448dec326abf847e3, type: 3}
       propertyPath: m_Name
-      value: p_cupBoardShelf_01 Variant
+      value: p_cupBoardShelf_01
       objectReference: {fileID: 0}
     - target: {fileID: 7222626044292931805, guid: ad80d35a47754e7448dec326abf847e3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -109,7 +109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8cb0af0d3a49e9e4598ff568bde5cbbc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.69049543
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8cb0af0d3a49e9e4598ff568bde5cbbc, type: 3}
       propertyPath: m_LocalPosition.z
