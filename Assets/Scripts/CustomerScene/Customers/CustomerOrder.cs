@@ -2,7 +2,7 @@ using Glasses;
 
 namespace CustomerScene.Customers
 {
-    public struct CustomerOrder
+    public class CustomerOrder
     {
         public SmoothieContent Content { get; private set; }
         public float TimeToPrepare { get; private set; }
@@ -21,8 +21,17 @@ namespace CustomerScene.Customers
             private float _price = 0;
             public Builder(SmoothieContent content) => _content = content;
 
-            public void WithTimeToPrepare(float time) => _timeToPrepare = time;
-            public void WithPrice(float price) => _price = price;
+            public Builder WithTimeToPrepare(float time)
+            {
+                _timeToPrepare = time;
+                return this;
+            }
+
+            public Builder WithPrice(float price)
+            {
+                _price = price;
+                return this;
+            }
 
             public CustomerOrder Build() => new(_content, _timeToPrepare, _price);
         }

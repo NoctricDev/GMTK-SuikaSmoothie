@@ -1,10 +1,13 @@
 using System;
+using System.Collections.Generic;
 using Carry;
+using Fruits;
 using Glasses;
 using JetBrains.Annotations;
 using JohaToolkit.UnityEngine.Extensions;
 using JohaToolkit.UnityEngine.Timer;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace CustomerScene.Customers
 {
@@ -18,12 +21,20 @@ namespace CustomerScene.Customers
         public Action<CustomerOrder> OrderPlacedEvent;
         public Action<CustomerOrder> OrderCancelledEvent;
         public Action<OrderEvaluation> OrderCompletedEvent;
+        public Action<CustomerOrder> OrderFailedEvent;
 
         private CountdownTimer _orderTimer;
+
+        [SerializeField] private SerializedDictionary<FruitSO, int> testOrder;
 
         private void Start()
         {
             slot.SlotContentChangedEvent += OnSlotContentChanged;
+            CustomerOrder order = new CustomerOrder.Builder(new(testOrder))
+                .WithPrice(10)
+                .WithTimeToPrepare(0)
+                .Build();
+            SetOrder(order);
         }
 
         public void Update()
@@ -34,10 +45,30 @@ namespace CustomerScene.Customers
 
         private void OnSlotContentChanged([CanBeNull] ICarrieAble slotObject)
         {
-            if (slotObject == null || !_hasOrder || slotObject is not Glass glass)
+            if (slot.IsLocked || slotObject == null || !_hasOrder || slotObject is not Glass glass)
                 return;
-            
-            // Evaluate Order
+
+            slot.IsLocked = true;
+            ProcessOrder(glass);
+        }
+
+        private void ProcessOrder(Glass glass)
+        {
+            if (glass.Content is not SmoothieContent content)
+            {
+                OrderFailedEvent?.Invoke(_currentOrder);
+                return;
+            }
+
+            OrderEvaluation orderEvaluation = OrderEvaluator.EvaluateOrder(_currentOrder, content);
+            if (orderEvaluation.IsAccepted)
+            {
+                OrderCompletedEvent?.Invoke(orderEvaluation);
+            }
+            else
+            {
+                OrderFailedEvent?.Invoke(_currentOrder);
+            }
         }
 
         public void SetOrder(CustomerOrder order)

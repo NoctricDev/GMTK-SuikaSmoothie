@@ -7,7 +7,7 @@ namespace Glasses
 {
     public class Slot : MonoBehaviour, ICarrieAbleMouse
     {
-        public ICarrieAble CurrentCarrieAble { get; private set; }
+        public ICarrieAble CurrentCarrieAble { get; protected set; }
         
         [SerializeField] private Transform slotTransform;
 
@@ -40,7 +40,7 @@ namespace Glasses
             return carry;
         }
         
-        public void StartCarry(ICarrieAble carry)
+        public virtual void StartCarry(ICarrieAble carry)
         {
             if (IsLocked)
                 return;
