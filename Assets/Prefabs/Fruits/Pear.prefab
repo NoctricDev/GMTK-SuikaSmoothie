@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5713328058650582091, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: m_CenterOfMass.y
-      value: 0.08
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -132,6 +132,18 @@ PrefabInstance:
     - target: {fileID: 4863210987658016341, guid: deed45cb67a94d2429afb9df8e507526, type: 3}
       propertyPath: m_Name
       value: p_pear_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863210987658016341, guid: deed45cb67a94d2429afb9df8e507526, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140587762574911971, guid: deed45cb67a94d2429afb9df8e507526, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209096598018004801, guid: deed45cb67a94d2429afb9df8e507526, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

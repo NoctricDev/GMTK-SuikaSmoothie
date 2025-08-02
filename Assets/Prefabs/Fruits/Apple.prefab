@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Apple
       objectReference: {fileID: 0}
+    - target: {fileID: 1004845796224441026, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2323635907409908644, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -125,9 +129,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4050485990522372121, guid: 62d84201ae6405043bfa8a7e5ad55b83, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4527920996934128005, guid: 62d84201ae6405043bfa8a7e5ad55b83, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9177766127043236108, guid: 62d84201ae6405043bfa8a7e5ad55b83, type: 3}
       propertyPath: m_Name
       value: p_apple_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177766127043236108, guid: 62d84201ae6405043bfa8a7e5ad55b83, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

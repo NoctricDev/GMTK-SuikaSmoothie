@@ -105,9 +105,25 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1305209842110698088, guid: 367a13e4efe5dae4b938865e4e70c348, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2717116007887947939, guid: 367a13e4efe5dae4b938865e4e70c348, type: 3}
       propertyPath: m_Name
       value: p_strawberry_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2717116007887947939, guid: 367a13e4efe5dae4b938865e4e70c348, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201452449796827120, guid: 367a13e4efe5dae4b938865e4e70c348, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6968694904630435356, guid: 367a13e4efe5dae4b938865e4e70c348, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8111043009506354617, guid: 367a13e4efe5dae4b938865e4e70c348, type: 3}
       propertyPath: m_LocalPosition.x

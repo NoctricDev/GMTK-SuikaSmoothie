@@ -19,6 +19,9 @@ namespace FruitBowlScene
         [SerializeField] private GameEventICarrieAble payloadDroppedGameEvent;
         [SerializeField] private Transform travelStartPoint;
         [SerializeField] private Transform travelEndPoint;
+        
+        [Title("Settings")]
+        [SerializeField] private LayerMask layerMask;
 
         private bool _isCarrying;
         private UnityEngine.Camera _mainCam;
@@ -61,7 +64,7 @@ namespace FruitBowlScene
             
             Ray ray = ScreenToWorldHelper.GetMouseToWorldRay(_mainCam);
             ray.direction = ray.direction.normalized * 100;
-            if (!Physics.Raycast(ray, out RaycastHit hit, 10, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
+            if (!Physics.Raycast(ray, out RaycastHit hit, 10, layerMask, QueryTriggerInteraction.Ignore))
                 return;
             
             if (!hit.collider.TryGetComponent(out ICarrieAble carrieAble))

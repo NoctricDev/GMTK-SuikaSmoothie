@@ -48,9 +48,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4521390995505095409, guid: 5621d62fa23c5fc40b3dd2361d3ce59e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5176156960935914292, guid: 5621d62fa23c5fc40b3dd2361d3ce59e, type: 3}
       propertyPath: m_Name
       value: p_guave_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5176156960935914292, guid: 5621d62fa23c5fc40b3dd2361d3ce59e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398709237469377033, guid: 5621d62fa23c5fc40b3dd2361d3ce59e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -81,7 +93,7 @@ PrefabInstance:
       objectReference: {fileID: -2255337851447096497, guid: aa1c986c1e60a774e9046e6e3571fe00, type: 3}
     - target: {fileID: 1004845796224441026, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: m_Name
-      value: Guave
+      value: Guava
       objectReference: {fileID: 0}
     - target: {fileID: 2323635907409908644, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: m_LocalPosition.x
@@ -137,7 +149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5713328058650582091, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: m_CenterOfMass.y
-      value: 0.07
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

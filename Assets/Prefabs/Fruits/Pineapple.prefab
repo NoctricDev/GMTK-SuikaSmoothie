@@ -147,6 +147,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2963612145270171641, guid: a8922e32445fead46951c9be3edf13ee, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4182383449124499193, guid: a8922e32445fead46951c9be3edf13ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -187,9 +191,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4717143613936775560, guid: a8922e32445fead46951c9be3edf13ee, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207410650778886632, guid: a8922e32445fead46951c9be3edf13ee, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8011863802816693219, guid: a8922e32445fead46951c9be3edf13ee, type: 3}
       propertyPath: m_Name
       value: p_pineapple_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8011863802816693219, guid: a8922e32445fead46951c9be3edf13ee, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

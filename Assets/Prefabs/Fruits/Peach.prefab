@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6595297276879454721}
     m_Modifications:
+    - target: {fileID: 3818076622471257769, guid: ccdc30e6031449b42ad6e17c76a4a17a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3896337449621392748, guid: ccdc30e6031449b42ad6e17c76a4a17a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -19,6 +23,10 @@ PrefabInstance:
     - target: {fileID: 3896337449621392748, guid: ccdc30e6031449b42ad6e17c76a4a17a, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3918649801706855056, guid: ccdc30e6031449b42ad6e17c76a4a17a, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3962860614391410060, guid: ccdc30e6031449b42ad6e17c76a4a17a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63,6 +71,10 @@ PrefabInstance:
     - target: {fileID: 7195622473169453206, guid: ccdc30e6031449b42ad6e17c76a4a17a, type: 3}
       propertyPath: m_Name
       value: p_peach_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7195622473169453206, guid: ccdc30e6031449b42ad6e17c76a4a17a, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

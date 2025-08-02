@@ -81,9 +81,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 392481350602232039}
     m_Modifications:
+    - target: {fileID: 2992252707147254125, guid: 1122a009bcde91a48be073ede5848617, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4604142970180273485, guid: 1122a009bcde91a48be073ede5848617, type: 3}
       propertyPath: m_Name
       value: p_plum_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604142970180273485, guid: 1122a009bcde91a48be073ede5848617, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6505248847917243509, guid: 1122a009bcde91a48be073ede5848617, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7692191711775156311, guid: 1122a009bcde91a48be073ede5848617, type: 3}
       propertyPath: m_LocalPosition.x

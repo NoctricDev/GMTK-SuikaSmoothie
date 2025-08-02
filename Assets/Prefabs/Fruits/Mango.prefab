@@ -64,6 +64,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_mango_01
       objectReference: {fileID: 0}
+    - target: {fileID: 4996977948318352951, guid: 0fbef51c71df933458c9efc4b6a07b38, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7228333461188411802, guid: 0fbef51c71df933458c9efc4b6a07b38, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7494954294998551593, guid: 0fbef51c71df933458c9efc4b6a07b38, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

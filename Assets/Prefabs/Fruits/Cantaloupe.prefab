@@ -24,6 +24,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_cantalope_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1749027964472904219, guid: c0652519565b9ed4f8ac4ae00999142e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2457350949692868283, guid: c0652519565b9ed4f8ac4ae00999142e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3974228748123776636, guid: c0652519565b9ed4f8ac4ae00999142e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5575702160476940033, guid: c0652519565b9ed4f8ac4ae00999142e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -63,6 +75,10 @@ PrefabInstance:
     - target: {fileID: 5575702160476940033, guid: c0652519565b9ed4f8ac4ae00999142e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7317598279414812789, guid: c0652519565b9ed4f8ac4ae00999142e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8199587553342110517, guid: c0652519565b9ed4f8ac4ae00999142e, type: 3}
       propertyPath: m_LocalPosition.x

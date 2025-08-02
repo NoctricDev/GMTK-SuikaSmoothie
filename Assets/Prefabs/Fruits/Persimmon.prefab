@@ -24,6 +24,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_persimmon_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1688416029591265000, guid: 474d478eca124dd4a9bcbaf83f263fe6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3159594717519555193, guid: 474d478eca124dd4a9bcbaf83f263fe6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4353458770722436366, guid: 474d478eca124dd4a9bcbaf83f263fe6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -87,6 +95,18 @@ PrefabInstance:
     - target: {fileID: 6756037026400077326, guid: 474d478eca124dd4a9bcbaf83f263fe6, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6883762308343655851, guid: 474d478eca124dd4a9bcbaf83f263fe6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8386042680222456377, guid: 474d478eca124dd4a9bcbaf83f263fe6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970038854067384707, guid: 474d478eca124dd4a9bcbaf83f263fe6, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
