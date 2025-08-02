@@ -1,9 +1,7 @@
-using System;
 using FruitBowlScene;
 using Fruits;
 using Input;
 using Sirenix.OdinInspector;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -16,7 +14,8 @@ namespace UI
         [SerializeField] private InputManagerSO inputManager;
         [SerializeField] private FruitSpawner fruitSpawner;
         [SerializeField] private Button spawnButton;
-        [SerializeField] private TextMeshProUGUI buttonText;
+        [SerializeField] private Image nextFruitImage;
+        [SerializeField] private Image nextFruitShadowImage;
 
         private FruitSO _nextFruit;
         
@@ -52,7 +51,9 @@ namespace UI
         private void PrepareNextFruit()
         {
             _nextFruit = fruitSpawner.GetRandomFruitFromSpawnPool();
-            buttonText.text = _nextFruit.FruitType.ToString();
+            
+            nextFruitImage.sprite = _nextFruit.FruitIcon;
+            nextFruitShadowImage.sprite = _nextFruit.FruitIcon;
         }
     }
 }

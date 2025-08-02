@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fruitType: 7
   fruitPrefab: {fileID: 4204011735390969774, guid: 247f624942251f3489389180be1d0147, type: 3}
+  fruitIcon: {fileID: 21300000, guid: b24fa7d7d8d5f1a4ba478115cc6a7123, type: 3}
