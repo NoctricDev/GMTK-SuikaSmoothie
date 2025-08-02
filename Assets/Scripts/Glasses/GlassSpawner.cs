@@ -1,4 +1,3 @@
-using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -11,8 +10,12 @@ namespace Glasses
 
         [SerializeField] private Slot spawnSlot;
 
-        private void Start()
+        [Button]
+        public void SpawnGlass()
         {
+            if (spawnSlot.IsLocked || spawnSlot.HasPayload)
+                return;
+            
             Glass spawned = Instantiate(glassPrefab, spawnSlot.transform.position, Quaternion.identity);
             spawnSlot.SetSlot(spawned);
         }

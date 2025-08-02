@@ -14,17 +14,19 @@ namespace Fruits
         [HideInInspector] public bool requestedMerge;
         private bool _canMerge;
         private bool _isCarried;
+        private bool _firstGrab;
         private Rigidbody _rb = null!;
         
         public FruitType FruitType { get; private set; }
         public FruitSO FruitSO { get; private set; } = null!;
         
-        public bool CanMerge => _canMerge && !requestedMerge;
+        public bool CanMerge => _canMerge && !requestedMerge && !_firstGrab;
 
         private FollowCarry? _followCarry;
         
-        public void Init(FruitSO fruitSO)
+        public void Init(FruitSO fruitSO, bool spawnProtection)
         {
+            _firstGrab = spawnProtection;
             _rb = GetComponent<Rigidbody>();
             FruitSO = fruitSO;
             FruitType = fruitSO.FruitType;
@@ -44,6 +46,7 @@ namespace Fruits
 
         private void OnCarryStopped()
         {
+            _firstGrab = false;
             if (!_rb)
                 return;
             _rb.isKinematic = false;

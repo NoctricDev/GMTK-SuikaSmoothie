@@ -33,7 +33,7 @@ namespace FruitBowlScene
             fruitB.OnMerge();
             Destroy(fruitA.gameObject);
             Destroy(fruitB.gameObject);
-            FruitFactory.SpawnFruit(newFruit, spawnPosition, Quaternion.identity, null);
+            FruitFactory.SpawnFruit(newFruit, spawnPosition, Quaternion.identity, null, false);
         }
     }
 }

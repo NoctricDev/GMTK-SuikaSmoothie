@@ -34,7 +34,7 @@ namespace FruitBowlScene
         {
             if (fruitBowlMouse.HasPayload)
                 return false;
-            Fruit spawnedFruit = FruitFactory.SpawnFruit(fruitSO, fruitBowlMouse.transform.position, Quaternion.identity, null);
+            Fruit spawnedFruit = FruitFactory.SpawnFruit(fruitSO, fruitBowlMouse.transform.position, Quaternion.identity, null, true);
             fruitBowlMouse.StartCarry(spawnedFruit.GetComponent<ICarrieAble>());
             return true;
         }

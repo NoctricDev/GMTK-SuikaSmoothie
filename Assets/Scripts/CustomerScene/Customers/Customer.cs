@@ -30,11 +30,6 @@ namespace CustomerScene.Customers
         private void Start()
         {
             slot.SlotContentChangedEvent += OnSlotContentChanged;
-            CustomerOrder order = new CustomerOrder.Builder(new(testOrder))
-                .WithPrice(10)
-                .WithTimeToPrepare(0)
-                .Build();
-            SetOrder(order);
         }
 
         public void Update()

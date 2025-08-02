@@ -11,49 +11,31 @@ namespace CustomerScene.Customers
         {
             OrderEvaluation evaluation = new();
 
-            bool isMissingFruit = false;
-            foreach ((FruitSO expectedFruit, int expectedCount) in order.Content.FruitsInSmoothie)
-            {
-                if (IsFruitCorrect(content.FruitsInSmoothie, expectedFruit, expectedCount, out int countDifference)) 
-                    continue;
-                isMissingFruit = true;
-                break;
-            }
+            float pricePaid = 0;
             
-            if (isMissingFruit)
+            foreach ((FruitSO fruit, int count) in content.FruitsInSmoothie)
             {
-                evaluation.IsAccepted = false;
-                evaluation.PricePaid = 0;
+                if (IsFruitCorrect(order.Content.FruitsInSmoothie, fruit, out int expectedCount))
+                {
+                    pricePaid += fruit.FruitValue;
+                }
+                else
+                {
+                    pricePaid -= fruit.FruitValue / 2;
+                }
             }
-            else
-            {
-                evaluation.IsAccepted = true;
-                evaluation.PricePaid = order.Price * (content.TotalFruitsCount - ((float)GetWrongFruitsCount(content.FruitsInSmoothie, order) / content.TotalFruitsCount));
-            }
+
+            pricePaid = Mathf.Max(0, pricePaid);
+            
+            evaluation.IsAccepted = pricePaid > 0;
+            evaluation.PricePaid = pricePaid;
+            
             return evaluation;
         }
 
-        private static bool IsFruitCorrect(Dictionary<FruitSO, int> content, FruitSO expectedFruit, int expectedCount, out int difference)
+        private static bool IsFruitCorrect(Dictionary<FruitSO, int> expectedOrder, FruitSO fruit, out int expectedCount)
         {
-            if (content.TryGetValue(expectedFruit, out int countInContent))
-            {
-                difference = Mathf.Abs(countInContent - expectedCount);
-                return countInContent >= expectedCount;
-            }
-            difference = Mathf.Abs(0 - expectedCount);
-            return false;
-        }
-        
-        private static int GetWrongFruitsCount(Dictionary<FruitSO, int> content, CustomerOrder order)
-        {
-            int incorrectCount = 0;
-            foreach ((FruitSO fruit, int count) in content)
-            {
-                if (order.Content.FruitsInSmoothie.ContainsKey(fruit))
-                    continue;
-                incorrectCount += count;
-            }
-            return incorrectCount;
+            return expectedOrder.TryGetValue(fruit, out expectedCount);
         }
     }
 }
