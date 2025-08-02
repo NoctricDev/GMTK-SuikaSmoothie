@@ -176,7 +176,8 @@ PrefabInstance:
       value: SM_mixer_01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -2457972618895830014, guid: 5d6391ebf0850184eb763f01236219a6, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d6391ebf0850184eb763f01236219a6, type: 3}
