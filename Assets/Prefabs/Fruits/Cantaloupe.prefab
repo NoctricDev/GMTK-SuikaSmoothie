@@ -180,6 +180,10 @@ PrefabInstance:
       propertyPath: 'meshRenderer.Array.data[1]'
       value: 
       objectReference: {fileID: 4777698566575493791}
+    - target: {fileID: 5713328058650582091, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
+      propertyPath: m_Mass
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8259204642388231367, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: serializationData.Prefab
       value: 
