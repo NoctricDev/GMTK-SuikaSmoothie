@@ -17,6 +17,7 @@ namespace Mixer
         [SerializeField] private InputManagerSO inputManager;
         [SerializeField] private FloatVariable distance;
         [SerializeField] private Transform mixerMouseTracker;
+        [SerializeField] private Transform mixerInteractionPlane;
         
         public GameEventICarrieAble PayloadPickedUpGameEvent;
         public GameEventICarrieAble PayloadDroppedGameEvent;
@@ -108,7 +109,7 @@ namespace Mixer
         private (Ray ray, float dist) GetMouseToWorldRay()
         {
             Ray ray = ScreenToWorldHelper.GetMouseToWorldRay(_mainCam);
-            return (ray, ScreenToWorldHelper.GetRayDistanceToWorldSpaceForward(ray, _mainCam.transform.forward.SetY(0).normalized * distance.Value));
+            return (ray, ScreenToWorldHelper.GetRayDistanceToWorldSpaceForward(ray, mixerInteractionPlane.transform.forward.SetY(0).normalized * distance.Value));
         }
     }
 }

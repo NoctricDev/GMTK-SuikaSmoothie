@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3049d6c0b3d362e4480c34721a43730f, type: 3}
   m_Name: BowlSceneDropHeight
   m_EditorClassIdentifier: 
-  startValue: 0.2
-  currentValue: 0.2
+  startValue: 1.05
+  currentValue: 1.05

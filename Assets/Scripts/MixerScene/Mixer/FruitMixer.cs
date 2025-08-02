@@ -1,3 +1,4 @@
+using System.Linq;
 using Fruits;
 using Glasses;
 using Sirenix.OdinInspector;
@@ -29,19 +30,35 @@ namespace MixerScene.Mixer
         public void MixerButtonPressed()
         {
             Glass glassToFill = glassSlot.CurrentCarrieAble as Glass;
-            if (!glassToFill)
+            if (glassToFill == null)
             {
-                // Empty mixer
+                EmptyMixer();
+            }
+            else if(glassToFill.IsEmpty)
+            {
+                FillGlass(glassToFill);
+                EmptyMixer();
             }
             else
             {
-                // Fill Glass
+                Debug.Log("[Mixer] Glass is not empty, cannot fill it with smoothie!");
             }
         }
 
         public void EmptyMixer()
         {
             fruitCounter.EmptyMixer();
+        }
+
+        private void FillGlass(Glass glassToFill)
+        {
+            glassSlot.IsLocked = true;
+            SmoothieContent smoothieContent = new(fruitCounter.FruitsInMixer.ToDictionary(k => k.Key, v => v.Value));
+            if (!glassToFill.TrySetContent(smoothieContent))
+            {
+                Debug.LogError("[Mixer] Failed to fill glass with smoothie content! This should have been caught earlier!");
+            }
+            glassSlot.IsLocked = false;
         }
     }
 }

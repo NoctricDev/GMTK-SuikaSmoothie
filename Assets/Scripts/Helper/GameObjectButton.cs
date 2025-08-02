@@ -12,28 +12,28 @@ namespace MixerScene.Mixer
         
         public bool IsActive => buttonEnabledInScenes.Any(s => buttonEnabledInScenes.Contains(s));
 
-        public UnityAction PointerClick;
-        public UnityAction PointerUp;
-        public UnityAction PointerDown;
+        public UnityEvent pointerClick;
+        public UnityEvent pointerUp;
+        public UnityEvent pointerDown;
         
         public void OnPointerClick(PointerEventData eventData)
         {
             if (!IsActive)
                 return;
-            PointerClick?.Invoke();
+            pointerClick?.Invoke();
         }
         public void OnPointerUp(PointerEventData eventData)
         {
             if (!IsActive)
                 return;
-            PointerUp?.Invoke();
+            pointerUp?.Invoke();
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
             if (!IsActive)
                 return;
-            PointerDown?.Invoke();
+            pointerDown?.Invoke();
         }
     }
 }
