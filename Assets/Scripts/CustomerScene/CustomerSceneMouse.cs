@@ -78,7 +78,7 @@ namespace CustomerScene
             if (!hit.transform.gameObject.EqualsOneOreMoreTags(interactionTags))
                 return;
 
-            if (!hit.transform.TryGetComponent(out Slot slot))
+            if (!hit.transform.TryGetComponent(out Slot slot) || slot.IsLocked)
                 return;
 
             if (_currentPayload == null && slot.HasPayload)
