@@ -15,17 +15,17 @@ namespace CustomerScene.Customers
     {
         [SerializeField] private Slot slot;
 
-        private bool _hasOrder;
+        public bool HasOrder { get; private set; }
         private CustomerOrder _currentOrder;
         
         public Action<CustomerOrder> OrderPlacedEvent;
         public Action<CustomerOrder> OrderCancelledEvent;
         public Action<OrderEvaluation> OrderCompletedEvent;
         public Action<CustomerOrder> OrderFailedEvent;
+        public Action<float> OrderTimeUpdatedEvent;
 
         private CountdownTimer _orderTimer;
 
-        [SerializeField] private SerializedDictionary<FruitSO, int> testOrder;
 
         private void Start()
         {
@@ -34,13 +34,20 @@ namespace CustomerScene.Customers
 
         public void Update()
         {
-            if(_hasOrder && _orderTimer != null)
+            if(HasOrder && _orderTimer != null)
+            {
                 _orderTimer.Tick(Time.deltaTime);
+                if (_orderTimer == null)
+                    return;
+                float remaining = (float)_orderTimer.RemainingTime.TotalSeconds;
+                remaining = remaining.IntervalRemap(0, (float)_orderTimer.StartTime.TotalSeconds, 0, 1);
+                OrderTimeUpdatedEvent?.Invoke(remaining);
+            }
         }
 
         private void OnSlotContentChanged([CanBeNull] ICarrieAble slotObject)
         {
-            if (slot.IsLocked || slotObject == null || !_hasOrder || slotObject is not Glass glass)
+            if (slot.IsLocked || slotObject == null || !HasOrder || slotObject is not Glass glass)
                 return;
 
             slot.IsLocked = true;
@@ -68,11 +75,11 @@ namespace CustomerScene.Customers
 
         public void SetOrder(CustomerOrder order)
         {
-            if (_hasOrder)
+            if (HasOrder)
                 return;
             
             _currentOrder = order;
-            _hasOrder = true;
+            HasOrder = true;
             if(order.TimeToPrepare > 0)
             {
                 _orderTimer = new CountdownTimer(order.TimeToPrepare.Seconds());
@@ -88,11 +95,11 @@ namespace CustomerScene.Customers
 
         public void CancelOrder()
         {
-            if (!_hasOrder)
+            if (!HasOrder)
                 return;
-            _hasOrder = false;
-            OrderCancelledEvent?.Invoke(_currentOrder);
             _orderTimer = null;
+            HasOrder = false;
+            OrderCancelledEvent?.Invoke(_currentOrder);
         }
     }
 }
