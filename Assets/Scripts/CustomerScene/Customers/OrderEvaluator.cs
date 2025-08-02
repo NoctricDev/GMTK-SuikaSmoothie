@@ -11,7 +11,7 @@ namespace CustomerScene.Customers
         {
             OrderEvaluation evaluation = new();
 
-            float pricePaid = 0;
+            int pricePaid = 0;
             
             foreach ((FruitSO fruit, int count) in content.FruitsInSmoothie)
             {

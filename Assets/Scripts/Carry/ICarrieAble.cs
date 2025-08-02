@@ -10,6 +10,7 @@ namespace Carry
         public void OnStopCarry();
 
         public GameObject GetAttachedGameObject();
+        public float GetLastCarryDropTimeSinceLevelLoad();
 
     }
 }

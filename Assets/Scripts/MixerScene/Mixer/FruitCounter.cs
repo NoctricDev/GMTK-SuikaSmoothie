@@ -19,7 +19,11 @@ namespace MixerScene.Mixer
         {
             if (!other.TryGetComponent(out Fruit fruit))
                 return;
-            _fruitsInMixer.Add(fruit.FruitSO, _fruitsInMixer.TryGetValue(fruit.FruitSO, out int value) ? value + 1 : 1);
+            if (!_fruitsInMixer.TryAdd(fruit.FruitSO, 1))
+            {
+                _fruitsInMixer[fruit.FruitSO]++;
+            }
+
             _fruitObjectsInMixer.Add(fruit);
             FruitCountChangedEvent?.Invoke(fruit.FruitSO, _fruitsInMixer[fruit.FruitSO]);
         }

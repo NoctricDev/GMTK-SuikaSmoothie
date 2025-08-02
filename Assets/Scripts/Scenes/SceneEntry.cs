@@ -25,13 +25,11 @@ namespace Scenes
         public void LoadStart(float durationTime)
         {
             sceneCamera.SetActive(true);
-            Debug.Log("Loading Started");
             sceneObjects.ForEach(s => s.LoadStart(durationTime));
         }
 
         public void LoadEnd()
         {
-            Debug.Log("Loading Completed");
             actionMaps.ForEach(inputManager.EnableActionMap);
             sceneObjects.ForEach(s => s.LoadEnd());
         }

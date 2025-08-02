@@ -36,7 +36,7 @@ namespace FruitBowlScene
         public void LoadEnd()
         {
             _mainCam = UnityEngine.Camera.main;
-            inputManager.InteractSecondaryEvent += OnInteractSecondary;
+            inputManager.InteractPrimaryEvent += OnInteractSecondary;
             payloadPickedUpGameEvent.Subscribe(OnPayLoadPickedUp);
             payloadDroppedGameEvent.Subscribe(OnPayLoadDropped);
         }
@@ -44,7 +44,7 @@ namespace FruitBowlScene
         public void Unload()
         {
             StopCarry();
-            inputManager.InteractSecondaryEvent -= OnInteractSecondary;
+            inputManager.InteractPrimaryEvent -= OnInteractSecondary;
             payloadPickedUpGameEvent.Unsubscribe(OnPayLoadPickedUp);
             payloadDroppedGameEvent.Unsubscribe(OnPayLoadDropped);
         }
@@ -66,8 +66,7 @@ namespace FruitBowlScene
             ray.direction = ray.direction.normalized * 100;
             if (!Physics.Raycast(ray, out RaycastHit hit, 10, layerMask, QueryTriggerInteraction.Ignore))
                 return;
-            
-            if (!hit.collider.TryGetComponent(out ICarrieAble carrieAble))
+            if (!hit.collider.TryGetComponent(out ICarrieAble carrieAble) || (Time.timeSinceLevelLoad - carrieAble.GetLastCarryDropTimeSinceLevelLoad()) < 0.5f)
                 return;
 
             

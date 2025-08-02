@@ -14,7 +14,7 @@ namespace Glasses
         public bool HasPayload => CurrentCarrieAble != null;
         public bool IsLocked { get; set; }
 
-        public Action<ICarrieAble?> SlotContentChangedEvent;
+        public Action<ICarrieAble> SlotContentChangedEvent;
 
         public void SetSlot(ICarrieAble carrieAble)
         {

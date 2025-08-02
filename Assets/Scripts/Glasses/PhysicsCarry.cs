@@ -9,6 +9,7 @@ namespace Glasses
     {
         private ICarrieAbleMouse _mouseCarry;
         private bool _isCarried;
+        private float _lastDropTime;
         public bool TryStartCarry(Transform carryTransform, ICarrieAbleMouse mouseCarry)
         {
             if (_isCarried) 
@@ -24,8 +25,10 @@ namespace Glasses
         {
             _isCarried = false;
             SetTargetMouse(transform);
+            _lastDropTime = Time.timeSinceLevelLoad;
         }
 
         public GameObject GetAttachedGameObject() => gameObject;
+        public float GetLastCarryDropTimeSinceLevelLoad() => _lastDropTime;
     }
 }

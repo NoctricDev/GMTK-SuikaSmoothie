@@ -52,6 +52,8 @@ namespace CustomerScene.Customers
 
             slot.IsLocked = true;
             ProcessOrder(glass);
+            slot.IsLocked = false;
+            Destroy(slot.RemoveSlot().GetAttachedGameObject());
         }
 
         private void ProcessOrder(Glass glass)

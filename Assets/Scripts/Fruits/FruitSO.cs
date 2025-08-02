@@ -10,11 +10,11 @@ namespace Fruits
         [SerializeField, AssetSelector] private Fruit fruitPrefab;
         [SerializeField] private Sprite fruitIcon;
         [SerializeField] private float difficultyRating;
-        [SerializeField] private float value;
+        [SerializeField] private int value;
         public Fruit FruitPrefab => fruitPrefab;
         public FruitType FruitType => fruitType;
         public Sprite FruitIcon => fruitIcon;
         public float DifficultyRating => difficultyRating;
-        public float FruitValue => value;
+        public int FruitValue => value;
     }
 }

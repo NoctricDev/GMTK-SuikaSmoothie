@@ -18,6 +18,7 @@ namespace Carry
 
         private bool _isCarried;
         private Transform _carryTransform;
+        private float _timeSinceLastDrop;
         
         public ICarrieAbleMouse MouseCarry { get; protected set; }
 
@@ -40,7 +41,8 @@ namespace Carry
         {
             if (!_isCarried)
                 return;
-            
+
+            _timeSinceLastDrop = Time.timeSinceLevelLoad;
             _isCarried = false;
             _carryTransform = null;
             CarryStoppedEvent?.Invoke();
@@ -57,5 +59,6 @@ namespace Carry
         
         public Vector3 GetPosition() => transform.position;
         public GameObject GetAttachedGameObject() => thisTransform.gameObject;
+        public float GetLastCarryDropTimeSinceLevelLoad() => _timeSinceLastDrop;
     }
 }
