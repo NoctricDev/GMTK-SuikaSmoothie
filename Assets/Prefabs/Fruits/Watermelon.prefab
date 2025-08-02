@@ -48,9 +48,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5966723682162821200, guid: d61b9606898c09447a060c83c9f68c65, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966723682162821200, guid: d61b9606898c09447a060c83c9f68c65, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966723682162821200, guid: d61b9606898c09447a060c83c9f68c65, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6286593880186988930, guid: d61b9606898c09447a060c83c9f68c65, type: 3}
       propertyPath: m_Name
       value: p_watermelon_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7424174091052171560, guid: d61b9606898c09447a060c83c9f68c65, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7424174091052171560, guid: d61b9606898c09447a060c83c9f68c65, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7424174091052171560, guid: d61b9606898c09447a060c83c9f68c65, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -86,7 +110,7 @@ PrefabInstance:
       objectReference: {fileID: -4099008601438169780, guid: d59d9487bc4533b409c24bb62139502e, type: 3}
     - target: {fileID: 1004845796224441026, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: m_Name
-      value: Watermelon Variant
+      value: Watermelon
       objectReference: {fileID: 0}
     - target: {fileID: 2323635907409908644, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: m_LocalPosition.x
@@ -140,6 +164,10 @@ PrefabInstance:
       propertyPath: 'meshRenderer.Array.data[1]'
       value: 
       objectReference: {fileID: 500120943863016451}
+    - target: {fileID: 8259204642388231367, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 8259204642388231367, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

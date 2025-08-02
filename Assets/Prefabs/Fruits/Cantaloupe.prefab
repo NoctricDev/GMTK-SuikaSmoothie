@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4341528609081309994}
     m_Modifications:
+    - target: {fileID: 1195953906605686171, guid: c0652519565b9ed4f8ac4ae00999142e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1195953906605686171, guid: c0652519565b9ed4f8ac4ae00999142e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1195953906605686171, guid: c0652519565b9ed4f8ac4ae00999142e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1749027964472904219, guid: c0652519565b9ed4f8ac4ae00999142e, type: 3}
       propertyPath: m_Name
       value: p_cantalope_01
@@ -52,6 +64,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8199587553342110517, guid: c0652519565b9ed4f8ac4ae00999142e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8199587553342110517, guid: c0652519565b9ed4f8ac4ae00999142e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8199587553342110517, guid: c0652519565b9ed4f8ac4ae00999142e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -86,7 +110,7 @@ PrefabInstance:
       objectReference: {fileID: -918219216410407474, guid: 51bdb5e5386c0a246b85d8d916bf284a, type: 3}
     - target: {fileID: 1004845796224441026, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: m_Name
-      value: Catalope Variant
+      value: Cantaloupe
       objectReference: {fileID: 0}
     - target: {fileID: 2323635907409908644, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: m_LocalPosition.x
@@ -140,6 +164,10 @@ PrefabInstance:
       propertyPath: 'meshRenderer.Array.data[1]'
       value: 
       objectReference: {fileID: 4777698566575493791}
+    - target: {fileID: 8259204642388231367, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 8259204642388231367, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

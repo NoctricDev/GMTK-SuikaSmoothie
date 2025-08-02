@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: 'meshRenderer.Array.data[1]'
       value: 
       objectReference: {fileID: 5537793656442898216}
+    - target: {fileID: 8259204642388231367, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 8259204642388231367, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -89,6 +93,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 305039287676772005}
     m_Modifications:
+    - target: {fileID: 858893728297718672, guid: 367a13e4efe5dae4b938865e4e70c348, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 858893728297718672, guid: 367a13e4efe5dae4b938865e4e70c348, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 858893728297718672, guid: 367a13e4efe5dae4b938865e4e70c348, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2717116007887947939, guid: 367a13e4efe5dae4b938865e4e70c348, type: 3}
       propertyPath: m_Name
       value: p_strawberry_01
@@ -131,6 +147,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8111043009506354617, guid: 367a13e4efe5dae4b938865e4e70c348, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637142063532639546, guid: 367a13e4efe5dae4b938865e4e70c348, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637142063532639546, guid: 367a13e4efe5dae4b938865e4e70c348, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637142063532639546, guid: 367a13e4efe5dae4b938865e4e70c348, type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
