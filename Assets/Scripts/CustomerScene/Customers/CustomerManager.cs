@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using CSharpTools.Randomization;
@@ -8,15 +9,22 @@ using JohaToolkit.UnityEngine.Extensions;
 using JohaToolkit.UnityEngine.ScriptableObjects.Variables;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace CustomerScene.Customers
 {
     public class CustomerManager : MonoBehaviourSingleton<CustomerManager>
     {
+        [Serializable]
+        private struct CustomerDifficulty
+        {
+            public Customer customer;
+            public float maxDifficulty;
+        }
         [Title("References")]
         [SerializeField] private FruitSO[] availableFruits;
-        [SerializeField] private Customer[] customers;
-        private List<Customer> _customersList;
+        [SerializeField] private CustomerDifficulty[] customers;
+        private List<CustomerDifficulty> _customersList;
         [SerializeField] private IntVariable playerMoney;
 
         [Title("Settings")] 
@@ -24,7 +32,6 @@ namespace CustomerScene.Customers
 
         [SerializeField] private float timeToPrepareBase = 10f;
         [SerializeField] private int maxFruitsInSmoothie = 3;
-        [SerializeField] private int maxDifficulty;
         [SerializeField, InfoBox("This settings checks every Random(X,Y) seconds, if a order can be placed")] private Vector2 customerOrderSpawnRate = new(1f, 3f);
         [SerializeField, Range(0, 1)] private float chanceForNextFruit;
 
@@ -45,9 +52,9 @@ namespace CustomerScene.Customers
             _nextOrderCheck = customerOrderSpawnRate.RandomRange();
             _customersList = customers.ToList();
             
-            foreach (Customer customer in _customersList)
+            foreach (CustomerDifficulty customer in _customersList)
             {
-                customer.OrderCompletedEvent += OnOrderCompleted;
+                customer.customer.OrderCompletedEvent += OnOrderCompleted;
             }
         }
 
@@ -73,12 +80,12 @@ namespace CustomerScene.Customers
         public void TryPlaceOrder()
         {
             _customersList.FisherYatesShuffle();
-            foreach (Customer customer in _customersList)
+            foreach (CustomerDifficulty customer in _customersList)
             {
-                if (customer.HasOrder)
+                if (customer.customer.HasOrder)
                     continue;
                 
-                customer.SetOrder(GenerateCustomerOrder());
+                customer.customer.SetOrder(GenerateCustomerOrder(customer.maxDifficulty));
                 break;
             }
         }
@@ -86,16 +93,16 @@ namespace CustomerScene.Customers
         private float GetHighestDifficulty() => availableFruits.Select(f => f.DifficultyRating).Max();
         private void AddToPicker(FruitSO fruit, float highestDifficulty) => _fruitPicker.Add(fruit, highestDifficulty - fruit.DifficultyRating / highestDifficulty);
 
-        public CustomerOrder GenerateCustomerOrder()
+        public CustomerOrder GenerateCustomerOrder(float localMaxDifficulty)
         {
-            SmoothieContent smoothieContent = GenerateRandomSmoothieContent();
+            SmoothieContent smoothieContent = GenerateRandomSmoothieContent(localMaxDifficulty);
             
             return new CustomerOrder.Builder(smoothieContent)
                 .WithTimeToPrepare(smoothieContent.FruitsInSmoothie.Keys.Sum(f => f.DifficultyRating) * timeToPrepareMultiplier + timeToPrepareBase)
                 .Build();
         }
 
-        private SmoothieContent GenerateRandomSmoothieContent()
+        private SmoothieContent GenerateRandomSmoothieContent(float localMaxDifficulty)
         {
             Dictionary<FruitSO, int> fruitsInSmoothie = new();
             SmoothieContent content = new(fruitsInSmoothie);
@@ -105,7 +112,7 @@ namespace CustomerScene.Customers
             for (int i = 0; i < maxFruitsInSmoothie; i++)
             {
                 float currentDifficulty = fruitsInSmoothie.Keys.Select(f => f.DifficultyRating).Sum();
-                if (currentDifficulty >= maxDifficulty)
+                if (currentDifficulty >= localMaxDifficulty)
                     break;
 
                 FruitSO pick;
@@ -114,7 +121,7 @@ namespace CustomerScene.Customers
                     pick = _fruitPicker.Pick();
                     _fruitPicker.Remove(pick);
                     pickedFruits.Add(pick);
-                } while (pick.DifficultyRating + currentDifficulty > maxDifficulty || _fruitPicker.Count == 0);
+                } while (pick.DifficultyRating + currentDifficulty > localMaxDifficulty || _fruitPicker.Count == 0);
 
                 fruitsInSmoothie.Add(pick, 1);
                 if (Random.Range(0f, 1f) > chanceForNextFruit)

@@ -23,12 +23,6 @@ public class OrderUI : MonoBehaviour
     }
 
     [Button]
-    private void PlaceOrder()
-    {
-        connectedCustomer.SetOrder(CustomerManager.Instance.GenerateCustomerOrder());
-    }
-
-    [Button]
     private void CancelOrder()
     {
         connectedCustomer.CancelOrder();

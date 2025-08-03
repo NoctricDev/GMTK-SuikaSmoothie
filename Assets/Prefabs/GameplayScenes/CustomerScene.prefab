@@ -166,15 +166,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d2756fbbc223e0a48a1b05961dfde3b1, type: 2}
   - {fileID: 11400000, guid: e807aead3ee5fa24faf698a9a6061007, type: 2}
   customers:
-  - {fileID: 743973497826446048}
-  - {fileID: 8759532490941845010}
-  - {fileID: 3001028252756958116}
-  - {fileID: 2576058624527622314}
+  - customer: {fileID: 743973497826446048}
+    maxDifficulty: 200
+  - customer: {fileID: 8759532490941845010}
+    maxDifficulty: 400
+  - customer: {fileID: 3001028252756958116}
+    maxDifficulty: 1000
+  - customer: {fileID: 2576058624527622314}
+    maxDifficulty: 2050
   playerMoney: {fileID: 11400000, guid: 3832b301a281266438c15afa53a51b07, type: 2}
-  timeToPrepareMultiplier: 2
-  timeToPrepareBase: 15
+  timeToPrepareMultiplier: 1.2
+  timeToPrepareBase: 30
   maxFruitsInSmoothie: 3
-  maxDifficulty: 2058
   customerOrderSpawnRate: {x: 1, y: 3}
   chanceForNextFruit: 0.2
 --- !u!1 &4839179680002586392
@@ -232,8 +235,7 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 5683735713495580819}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -244,13 +246,16 @@ MonoBehaviour:
       Data: 0|Scenes.IGameplaySceneObject[], Assembly-CSharp
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 3
     - Name: 
       Entry: 6
       Data: 
     - Name: 
-      Entry: 10
-      Data: 0
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 13
       Data: 
