@@ -19,6 +19,8 @@ namespace FruitBowlScene
         [SerializeField] private GameEventICarrieAble payloadDroppedGameEvent;
         [SerializeField] private Transform travelStartPoint;
         [SerializeField] private Transform travelEndPoint;
+        [SerializeField] private GameEventICarrieAble payloadGrabPickedUpGameEvent;
+        [SerializeField] private GameEventICarrieAble payloadGrabDroppedGameEvent;
         
         [Title("Settings")]
         [SerializeField] private LayerMask layerMask;
@@ -77,6 +79,7 @@ namespace FruitBowlScene
             }
             
             StartCarry(carrieAble);
+            payloadGrabPickedUpGameEvent?.RaiseEvent(this, carrieAble);
         }
 
         public void StartCarry(ICarrieAble carrieAble)
@@ -99,7 +102,7 @@ namespace FruitBowlScene
         {
             if (_activePayload == null || !_activePayloadGameObject)
                 return;
-            
+            payloadGrabDroppedGameEvent?.RaiseEvent(this, _activePayload);
             _cancellationTokenSource?.Cancel();
             _activePayload.OnStopCarry();
             _activePayload = null;
