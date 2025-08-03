@@ -448,7 +448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6911549544132448829, guid: 717ab23ee63e97e4f8b7640d9e59fbc8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8184
+      value: 0.8365
       objectReference: {fileID: 0}
     - target: {fileID: 6911549544132448829, guid: 717ab23ee63e97e4f8b7640d9e59fbc8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1936,9 +1936,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.1
+  near clip plane: 0.3
   far clip plane: 1000
-  field of view: 33.9
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1964,8 +1964,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132884389}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.31235114, y: -0.6185121, z: 0.2933059, w: 0.65867394}
-  m_LocalPosition: {x: 0.5788737, y: 1.51, z: -0.036442094}
+  m_LocalRotation: {x: -0.019289872, y: 0.9487812, z: -0.058681376, w: -0.30983657}
+  m_LocalPosition: {x: 1.6512605, y: 1.1331447, z: 1.4378452}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3652,6 +3652,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 884442871}
     m_Modifications:
+    - target: {fileID: 806764513222474771, guid: a3ef3106961eb674c910f20a29d8fb28, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6594638
+      objectReference: {fileID: 0}
+    - target: {fileID: 806764513222474771, guid: a3ef3106961eb674c910f20a29d8fb28, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.31067997
+      objectReference: {fileID: 0}
+    - target: {fileID: 806764513222474771, guid: a3ef3106961eb674c910f20a29d8fb28, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6192538
+      objectReference: {fileID: 0}
+    - target: {fileID: 806764513222474771, guid: a3ef3106961eb674c910f20a29d8fb28, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.29173663
+      objectReference: {fileID: 0}
     - target: {fileID: 2932644345571723427, guid: a3ef3106961eb674c910f20a29d8fb28, type: 3}
       propertyPath: m_Name
       value: BowlScene
@@ -3752,6 +3768,10 @@ PrefabInstance:
       propertyPath: 'serializationData.PrefabModificationsReferencedUnityObjects.Array.data[4]'
       value: 
       objectReference: {fileID: 970646950}
+    - target: {fileID: 7005068485747725382, guid: a3ef3106961eb674c910f20a29d8fb28, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8251
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
