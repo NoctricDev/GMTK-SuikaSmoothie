@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5213437046920537188, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: meshRenderer.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5213437046920537188, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: 'meshRenderer.Array.data[0]'
@@ -67,7 +67,7 @@ PrefabInstance:
     - target: {fileID: 5213437046920537188, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: 'meshRenderer.Array.data[1]'
       value: 
-      objectReference: {fileID: 5537793656442898216}
+      objectReference: {fileID: 3018471264585947951}
     - target: {fileID: 8259204642388231367, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -190,10 +190,5 @@ MeshRenderer:
 --- !u!4 &4842367500491872122 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8111043009506354617, guid: 367a13e4efe5dae4b938865e4e70c348, type: 3}
-  m_PrefabInstance: {fileID: 3721025737054778051}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &5537793656442898216 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 9185527723245483499, guid: 367a13e4efe5dae4b938865e4e70c348, type: 3}
   m_PrefabInstance: {fileID: 3721025737054778051}
   m_PrefabAsset: {fileID: 0}

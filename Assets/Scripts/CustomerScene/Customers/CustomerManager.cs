@@ -20,7 +20,9 @@ namespace CustomerScene.Customers
         [SerializeField] private IntVariable playerMoney;
 
         [Title("Settings")] 
-        [SerializeField, InfoBox("Smoothie difficulty * this = TimeToPrepare")] private float timeToPrepareMultiplier = 2f;
+        [SerializeField, InfoBox("Smoothie difficulty * this + timeToPrepareBase = TimeToPrepare")] private float timeToPrepareMultiplier = 2f;
+
+        [SerializeField] private float timeToPrepareBase = 10f;
         [SerializeField] private int maxFruitsInSmoothie = 3;
         [SerializeField] private int maxDifficulty;
         [SerializeField, InfoBox("This settings checks every Random(X,Y) seconds, if a order can be placed")] private Vector2 customerOrderSpawnRate = new(1f, 3f);
@@ -82,14 +84,14 @@ namespace CustomerScene.Customers
         }
 
         private float GetHighestDifficulty() => availableFruits.Select(f => f.DifficultyRating).Max();
-        private void AddToPicker(FruitSO fruit, float highestDifficulty) => _fruitPicker.Add(fruit, fruit.DifficultyRating / highestDifficulty);
+        private void AddToPicker(FruitSO fruit, float highestDifficulty) => _fruitPicker.Add(fruit, highestDifficulty - fruit.DifficultyRating / highestDifficulty);
 
         public CustomerOrder GenerateCustomerOrder()
         {
             SmoothieContent smoothieContent = GenerateRandomSmoothieContent();
             
             return new CustomerOrder.Builder(smoothieContent)
-                .WithTimeToPrepare(smoothieContent.FruitsInSmoothie.Keys.Sum(f => f.DifficultyRating) * timeToPrepareMultiplier + 10)
+                .WithTimeToPrepare(smoothieContent.FruitsInSmoothie.Keys.Sum(f => f.DifficultyRating) * timeToPrepareMultiplier + timeToPrepareBase)
                 .Build();
         }
 

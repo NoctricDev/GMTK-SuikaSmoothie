@@ -34,15 +34,13 @@ namespace CustomerScene.Customers
 
         public void Update()
         {
-            if(HasOrder && _orderTimer != null)
-            {
-                _orderTimer.Tick(Time.deltaTime);
-                if (_orderTimer == null)
-                    return;
-                float remaining = (float)_orderTimer.RemainingTime.TotalSeconds;
-                remaining = remaining.IntervalRemap(0, (float)_orderTimer.StartTime.TotalSeconds, 0, 1);
-                OrderTimeUpdatedEvent?.Invoke(remaining);
-            }
+            if (!HasOrder || _orderTimer == null) 
+                return;
+            _orderTimer.Tick(Time.deltaTime);
+            
+            float remaining = (float)_orderTimer.RemainingTime.TotalSeconds;
+            remaining = remaining.IntervalRemap(0, (float)_orderTimer.StartTime.TotalSeconds, 0, 1);
+            OrderTimeUpdatedEvent?.Invoke(remaining);
         }
 
         private void OnSlotContentChanged([CanBeNull] ICarrieAble slotObject)
@@ -52,8 +50,7 @@ namespace CustomerScene.Customers
 
             slot.IsLocked = true;
             ProcessOrder(glass);
-            slot.IsLocked = false;
-            Destroy(slot.RemoveSlot().GetAttachedGameObject());
+
         }
 
         private void ProcessOrder(Glass glass)
@@ -73,6 +70,8 @@ namespace CustomerScene.Customers
             {
                 OrderFailedEvent?.Invoke(_currentOrder);
             }
+            
+            ResetCustomer();
         }
 
         public void SetOrder(CustomerOrder order)
@@ -99,9 +98,17 @@ namespace CustomerScene.Customers
         {
             if (!HasOrder)
                 return;
-            _orderTimer = null;
-            HasOrder = false;
+            ResetCustomer();
             OrderCancelledEvent?.Invoke(_currentOrder);
+        }
+
+        private void ResetCustomer()
+        {
+            HasOrder = false;
+            _orderTimer = null;
+            slot.IsLocked = false;
+            if(slot.HasPayload)
+                Destroy(slot.RemoveSlot().GetAttachedGameObject());
         }
     }
 }

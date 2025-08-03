@@ -24,6 +24,8 @@ namespace CustomerScene
 
         [Title("Settings")]
         [SerializeField, ValueDropdown(nameof(GetInteractionTags))] private string[] interactionTags;
+
+        [SerializeField] private float additionalInteractionDistance;
         private string[] GetInteractionTags() => TagHelper.GetTags();
         [SerializeField] private float interactionRadius;
         [SerializeField] private LayerMask layerMask;
@@ -61,6 +63,7 @@ namespace CustomerScene
             (Ray ray, float dist) rayInfo = GetMouseToWorldRay();
             
             Debug.DrawRay(rayInfo.ray.origin, rayInfo.ray.direction * rayInfo.dist, Color.green);
+            Debug.DrawRay(rayInfo.ray.origin + rayInfo.ray.direction * rayInfo.dist, rayInfo.ray.direction.normalized * additionalInteractionDistance, Color.blue);
 
             transform.position = rayInfo.ray.GetPoint(rayInfo.dist);
         }
@@ -72,7 +75,7 @@ namespace CustomerScene
 
             (Ray ray, float dist) rayInfo = GetMouseToWorldRay();
             if (!Physics.SphereCast(rayInfo.ray.origin, interactionRadius, rayInfo.ray.direction, out RaycastHit hit,
-                    rayInfo.dist, layerMask, QueryTriggerInteraction.Collide))
+                    rayInfo.dist + additionalInteractionDistance, layerMask, QueryTriggerInteraction.Collide))
                 return;
             
             if (!hit.transform.gameObject.EqualsOneOreMoreTags(interactionTags))
