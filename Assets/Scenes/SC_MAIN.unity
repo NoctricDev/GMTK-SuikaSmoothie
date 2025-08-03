@@ -1403,7 +1403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerVariable: {fileID: 11400000, guid: 224872450821ac444b794de2f146e97f, type: 2}
   timerUI: {fileID: 225398192}
-  timerduration: 10
+  timerduration: 600
 --- !u!4 &640108172
 Transform:
   m_ObjectHideFlags: 0
@@ -3140,7 +3140,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -32.1, y: 0}
+  m_AnchoredPosition: {x: -32.100098, y: 0}
   m_SizeDelta: {x: 326, y: 260}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1396917139
@@ -5123,9 +5123,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.02
+  near clip plane: 0.1
   far clip plane: 1000
-  field of view: 41.9
+  field of view: 33.9
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -5151,8 +5151,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132884389}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.112502195, y: -0.4235714, z: 0.053108014, w: 0.89727926}
-  m_LocalPosition: {x: 0.908, y: 1.173, z: -0.178}
+  m_LocalRotation: {x: 0.31067997, y: -0.6192538, z: 0.29173663, w: 0.6594638}
+  m_LocalPosition: {x: 0.5788737, y: 1.51, z: -0.036442094}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

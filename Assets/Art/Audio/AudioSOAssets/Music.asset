@@ -23,7 +23,7 @@ MonoBehaviour:
     playOnAwake: 0
     loop: 1
     priority: 128
-    volume: 1
+    volume: 0.4
     randomPitch: 0
     pitchRange: {x: 0, y: 0}
     defaultPitch: 1
