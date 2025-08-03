@@ -32,13 +32,13 @@ namespace Glasses
 
         private void SetFillContent(float time, float fillAmount, SmoothieContent content)
         {
-            _liquidMaterial.DOFloat(fillAmount, _fillID, time);
             if (content == null) 
                 return;
-            FruitSO firstFruit = content.FruitsInSmoothie?.Keys?.First() ?? null;
+            FruitSO firstFruit = content.FruitsInSmoothie?.Keys?.FirstOrDefault() ?? null;
             if (firstFruit == null)
                 return;
             
+            _liquidMaterial.DOFloat(fillAmount, _fillID, time);
             _liquidMaterial.SetColor(_topColorID, firstFruit.SmoothieTopColor);
             _liquidMaterial.SetColor(_sideColorID, firstFruit.SmoothieSideColor);
         }

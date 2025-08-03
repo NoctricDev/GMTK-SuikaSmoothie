@@ -1,14 +1,10 @@
 using System;
-using System.Collections.Generic;
 using Carry;
-using Fruits;
 using Glasses;
 using JetBrains.Annotations;
 using JohaToolkit.UnityEngine.Extensions;
 using JohaToolkit.UnityEngine.Timer;
-using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace CustomerScene.Customers
 {
