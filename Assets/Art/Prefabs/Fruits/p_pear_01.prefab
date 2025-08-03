@@ -76,6 +76,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6752904233108246993, guid: 3e9094532fe2b3144a4d7e4178ff91ff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d56f7107ba681a44e9fdadca09c5c224, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -4804553462031871169, guid: 3e9094532fe2b3144a4d7e4178ff91ff, type: 3}
@@ -97,7 +101,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3539539202065190343, guid: 5029c78589059e34c81bd4803fe837f3, type: 3}
       propertyPath: m_Name
-      value: p_pear_01 Variant
+      value: p_pear_01
       objectReference: {fileID: 0}
     - target: {fileID: 7222626044292931805, guid: 5029c78589059e34c81bd4803fe837f3, type: 3}
       propertyPath: m_LocalPosition.x
