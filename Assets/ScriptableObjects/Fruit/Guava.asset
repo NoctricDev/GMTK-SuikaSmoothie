@@ -17,3 +17,5 @@ MonoBehaviour:
   fruitIcon: {fileID: 21300000, guid: 5fa8f531d0d99d741aef712facf80d30, type: 3}
   difficultyRating: 8
   value: 8
+  _smoothieTopColor: {r: 0.513772, g: 1, b: 0, a: 1}
+  _smoothieSideColor: {r: 0.24439497, g: 0.8207547, b: 0, a: 1}
