@@ -55,6 +55,7 @@ namespace CustomerScene.Customers
         {
             if (glass.Content is not SmoothieContent content)
             {
+                ResetCustomer();
                 OrderFailedEvent?.Invoke(_currentOrder);
                 return;
             }
