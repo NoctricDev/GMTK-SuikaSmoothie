@@ -593,5 +593,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startButton: {fileID: 8614859574942223543}
-  startWithTimerButton: {fileID: 0}
+  startWithTimerButton: {fileID: 1989376670975586888}
   startGameplayScene: 2
