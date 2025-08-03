@@ -97,14 +97,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0652519565b9ed4f8ac4ae00999142e, type: 3}
---- !u!23 &4001476478256624345 stripped
+--- !u!23 &4264794859018138447 stripped
 MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 3872319598651451128, guid: c0652519565b9ed4f8ac4ae00999142e, type: 3}
-  m_PrefabInstance: {fileID: 159076858753061921}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &4777698566575493791 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 4645722530866661054, guid: c0652519565b9ed4f8ac4ae00999142e, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4114812158926530414, guid: c0652519565b9ed4f8ac4ae00999142e, type: 3}
   m_PrefabInstance: {fileID: 159076858753061921}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &5716748108431176480 stripped
@@ -170,16 +165,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5213437046920537188, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: meshRenderer.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5213437046920537188, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: 'meshRenderer.Array.data[0]'
       value: 
-      objectReference: {fileID: 4001476478256624345}
-    - target: {fileID: 5213437046920537188, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
-      propertyPath: 'meshRenderer.Array.data[1]'
-      value: 
-      objectReference: {fileID: 4777698566575493791}
+      objectReference: {fileID: 4264794859018138447}
     - target: {fileID: 5713328058650582091, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: m_Mass
       value: 7

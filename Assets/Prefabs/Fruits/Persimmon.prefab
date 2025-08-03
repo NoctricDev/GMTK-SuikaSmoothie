@@ -113,11 +113,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 474d478eca124dd4a9bcbaf83f263fe6, type: 3}
---- !u!23 &3126350164911709342 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 4049747708221281872, guid: 474d478eca124dd4a9bcbaf83f263fe6, type: 3}
-  m_PrefabInstance: {fileID: 1391787092802046670}
-  m_PrefabAsset: {fileID: 0}
 --- !u!23 &4289202902068914442 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2942769946789471172, guid: 474d478eca124dd4a9bcbaf83f263fe6, type: 3}
@@ -126,11 +121,6 @@ MeshRenderer:
 --- !u!4 &5844546047817726268 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4777018854048412658, guid: 474d478eca124dd4a9bcbaf83f263fe6, type: 3}
-  m_PrefabInstance: {fileID: 1391787092802046670}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &9013992997084334033 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 7946808404266355999, guid: 474d478eca124dd4a9bcbaf83f263fe6, type: 3}
   m_PrefabInstance: {fileID: 1391787092802046670}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7023464357482151617
@@ -191,16 +181,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5213437046920537188, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: meshRenderer.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5213437046920537188, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: 'meshRenderer.Array.data[0]'
       value: 
-      objectReference: {fileID: 9013992997084334033}
+      objectReference: {fileID: 4289202902068914442}
     - target: {fileID: 5213437046920537188, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: 'meshRenderer.Array.data[1]'
       value: 
-      objectReference: {fileID: 3126350164911709342}
+      objectReference: {fileID: 4289202902068914442}
     - target: {fileID: 5213437046920537188, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: 'meshRenderer.Array.data[2]'
       value: 

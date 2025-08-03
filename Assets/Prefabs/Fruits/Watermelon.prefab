@@ -97,11 +97,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d61b9606898c09447a060c83c9f68c65, type: 3}
---- !u!23 &500120943863016451 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 7626810354112196049, guid: d61b9606898c09447a060c83c9f68c65, type: 3}
-  m_PrefabInstance: {fileID: 8009395487022039506}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7871295069336798538 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 151824877300106392, guid: d61b9606898c09447a060c83c9f68c65, type: 3}
@@ -170,16 +165,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5213437046920537188, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: meshRenderer.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5213437046920537188, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: 'meshRenderer.Array.data[0]'
       value: 
       objectReference: {fileID: 8549608627383009105}
-    - target: {fileID: 5213437046920537188, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
-      propertyPath: 'meshRenderer.Array.data[1]'
-      value: 
-      objectReference: {fileID: 500120943863016451}
     - target: {fileID: 8259204642388231367, guid: 5834d719a733b0a4dad25790bbf6f841, type: 3}
       propertyPath: serializationData.Prefab
       value: 
