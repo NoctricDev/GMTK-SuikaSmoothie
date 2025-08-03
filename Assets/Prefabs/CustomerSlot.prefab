@@ -1255,7 +1255,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: GlassSlot
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7370398831714775779, guid: 325f881083dc0fa42b1e64b703bcfbf8, type: 3}
     m_RemovedGameObjects:
     - {fileID: 6734824274156654745, guid: 325f881083dc0fa42b1e64b703bcfbf8, type: 3}
     m_AddedGameObjects: []

@@ -12,4 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b787999b0f01467494e7a1cfcf98e245, type: 3}
   m_Name: OrderSuccessSound
   m_EditorClassIdentifier: 
-  soundData: []
+  soundData:
+  - tag: 
+    clip: {fileID: 8300000, guid: b367e2710ecb50b4fb306c8527d66162, type: 3}
+    output: {fileID: -1995491430363757941, guid: 5c3ea0c3a0be23f47a7967fa5cc39c18, type: 2}
+    isFrequentSound: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    randomPitch: 0
+    pitchRange: {x: 0, y: 0}
+    defaultPitch: 1
+    stereoPan: 0
+    reverbZoneMix: 1
