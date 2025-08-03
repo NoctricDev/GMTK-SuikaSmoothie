@@ -8,14 +8,16 @@ using UnityEngine.InputSystem;
 namespace Input
 {
     [CreateAssetMenu(fileName = "InputManagerSO", menuName = "Scriptable Objects/InputManagerSO")]
-    public class InputManagerSO : RuntimeScriptableObject, InputSystem_Actions.IBowlSceneActions, InputSystem_Actions.IMixerSceneActions, InputSystem_Actions.ICustomerSceneActions
+    public class InputManagerSO : RuntimeScriptableObject, 
+        InputSystem_Actions.IBowlSceneActions, InputSystem_Actions.IMixerSceneActions, InputSystem_Actions.ICustomerSceneActions, InputSystem_Actions.IGeneralActions
     {
         public static InputManagerSO Instance { get; private set; }
         public enum ActionMaps
         {
             BowlScene,
             MixerScene,
-            CustomerScene
+            CustomerScene,
+            General
         }
         
         private InputSystem_Actions _inputActions;
@@ -29,10 +31,11 @@ namespace Input
         public event Action<float> BowlSceneCameraMoveEvent;
         
         public event Action InteractPrimaryEvent;
-
-        public event Action InteractSecondaryEvent;
         
         public event Action<bool> SpawnFruitHotkeyEvent;
+
+        public event Action<bool> MoveSceneLeftEvent;
+        public event Action<bool> MoveSceneRightEvent;
         
         #endregion
         
@@ -50,10 +53,12 @@ namespace Input
             _inputActions.BowlScene.SetCallbacks(this);
             _inputActions.MixerScene.SetCallbacks(this);
             _inputActions.CustomerScene.SetCallbacks(this);
+            _inputActions.General.SetCallbacks(this);
             
             _inputActions.BowlScene.Disable();
             _inputActions.MixerScene.Disable();
             _inputActions.CustomerScene.Disable();
+            _inputActions.General.Disable();
         }
 
         private void OnDisable()
@@ -112,6 +117,7 @@ namespace Input
                 ActionMaps.BowlScene => _inputActions.BowlScene,
                 ActionMaps.MixerScene => _inputActions.MixerScene,
                 ActionMaps.CustomerScene => _inputActions.CustomerScene,
+                ActionMaps.General => _inputActions.General,
                 _ => throw new ArgumentOutOfRangeException(nameof(actionMap), actionMap, null)
             };
         }
@@ -127,18 +133,29 @@ namespace Input
                 InteractPrimaryEvent?.Invoke();
         }
 
-        public void OnInteractSecondary(InputAction.CallbackContext context)
-        {
-            if(context.performed)
-                InteractSecondaryEvent?.Invoke();
-        }
-
         public void OnSpawnFruitHotkey(InputAction.CallbackContext context)
         {
             if(context.started)
                 SpawnFruitHotkeyEvent?.Invoke(true);
             else if(context.canceled)
                 SpawnFruitHotkeyEvent?.Invoke(false);
+        }
+
+        public void OnMoveLeftScene(InputAction.CallbackContext context)
+        {
+            if(context.started) 
+                MoveSceneLeftEvent?.Invoke(true);
+            else if(context.canceled)
+                MoveSceneLeftEvent?.Invoke(false);
+                
+        }
+
+        public void OnMoveRightScene(InputAction.CallbackContext context)
+        {
+            if(context.started) 
+                MoveSceneRightEvent?.Invoke(true);
+            else if(context.canceled)
+                MoveSceneRightEvent?.Invoke(false);
         }
     }
 }

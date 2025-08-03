@@ -626,15 +626,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""InteractSecondary"",
-                    ""type"": ""Button"",
-                    ""id"": ""4778e61b-0e4b-42d6-9cf8-1af9fb9ff0cb"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""SpawnFruitHotkey"",
                     ""type"": ""Button"",
                     ""id"": ""ebf367d5-18e7-4e9a-b01a-f4f8236c26ad"",
@@ -691,19 +682,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""7b1a4959-bf3a-4854-a1b4-505d825f2c42"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""InteractSecondary"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""6f6c98f1-a4f9-4efc-9f2d-828a83d556f0"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
@@ -816,6 +796,54 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""General"",
+            ""id"": ""5f34e34c-6e84-4aae-9a23-8807099b0438"",
+            ""actions"": [
+                {
+                    ""name"": ""MoveLeftScene"",
+                    ""type"": ""Button"",
+                    ""id"": ""fb898ecc-dbfe-4736-aff4-f7430608babf"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MoveRightScene"",
+                    ""type"": ""Button"",
+                    ""id"": ""81259b3d-853f-4f23-b8ab-4bf82333195b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a1abd6f3-f50f-4d5b-9adc-4c3d19b71088"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""MoveLeftScene"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ceabb9a3-4a72-409a-83c8-60a133f93c02"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveRightScene"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -897,7 +925,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_BowlScene = asset.FindActionMap("BowlScene", throwIfNotFound: true);
         m_BowlScene_MoveCamera = m_BowlScene.FindAction("MoveCamera", throwIfNotFound: true);
         m_BowlScene_InteractPrimary = m_BowlScene.FindAction("InteractPrimary", throwIfNotFound: true);
-        m_BowlScene_InteractSecondary = m_BowlScene.FindAction("InteractSecondary", throwIfNotFound: true);
         m_BowlScene_SpawnFruitHotkey = m_BowlScene.FindAction("SpawnFruitHotkey", throwIfNotFound: true);
         // Cheats
         m_Cheats = asset.FindActionMap("Cheats", throwIfNotFound: true);
@@ -909,6 +936,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         // CustomerScene
         m_CustomerScene = asset.FindActionMap("CustomerScene", throwIfNotFound: true);
         m_CustomerScene_InteractPrimary = m_CustomerScene.FindAction("InteractPrimary", throwIfNotFound: true);
+        // General
+        m_General = asset.FindActionMap("General", throwIfNotFound: true);
+        m_General_MoveLeftScene = m_General.FindAction("MoveLeftScene", throwIfNotFound: true);
+        m_General_MoveRightScene = m_General.FindAction("MoveRightScene", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -918,6 +949,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         UnityEngine.Debug.Assert(!m_Cheats.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Cheats.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_MixerScene.enabled, "This will cause a leak and performance issues, InputSystem_Actions.MixerScene.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_CustomerScene.enabled, "This will cause a leak and performance issues, InputSystem_Actions.CustomerScene.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_General.enabled, "This will cause a leak and performance issues, InputSystem_Actions.General.Disable() has not been called.");
     }
 
     /// <summary>
@@ -1190,7 +1222,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private List<IBowlSceneActions> m_BowlSceneActionsCallbackInterfaces = new List<IBowlSceneActions>();
     private readonly InputAction m_BowlScene_MoveCamera;
     private readonly InputAction m_BowlScene_InteractPrimary;
-    private readonly InputAction m_BowlScene_InteractSecondary;
     private readonly InputAction m_BowlScene_SpawnFruitHotkey;
     /// <summary>
     /// Provides access to input actions defined in input action map "BowlScene".
@@ -1211,10 +1242,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "BowlScene/InteractPrimary".
         /// </summary>
         public InputAction @InteractPrimary => m_Wrapper.m_BowlScene_InteractPrimary;
-        /// <summary>
-        /// Provides access to the underlying input action "BowlScene/InteractSecondary".
-        /// </summary>
-        public InputAction @InteractSecondary => m_Wrapper.m_BowlScene_InteractSecondary;
         /// <summary>
         /// Provides access to the underlying input action "BowlScene/SpawnFruitHotkey".
         /// </summary>
@@ -1251,9 +1278,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @InteractPrimary.started += instance.OnInteractPrimary;
             @InteractPrimary.performed += instance.OnInteractPrimary;
             @InteractPrimary.canceled += instance.OnInteractPrimary;
-            @InteractSecondary.started += instance.OnInteractSecondary;
-            @InteractSecondary.performed += instance.OnInteractSecondary;
-            @InteractSecondary.canceled += instance.OnInteractSecondary;
             @SpawnFruitHotkey.started += instance.OnSpawnFruitHotkey;
             @SpawnFruitHotkey.performed += instance.OnSpawnFruitHotkey;
             @SpawnFruitHotkey.canceled += instance.OnSpawnFruitHotkey;
@@ -1274,9 +1298,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @InteractPrimary.started -= instance.OnInteractPrimary;
             @InteractPrimary.performed -= instance.OnInteractPrimary;
             @InteractPrimary.canceled -= instance.OnInteractPrimary;
-            @InteractSecondary.started -= instance.OnInteractSecondary;
-            @InteractSecondary.performed -= instance.OnInteractSecondary;
-            @InteractSecondary.canceled -= instance.OnInteractSecondary;
             @SpawnFruitHotkey.started -= instance.OnSpawnFruitHotkey;
             @SpawnFruitHotkey.performed -= instance.OnSpawnFruitHotkey;
             @SpawnFruitHotkey.canceled -= instance.OnSpawnFruitHotkey;
@@ -1612,6 +1633,113 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="CustomerSceneActions" /> instance referencing this action map.
     /// </summary>
     public CustomerSceneActions @CustomerScene => new CustomerSceneActions(this);
+
+    // General
+    private readonly InputActionMap m_General;
+    private List<IGeneralActions> m_GeneralActionsCallbackInterfaces = new List<IGeneralActions>();
+    private readonly InputAction m_General_MoveLeftScene;
+    private readonly InputAction m_General_MoveRightScene;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "General".
+    /// </summary>
+    public struct GeneralActions
+    {
+        private @InputSystem_Actions m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public GeneralActions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "General/MoveLeftScene".
+        /// </summary>
+        public InputAction @MoveLeftScene => m_Wrapper.m_General_MoveLeftScene;
+        /// <summary>
+        /// Provides access to the underlying input action "General/MoveRightScene".
+        /// </summary>
+        public InputAction @MoveRightScene => m_Wrapper.m_General_MoveRightScene;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_General; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="GeneralActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(GeneralActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="GeneralActions" />
+        public void AddCallbacks(IGeneralActions instance)
+        {
+            if (instance == null || m_Wrapper.m_GeneralActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_GeneralActionsCallbackInterfaces.Add(instance);
+            @MoveLeftScene.started += instance.OnMoveLeftScene;
+            @MoveLeftScene.performed += instance.OnMoveLeftScene;
+            @MoveLeftScene.canceled += instance.OnMoveLeftScene;
+            @MoveRightScene.started += instance.OnMoveRightScene;
+            @MoveRightScene.performed += instance.OnMoveRightScene;
+            @MoveRightScene.canceled += instance.OnMoveRightScene;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="GeneralActions" />
+        private void UnregisterCallbacks(IGeneralActions instance)
+        {
+            @MoveLeftScene.started -= instance.OnMoveLeftScene;
+            @MoveLeftScene.performed -= instance.OnMoveLeftScene;
+            @MoveLeftScene.canceled -= instance.OnMoveLeftScene;
+            @MoveRightScene.started -= instance.OnMoveRightScene;
+            @MoveRightScene.performed -= instance.OnMoveRightScene;
+            @MoveRightScene.canceled -= instance.OnMoveRightScene;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="GeneralActions.UnregisterCallbacks(IGeneralActions)" />.
+        /// </summary>
+        /// <seealso cref="GeneralActions.UnregisterCallbacks(IGeneralActions)" />
+        public void RemoveCallbacks(IGeneralActions instance)
+        {
+            if (m_Wrapper.m_GeneralActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="GeneralActions.AddCallbacks(IGeneralActions)" />
+        /// <seealso cref="GeneralActions.RemoveCallbacks(IGeneralActions)" />
+        /// <seealso cref="GeneralActions.UnregisterCallbacks(IGeneralActions)" />
+        public void SetCallbacks(IGeneralActions instance)
+        {
+            foreach (var item in m_Wrapper.m_GeneralActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_GeneralActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="GeneralActions" /> instance referencing this action map.
+    /// </summary>
+    public GeneralActions @General => new GeneralActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -1777,13 +1905,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteractPrimary(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "InteractSecondary" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnInteractSecondary(InputAction.CallbackContext context);
-        /// <summary>
         /// Method invoked when associated input action "SpawnFruitHotkey" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
@@ -1842,5 +1963,27 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteractPrimary(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "General" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="GeneralActions.AddCallbacks(IGeneralActions)" />
+    /// <seealso cref="GeneralActions.RemoveCallbacks(IGeneralActions)" />
+    public interface IGeneralActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "MoveLeftScene" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMoveLeftScene(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "MoveRightScene" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMoveRightScene(InputAction.CallbackContext context);
     }
 }

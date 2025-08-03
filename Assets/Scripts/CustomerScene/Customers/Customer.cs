@@ -38,9 +38,7 @@ namespace CustomerScene.Customers
                 return;
             _orderTimer.Tick(Time.deltaTime);
             
-            float remaining = (float)_orderTimer.RemainingTime.TotalSeconds;
-            remaining = remaining.IntervalRemap(0, (float)_orderTimer.StartTime.TotalSeconds, 0, 1);
-            OrderTimeUpdatedEvent?.Invoke(remaining);
+            OrderTimeUpdatedEvent?.Invoke(_orderTimer?.Progress ?? 0);
         }
 
         private void OnSlotContentChanged([CanBeNull] ICarrieAble slotObject)

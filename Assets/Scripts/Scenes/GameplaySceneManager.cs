@@ -1,7 +1,9 @@
 #nullable enable
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using JohaToolkit.UnityEngine.DataStructures;
+using JohaToolkit.UnityEngine.Extensions;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -23,6 +25,7 @@ namespace Scenes
         public event Action<bool> CurrentSceneChangedEvent = null!;
         
         public IGameplayScene? CurrentScene { get; private set; }
+        public GameplayScenes CurrentSceneName => CurrentScene?.Scene ?? GameplayScenes[0].Scene;
 
         public bool IsLoadingScene { get; private set; }
         
@@ -70,8 +73,8 @@ namespace Scenes
             CurrentScene = scene;
             CurrentScene.LoadStart(sceneTransitionDuration);
             CurrentSceneChangedEvent?.Invoke(false);
-            
-            await Awaitable.WaitForSecondsAsync(sceneTransitionDuration);
+
+            await Task.Delay(sceneTransitionDuration.Seconds());
             
             CurrentScene.LoadEnd();
             CurrentSceneChangedEvent?.Invoke(true);

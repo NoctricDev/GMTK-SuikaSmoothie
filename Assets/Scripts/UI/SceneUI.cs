@@ -24,7 +24,7 @@ namespace UI
             canvasGroup.DOKill();
             canvasGroup.alpha = 0;
             gameObject.SetActive(true);
-            canvasGroup.DOFade(1, fadeDuration);
+            canvasGroup.DOFade(1, fadeDuration).SetUpdate(true);
         }
 
         public void Unload()

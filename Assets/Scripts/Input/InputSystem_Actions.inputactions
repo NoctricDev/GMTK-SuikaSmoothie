@@ -540,15 +540,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "InteractSecondary",
-                    "type": "Button",
-                    "id": "4778e61b-0e4b-42d6-9cf8-1af9fb9ff0cb",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "SpawnFruitHotkey",
                     "type": "Button",
                     "id": "ebf367d5-18e7-4e9a-b01a-f4f8236c26ad",
@@ -605,19 +596,8 @@
                 },
                 {
                     "name": "",
-                    "id": "7b1a4959-bf3a-4854-a1b4-505d825f2c42",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "InteractSecondary",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "6f6c98f1-a4f9-4efc-9f2d-828a83d556f0",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -726,6 +706,54 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "InteractPrimary",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "General",
+            "id": "5f34e34c-6e84-4aae-9a23-8807099b0438",
+            "actions": [
+                {
+                    "name": "MoveLeftScene",
+                    "type": "Button",
+                    "id": "fb898ecc-dbfe-4736-aff4-f7430608babf",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MoveRightScene",
+                    "type": "Button",
+                    "id": "81259b3d-853f-4f23-b8ab-4bf82333195b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a1abd6f3-f50f-4d5b-9adc-4c3d19b71088",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "MoveLeftScene",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ceabb9a3-4a72-409a-83c8-60a133f93c02",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveRightScene",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -4,7 +4,8 @@ namespace Scenes
     {
         Bowl,
         Mixer,
-        Customer
+        Customer,
+        MainMenu
     }
     public interface IGameplayScene
     {

@@ -32,15 +32,7 @@ namespace UI
 
         private void OnSpawnFruitHotkeyPressed(bool started)
         {
-            if(started)
-                ExecuteEvents.Execute(spawnButton.gameObject, new PointerEventData(EventSystem.current), ExecuteEvents.pointerDownHandler);
-            else
-            {
-                ExecuteEvents.Execute(spawnButton.gameObject, new PointerEventData(EventSystem.current),
-                    ExecuteEvents.pointerClickHandler);
-                ExecuteEvents.Execute(spawnButton.gameObject, new PointerEventData(EventSystem.current),
-                    ExecuteEvents.pointerUpHandler);
-            }
+            MoveSceneHotKey.PressButton(started, spawnButton);
         }
 
         private void Start()
