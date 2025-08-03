@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6390262691559799952, guid: 67efa3a66c301bf4a9ae5de66b734896, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8298d04ec9405ac419898f75135a45f8, type: 2}
     - target: {fileID: 919132149155446097, guid: 67efa3a66c301bf4a9ae5de66b734896, type: 3}
       propertyPath: m_Name
       value: SM_fruitTray_01
@@ -73,7 +77,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3539539202065190343, guid: ad80d35a47754e7448dec326abf847e3, type: 3}
       propertyPath: m_Name
-      value: p_fruitTray_01 Variant
+      value: p_fruitTray_01
       objectReference: {fileID: 0}
     - target: {fileID: 7222626044292931805, guid: ad80d35a47754e7448dec326abf847e3, type: 3}
       propertyPath: m_LocalPosition.x
