@@ -4,6 +4,7 @@ using System.Linq;
 using CSharpTools.Randomization;
 using Fruits;
 using Glasses;
+using JohaToolkit.UnityEngine.Audio;
 using JohaToolkit.UnityEngine.DataStructures;
 using JohaToolkit.UnityEngine.Extensions;
 using JohaToolkit.UnityEngine.ScriptableObjects.Variables;
@@ -26,6 +27,7 @@ namespace CustomerScene.Customers
         [SerializeField] private CustomerDifficulty[] customers;
         private List<CustomerDifficulty> _customersList;
         [SerializeField] private IntVariable playerMoney;
+        [SerializeField] private SoundDataAsset orderSuccessSound;
 
         [Title("Settings")] 
         [SerializeField, InfoBox("Smoothie difficulty * this + timeToPrepareBase = TimeToPrepare")] private float timeToPrepareMultiplier = 2f;
@@ -62,6 +64,7 @@ namespace CustomerScene.Customers
         {
             if (orderEvaluation.IsAccepted)
             {
+                SoundManager.Instance.Play(orderSuccessSound);
                 playerMoney.Value += orderEvaluation.PricePaid;
             }
         }

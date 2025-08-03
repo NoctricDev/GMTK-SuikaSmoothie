@@ -6,6 +6,7 @@ using Glasses;
 using JetBrains.Annotations;
 using JohaToolkit.UnityEngine.Extensions;
 using JohaToolkit.UnityEngine.Timer;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -26,7 +27,9 @@ namespace CustomerScene.Customers
 
         private CountdownTimer _orderTimer;
 
-
+        public event Action CustomerArrivedEvent;
+        public event Action CustomerLeaveEvent;
+        
         private void Start()
         {
             slot.SlotContentChangedEvent += OnSlotContentChanged;
@@ -77,7 +80,7 @@ namespace CustomerScene.Customers
         {
             if (HasOrder)
                 return;
-            
+            CustomerArrivedEvent?.Invoke();
             _currentOrder = order;
             HasOrder = true;
             if(order.TimeToPrepare > 0)
@@ -103,6 +106,8 @@ namespace CustomerScene.Customers
 
         private void ResetCustomer()
         {
+            if(HasOrder)
+                CustomerLeaveEvent?.Invoke();
             HasOrder = false;
             _orderTimer = null;
             slot.IsLocked = false;

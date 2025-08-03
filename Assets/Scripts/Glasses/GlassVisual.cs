@@ -40,7 +40,7 @@ namespace Glasses
                 return;
             
             _liquidMaterial.SetColor(_topColorID, firstFruit.SmoothieTopColor);
-            _liquidMaterial.SetColor(_topColorID, firstFruit.SmoothieSideColor);
+            _liquidMaterial.SetColor(_sideColorID, firstFruit.SmoothieSideColor);
         }
     }
 }
