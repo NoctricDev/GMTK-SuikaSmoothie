@@ -14,9 +14,9 @@ namespace Scenes
 
         public List<IGameplayScene> GameplayScenes { get; private set; } = new();
 
-        [SerializeField, Required] private GameObject startScene = null!;
         
-        [Header("Gameplay Scene Manager Settings")]
+        [Title("Gameplay Scene Manager Settings")]
+        [SerializeField, Required] private GameplayScenes startScene;
         [SerializeField] private float sceneTransitionDuration = 1f;
 
 
@@ -43,7 +43,7 @@ namespace Scenes
 
         private void Start()
         {
-            LoadGameplayScene(startScene.GetComponent<IGameplayScene>().Scene);
+            LoadGameplayScene(startScene);
         }
 
         public void LoadGameplayScene(GameplayScenes scene)

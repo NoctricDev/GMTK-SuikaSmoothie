@@ -15,3 +15,5 @@ MonoBehaviour:
   fruitType: 11
   fruitPrefab: {fileID: 1055352932052212924, guid: 6178ab53012f54b4c9ad1d4bbbddd546, type: 3}
   fruitIcon: {fileID: 21300000, guid: e3a6b14bf2a7dd94e9b63c66b2609225, type: 3}
+  difficultyRating: 2048
+  value: 2048

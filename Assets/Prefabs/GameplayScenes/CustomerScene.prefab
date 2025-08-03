@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4700985970130341769
 Transform:
   m_ObjectHideFlags: 0
@@ -83,6 +83,7 @@ MonoBehaviour:
   PayloadDroppedGameEvent: {fileID: 11400000, guid: 065acfabc7dc9dd41a0ed533db39c7e5, type: 2}
   interactionTags:
   - GlassSlot
+  additionalInteractionDistance: 0.4
   interactionRadius: 0.02
   layerMask:
     serializedVersion: 2
@@ -171,8 +172,9 @@ MonoBehaviour:
   - {fileID: 2576058624527622314}
   playerMoney: {fileID: 11400000, guid: 3832b301a281266438c15afa53a51b07, type: 2}
   timeToPrepareMultiplier: 2
+  timeToPrepareBase: 15
   maxFruitsInSmoothie: 3
-  maxDifficulty: 10
+  maxDifficulty: 2058
   customerOrderSpawnRate: {x: 1, y: 3}
   chanceForNextFruit: 0.2
 --- !u!1 &4839179680002586392
@@ -344,15 +346,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 259197091421067636, guid: 43026f572dc218644a6007d1409c4bbb, type: 3}
       propertyPath: m_Size.z
-      value: 0.3010847
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 259197091421067636, guid: 43026f572dc218644a6007d1409c4bbb, type: 3}
       propertyPath: m_Center.y
-      value: 0.060000002
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 259197091421067636, guid: 43026f572dc218644a6007d1409c4bbb, type: 3}
       propertyPath: m_Center.z
-      value: -0.10054234
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 460015085576944372, guid: 43026f572dc218644a6007d1409c4bbb, type: 3}
       propertyPath: m_AnchorMax.y
@@ -549,15 +551,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 259197091421067636, guid: 43026f572dc218644a6007d1409c4bbb, type: 3}
       propertyPath: m_Size.z
-      value: 0.25322217
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 259197091421067636, guid: 43026f572dc218644a6007d1409c4bbb, type: 3}
       propertyPath: m_Center.y
-      value: 0.060000002
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 259197091421067636, guid: 43026f572dc218644a6007d1409c4bbb, type: 3}
       propertyPath: m_Center.z
-      value: -0.07661107
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 460015085576944372, guid: 43026f572dc218644a6007d1409c4bbb, type: 3}
       propertyPath: m_AnchorMax.y
@@ -754,15 +756,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 259197091421067636, guid: 43026f572dc218644a6007d1409c4bbb, type: 3}
       propertyPath: m_Size.z
-      value: 0.30323035
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 259197091421067636, guid: 43026f572dc218644a6007d1409c4bbb, type: 3}
       propertyPath: m_Center.y
-      value: 0.060000002
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 259197091421067636, guid: 43026f572dc218644a6007d1409c4bbb, type: 3}
       propertyPath: m_Center.z
-      value: -0.10161516
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 460015085576944372, guid: 43026f572dc218644a6007d1409c4bbb, type: 3}
       propertyPath: m_AnchorMax.y
@@ -963,15 +965,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 259197091421067636, guid: 43026f572dc218644a6007d1409c4bbb, type: 3}
       propertyPath: m_Size.z
-      value: 0.3095582
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 259197091421067636, guid: 43026f572dc218644a6007d1409c4bbb, type: 3}
       propertyPath: m_Center.y
-      value: 0.060000002
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 259197091421067636, guid: 43026f572dc218644a6007d1409c4bbb, type: 3}
       propertyPath: m_Center.z
-      value: -0.104779094
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 460015085576944372, guid: 43026f572dc218644a6007d1409c4bbb, type: 3}
       propertyPath: m_AnchorMax.y

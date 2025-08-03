@@ -792,6 +792,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3498583663351810966, guid: 325f881083dc0fa42b1e64b703bcfbf8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3498583663351810966, guid: 325f881083dc0fa42b1e64b703bcfbf8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4797335058472658522, guid: 325f881083dc0fa42b1e64b703bcfbf8, type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4797335058472658522, guid: 325f881083dc0fa42b1e64b703bcfbf8, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4797335058472658522, guid: 325f881083dc0fa42b1e64b703bcfbf8, type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8958909045544769148, guid: 325f881083dc0fa42b1e64b703bcfbf8, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.12021
@@ -813,7 +833,8 @@ PrefabInstance:
       value: GlassSlot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6734824274156654745, guid: 325f881083dc0fa42b1e64b703bcfbf8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 325f881083dc0fa42b1e64b703bcfbf8, type: 3}
