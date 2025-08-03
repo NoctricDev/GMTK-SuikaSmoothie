@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4431310042545035036, guid: 7a581de07cfc96b4f9408643ddda8b11, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5a673a9a0435bbf4c93c31c6612d5a64, type: 2}
     - target: {fileID: 919132149155446097, guid: 7a581de07cfc96b4f9408643ddda8b11, type: 3}
       propertyPath: m_Name
       value: SM_pineapple_01
@@ -74,7 +78,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3539539202065190343, guid: 5029c78589059e34c81bd4803fe837f3, type: 3}
       propertyPath: m_Name
-      value: p_prefabBaseFruit_01 Variant
+      value: p_pineapple_01
       objectReference: {fileID: 0}
     - target: {fileID: 7222626044292931805, guid: 5029c78589059e34c81bd4803fe837f3, type: 3}
       propertyPath: m_LocalPosition.x
