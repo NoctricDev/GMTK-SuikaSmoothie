@@ -46,6 +46,7 @@ namespace Scenes
 
         private void Start()
         {
+            Application.targetFrameRate = 144;
             LoadGameplayScene(startScene);
         }
 
