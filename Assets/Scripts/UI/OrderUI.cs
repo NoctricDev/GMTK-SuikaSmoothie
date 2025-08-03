@@ -12,7 +12,7 @@ public class OrderUI : MonoBehaviour
     [SerializeField] private Image imagePrefab;
     [SerializeField] private Image orderTimerImage;
 
-    private void Start()
+    private void Awake()
     {
         connectedCustomer.OrderPlacedEvent += OnNewOrderPlaced;
         connectedCustomer.OrderCancelledEvent += (_) => HideGameObject();
