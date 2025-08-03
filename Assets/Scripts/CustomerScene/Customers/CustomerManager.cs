@@ -8,13 +8,14 @@ using JohaToolkit.UnityEngine.Audio;
 using JohaToolkit.UnityEngine.DataStructures;
 using JohaToolkit.UnityEngine.Extensions;
 using JohaToolkit.UnityEngine.ScriptableObjects.Variables;
+using Scenes;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace CustomerScene.Customers
 {
-    public class CustomerManager : MonoBehaviourSingleton<CustomerManager>
+    public class CustomerManager : MonoBehaviourSingleton<CustomerManager>, IGameplaySceneObject
     {
         [Serializable]
         private struct CustomerDifficulty
@@ -40,7 +41,8 @@ namespace CustomerScene.Customers
         private WeightedPicker<FruitSO> _fruitPicker;
         private float _timer;
         private float _nextOrderCheck;
-
+        private bool _hasInitialized;
+        
         protected override void Awake()
         {
             base.Awake();
@@ -58,6 +60,14 @@ namespace CustomerScene.Customers
             {
                 customer.customer.OrderCompletedEvent += OnOrderCompleted;
             }
+        }
+
+        public void LoadEnd()
+        {
+            if (_hasInitialized)
+                return;
+            _hasInitialized = true;
+            TryPlaceOrder();
         }
 
         private void OnOrderCompleted(OrderEvaluation orderEvaluation)

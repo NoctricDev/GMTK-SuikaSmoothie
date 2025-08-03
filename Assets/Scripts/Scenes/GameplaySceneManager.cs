@@ -1,6 +1,7 @@
 #nullable enable
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using JohaToolkit.UnityEngine.DataStructures;
 using JohaToolkit.UnityEngine.Extensions;
@@ -28,6 +29,8 @@ namespace Scenes
         public GameplayScenes CurrentSceneName => CurrentScene?.Scene ?? GameplayScenes[0].Scene;
 
         public bool IsLoadingScene { get; private set; }
+
+        private CancellationTokenSource _cts;
         
         protected override void Awake()
         {
@@ -50,13 +53,22 @@ namespace Scenes
             LoadGameplayScene(startScene);
         }
 
-        public void LoadGameplayScene(GameplayScenes scene)
+        public void LoadGameplayScene(GameplayScenes scene, bool force = false)
         {
+            if (force)
+            {
+                _cts?.Cancel();
+                IsLoadingScene = false;
+                CurrentScene?.Unload();
+            }
+            
             if (IsLoadingScene)
             {
                 Debug.Log("Already loading a scene!");
                 return;
             }
+
+            _cts = new CancellationTokenSource();
             IGameplayScene? sceneToLoad = GetScene(scene);
             if (sceneToLoad == null)
             {
@@ -75,8 +87,17 @@ namespace Scenes
             CurrentScene.LoadStart(sceneTransitionDuration);
             CurrentSceneChangedEvent?.Invoke(false);
 
-            await Task.Delay(sceneTransitionDuration.Seconds());
-            
+            try
+            {
+                await Task.Delay(sceneTransitionDuration.Seconds(), _cts.Token);
+            }
+            catch (OperationCanceledException)
+            {
+                return;
+            }
+
+            if (_cts.IsCancellationRequested)
+                return;
             CurrentScene.LoadEnd();
             CurrentSceneChangedEvent?.Invoke(true);
             

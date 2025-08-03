@@ -5,7 +5,7 @@ namespace Scenes
 {
     public class MainMenuScene : MonoBehaviour, IGameplaySceneObject
     {
-        public void LoadStart(float durationTime)
+        public void LoadStart(float durationTime, bool withTimer)
         {
             InputManagerSO.Instance.DisableActionMap(InputManagerSO.ActionMaps.General);
             Time.timeScale = 0;

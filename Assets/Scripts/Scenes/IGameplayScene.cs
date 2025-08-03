@@ -5,7 +5,8 @@ namespace Scenes
         Bowl,
         Mixer,
         Customer,
-        MainMenu
+        MainMenu,
+        TimerStopped,
     }
     public interface IGameplayScene
     {
