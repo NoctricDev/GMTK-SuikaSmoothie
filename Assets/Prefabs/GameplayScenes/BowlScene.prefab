@@ -310,7 +310,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073954094787874428}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.31235114, y: -0.6185121, z: 0.2933059, w: 0.65867394}
+  m_LocalRotation: {x: 0.31067997, y: -0.6192538, z: 0.29173663, w: 0.6594638}
   m_LocalPosition: {x: 0.5788737, y: 1.51, z: -0.036442094}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -549,7 +549,7 @@ MonoBehaviour:
       Data: 0|Scenes.IGameplaySceneObject[], Assembly-CSharp
     - Name: 
       Entry: 12
-      Data: 4
+      Data: 5
     - Name: 
       Entry: 10
       Data: 0
@@ -559,6 +559,9 @@ MonoBehaviour:
     - Name: 
       Entry: 10
       Data: 2
+    - Name: 
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 6
       Data: 
@@ -1047,6 +1050,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8c01b5de2e3552e4096dd10cbc8260ba, type: 2}
   fruitBowlMouse: {fileID: 8530832002701934530}
   dropHeight: {fileID: 11400000, guid: 8d7eeb8ffdfb76241a5183b82b01278f, type: 2}
+  coolDownTime: 0.2
 --- !u!1 &8677544230950005122
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,7 +1202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2446352656777894162, guid: f5b64ebc095ffa24c8869b0b9ee88526, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8178
+      value: 0.8251
       objectReference: {fileID: 0}
     - target: {fileID: 2446352656777894162, guid: f5b64ebc095ffa24c8869b0b9ee88526, type: 3}
       propertyPath: m_LocalPosition.z
