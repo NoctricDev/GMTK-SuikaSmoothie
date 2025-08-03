@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5707554320211424919}
   - component: {fileID: 5437001407273899764}
   - component: {fileID: 1031973740530288899}
+  - component: {fileID: 3072024349428013401}
   m_Layer: 7
   m_Name: CupPrefab
   m_TagString: Untagged
@@ -68,6 +69,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.06, y: 0.1, z: 0.06}
   m_Center: {x: 0, y: 0.05, z: 0}
+--- !u!114 &3072024349428013401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3804945829076237351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69292498cffd27e4a88ad572f14b0b74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glass: {fileID: 5437001407273899764}
+  liquidShader: {fileID: -6465566751694194690, guid: e86d70440dc27854bbbe7a959a309759, type: 3}
+  liquidRenderer: {fileID: 7750285662312565174}
 --- !u!1001 &7243582279005552481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79,6 +95,22 @@ PrefabInstance:
     - target: {fileID: 757146683223010993, guid: a7a1025542c29a345879ba7a67a88f75, type: 3}
       propertyPath: m_Name
       value: p_smoothieCup_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2252917843276254648, guid: a7a1025542c29a345879ba7a67a88f75, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2252917843276254648, guid: a7a1025542c29a345879ba7a67a88f75, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2252917843276254648, guid: a7a1025542c29a345879ba7a67a88f75, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2252917843276254648, guid: a7a1025542c29a345879ba7a67a88f75, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6891906962089673643, guid: a7a1025542c29a345879ba7a67a88f75, type: 3}
       propertyPath: m_LocalPosition.x
@@ -129,5 +161,10 @@ PrefabInstance:
 --- !u!4 &4261152269494729930 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6891906962089673643, guid: a7a1025542c29a345879ba7a67a88f75, type: 3}
+  m_PrefabInstance: {fileID: 7243582279005552481}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7750285662312565174 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1083348854637672151, guid: a7a1025542c29a345879ba7a67a88f75, type: 3}
   m_PrefabInstance: {fileID: 7243582279005552481}
   m_PrefabAsset: {fileID: 0}
