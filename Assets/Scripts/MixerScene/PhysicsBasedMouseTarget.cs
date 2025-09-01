@@ -29,6 +29,11 @@ namespace MixerScene
             GameplaySceneManager.Instance.CurrentSceneChangedEvent += OnCurrentSceneChanged;
             _startPosition = transform.position;
         }
+        
+        private void OnDisable()
+        {
+            GameplaySceneManager.Instance.CurrentSceneChangedEvent -= OnCurrentSceneChanged;
+        }
 
         private void OnCurrentSceneChanged(bool finished)
         {
