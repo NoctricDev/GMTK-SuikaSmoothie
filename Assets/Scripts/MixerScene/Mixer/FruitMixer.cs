@@ -29,6 +29,11 @@ namespace MixerScene.Mixer
 
         public void MixerButtonPressed()
         {
+            if (fruitCounter.FruitsObjectsInMixer.Count == 0)
+            {
+                Debug.Log("[Mixer] No fruits in mixer, cannot mix!");
+                return;
+            }
             Glass glassToFill = glassSlot.CurrentCarrieAble as Glass;
             if (glassToFill == null)
             {

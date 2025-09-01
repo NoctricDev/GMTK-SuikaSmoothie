@@ -1,4 +1,3 @@
-using System;
 using Carry;
 using Events;
 using FruitBowlScene;
