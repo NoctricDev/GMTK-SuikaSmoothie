@@ -6,7 +6,6 @@ namespace Fruits
         Strawberry,
         Plum,
         Guava,
-        Peach,
         Pear,
         Apple,
         Mango,

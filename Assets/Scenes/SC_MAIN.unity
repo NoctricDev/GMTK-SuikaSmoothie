@@ -7602,7 +7602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EventMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 63
   m_MaxRayIntersections: 0
 --- !u!1001 &648161539310011898
 PrefabInstance:
@@ -8285,6 +8285,42 @@ PrefabInstance:
       propertyPath: customerOrderSpawnRate.y
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4428568173353156466, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
+      propertyPath: availableFruits.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4428568173353156466, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
+      propertyPath: 'availableFruits.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: e9b84194e195d4c49a9e02652e59b632, type: 2}
+    - target: {fileID: 4428568173353156466, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
+      propertyPath: 'availableFruits.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 9431b051c06b7894da36bfe3c2409f0b, type: 2}
+    - target: {fileID: 4428568173353156466, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
+      propertyPath: 'availableFruits.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 19a1b802112468d40b85537a30d68c0d, type: 2}
+    - target: {fileID: 4428568173353156466, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
+      propertyPath: 'availableFruits.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 6cbd48855624c7444b08cb1f0fa23cd1, type: 2}
+    - target: {fileID: 4428568173353156466, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
+      propertyPath: 'availableFruits.Array.data[7]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 2f60ae5b8422add4fbbe89675e52397e, type: 2}
+    - target: {fileID: 4428568173353156466, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
+      propertyPath: 'availableFruits.Array.data[8]'
+      value: 
+      objectReference: {fileID: 11400000, guid: dd3b24f80f666f14ba572f903990921b, type: 2}
+    - target: {fileID: 4428568173353156466, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
+      propertyPath: 'availableFruits.Array.data[9]'
+      value: 
+      objectReference: {fileID: 11400000, guid: d2756fbbc223e0a48a1b05961dfde3b1, type: 2}
+    - target: {fileID: 4428568173353156466, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
+      propertyPath: 'availableFruits.Array.data[10]'
+      value: 
+      objectReference: {fileID: 11400000, guid: e807aead3ee5fa24faf698a9a6061007, type: 2}
     - target: {fileID: 4624796143749324086, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -9222,7 +9258,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlassSlot
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5551556451090160310, guid: 325f881083dc0fa42b1e64b703bcfbf8, type: 3}
     m_RemovedGameObjects:
     - {fileID: 8068199409607704866, guid: 325f881083dc0fa42b1e64b703bcfbf8, type: 3}
     m_AddedGameObjects:
@@ -9301,6 +9338,26 @@ PrefabInstance:
     - target: {fileID: 1393286363280162451, guid: a016da67d59520d40a3731125bda696f, type: 3}
       propertyPath: pointerClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.AudioClip, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1990581882514170337, guid: a016da67d59520d40a3731125bda696f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7147556
+      objectReference: {fileID: 0}
+    - target: {fileID: 1990581882514170337, guid: a016da67d59520d40a3731125bda696f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0473386
+      objectReference: {fileID: 0}
+    - target: {fileID: 1990581882514170337, guid: a016da67d59520d40a3731125bda696f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.485
+      objectReference: {fileID: 0}
+    - target: {fileID: 1990581882514170337, guid: a016da67d59520d40a3731125bda696f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.909
+      objectReference: {fileID: 0}
+    - target: {fileID: 1990581882514170337, guid: a016da67d59520d40a3731125bda696f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.206
       objectReference: {fileID: 0}
     - target: {fileID: 2485730009281560108, guid: a016da67d59520d40a3731125bda696f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -9394,6 +9451,14 @@ PrefabInstance:
       propertyPath: glassSlot
       value: 
       objectReference: {fileID: 5149058965428456806}
+    - target: {fileID: 6774961592633774327, guid: a016da67d59520d40a3731125bda696f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8656879
+      objectReference: {fileID: 0}
+    - target: {fileID: 6774961592633774327, guid: a016da67d59520d40a3731125bda696f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.688
+      objectReference: {fileID: 0}
     - target: {fileID: 8425001406439724904, guid: a016da67d59520d40a3731125bda696f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -9477,6 +9542,10 @@ PrefabInstance:
     - target: {fileID: 806764513222474771, guid: a3ef3106961eb674c910f20a29d8fb28, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.29173663
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923444554359419372, guid: a3ef3106961eb674c910f20a29d8fb28, type: 3}
+      propertyPath: fruitSpawnPool.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2932644345571723427, guid: a3ef3106961eb674c910f20a29d8fb28, type: 3}
       propertyPath: m_Name
@@ -9614,6 +9683,38 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.8251
       objectReference: {fileID: 0}
+    - target: {fileID: 8102326200149414534, guid: a3ef3106961eb674c910f20a29d8fb28, type: 3}
+      propertyPath: recipes.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102326200149414534, guid: a3ef3106961eb674c910f20a29d8fb28, type: 3}
+      propertyPath: 'recipes.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 26ca5cb0ee41b4d48bfb82e8f926e96d, type: 2}
+    - target: {fileID: 8102326200149414534, guid: a3ef3106961eb674c910f20a29d8fb28, type: 3}
+      propertyPath: 'recipes.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 91fbc3862269da74d8fbd649e586309b, type: 2}
+    - target: {fileID: 8102326200149414534, guid: a3ef3106961eb674c910f20a29d8fb28, type: 3}
+      propertyPath: 'recipes.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 42667f278d4ce8d4b954b6c36b1443ac, type: 2}
+    - target: {fileID: 8102326200149414534, guid: a3ef3106961eb674c910f20a29d8fb28, type: 3}
+      propertyPath: 'recipes.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: c321cec4344375d48b2a8c95b8cd6e06, type: 2}
+    - target: {fileID: 8102326200149414534, guid: a3ef3106961eb674c910f20a29d8fb28, type: 3}
+      propertyPath: 'recipes.Array.data[7]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 878d281d9cfc8c7408c613a7cb5b9a14, type: 2}
+    - target: {fileID: 8102326200149414534, guid: a3ef3106961eb674c910f20a29d8fb28, type: 3}
+      propertyPath: 'recipes.Array.data[8]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0490c063299cf734ca172f8f73e11ec2, type: 2}
+    - target: {fileID: 8102326200149414534, guid: a3ef3106961eb674c910f20a29d8fb28, type: 3}
+      propertyPath: 'recipes.Array.data[9]'
+      value: 
+      objectReference: {fileID: 11400000, guid: c3b1df710e8732d43a1a5196015049b4, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
