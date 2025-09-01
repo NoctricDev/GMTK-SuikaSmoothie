@@ -2,9 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
-using System.Threading.Tasks;
 using JohaToolkit.UnityEngine.DataStructures;
-using JohaToolkit.UnityEngine.Extensions;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -30,7 +28,7 @@ namespace Scenes
 
         public bool IsLoadingScene { get; private set; }
 
-        private CancellationTokenSource _cts;
+        private CancellationTokenSource? _cts;
         
         protected override void Awake()
         {
@@ -68,7 +66,7 @@ namespace Scenes
                 return;
             }
 
-            _cts = new CancellationTokenSource();
+            // _cts = new CancellationTokenSource();
             IGameplayScene? sceneToLoad = GetScene(scene);
             if (sceneToLoad == null)
             {
@@ -97,7 +95,7 @@ namespace Scenes
 
             try
             {
-                await Task.Delay(sceneTransitionDuration.Seconds(), _cts.Token);
+                await Awaitable.WaitForSecondsAsync(sceneTransitionDuration, _cts?.Token ?? CancellationToken.None);
             }
             catch (OperationCanceledException)
             {
