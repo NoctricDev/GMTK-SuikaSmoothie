@@ -18,6 +18,7 @@ namespace Mixer
         [SerializeField] private FloatVariable distance;
         [SerializeField] private Transform mixerMouseTracker;
         [SerializeField] private Transform mixerInteractionPlane;
+        public Transform MixerInteractionPlane => mixerInteractionPlane;
         
         public GameEventICarrieAble PayloadPickedUpGameEvent;
         public GameEventICarrieAble PayloadDroppedGameEvent;

@@ -7911,26 +7911,22 @@ PrefabInstance:
       objectReference: {fileID: 664578726164236188, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
     - target: {fileID: 664578726164236188, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 664578726164236188, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
       propertyPath: 'serializationData.PrefabModifications.Array.data[0]'
-      value: '"path":"sceneObjects","length":4'
-      objectReference: {fileID: 0}
-    - target: {fileID: 664578726164236188, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
-      propertyPath: 'serializationData.PrefabModifications.Array.data[1]'
       value: '"path":"sceneObjects.[0]","value":$eref:0'
       objectReference: {fileID: 0}
     - target: {fileID: 664578726164236188, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
-      propertyPath: 'serializationData.PrefabModifications.Array.data[2]'
+      propertyPath: 'serializationData.PrefabModifications.Array.data[1]'
       value: '"path":"sceneObjects.[1]","value":$eref:1'
       objectReference: {fileID: 0}
     - target: {fileID: 664578726164236188, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
-      propertyPath: 'serializationData.PrefabModifications.Array.data[3]'
+      propertyPath: 'serializationData.PrefabModifications.Array.data[2]'
       value: '"path":"sceneObjects.[2]","value":$eref:2'
       objectReference: {fileID: 0}
     - target: {fileID: 664578726164236188, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
-      propertyPath: 'serializationData.PrefabModifications.Array.data[4]'
+      propertyPath: 'serializationData.PrefabModifications.Array.data[3]'
       value: '"path":"sceneObjects.[3]","value":$eref:3'
       objectReference: {fileID: 0}
     - target: {fileID: 664578726164236188, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
@@ -9260,6 +9256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5551556451090160310, guid: 325f881083dc0fa42b1e64b703bcfbf8, type: 3}
+    - {fileID: 7370398831714775779, guid: 325f881083dc0fa42b1e64b703bcfbf8, type: 3}
     m_RemovedGameObjects:
     - {fileID: 8068199409607704866, guid: 325f881083dc0fa42b1e64b703bcfbf8, type: 3}
     m_AddedGameObjects:
@@ -9287,6 +9284,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 884442871}
     m_Modifications:
+    - target: {fileID: 636035920574196282, guid: a016da67d59520d40a3731125bda696f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1171044155329603062, guid: a016da67d59520d40a3731125bda696f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -9373,7 +9374,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3638232265566321138, guid: a016da67d59520d40a3731125bda696f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.41
+      value: 0.551
       objectReference: {fileID: 0}
     - target: {fileID: 4079410305224076328, guid: a016da67d59520d40a3731125bda696f, type: 3}
       propertyPath: serializationData.Prefab
@@ -9381,26 +9382,22 @@ PrefabInstance:
       objectReference: {fileID: 4079410305224076328, guid: a016da67d59520d40a3731125bda696f, type: 3}
     - target: {fileID: 4079410305224076328, guid: a016da67d59520d40a3731125bda696f, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4079410305224076328, guid: a016da67d59520d40a3731125bda696f, type: 3}
       propertyPath: 'serializationData.PrefabModifications.Array.data[0]'
-      value: '"path":"sceneObjects","length":4'
-      objectReference: {fileID: 0}
-    - target: {fileID: 4079410305224076328, guid: a016da67d59520d40a3731125bda696f, type: 3}
-      propertyPath: 'serializationData.PrefabModifications.Array.data[1]'
       value: '"path":"sceneObjects.[0]","value":$eref:0'
       objectReference: {fileID: 0}
     - target: {fileID: 4079410305224076328, guid: a016da67d59520d40a3731125bda696f, type: 3}
-      propertyPath: 'serializationData.PrefabModifications.Array.data[2]'
+      propertyPath: 'serializationData.PrefabModifications.Array.data[1]'
       value: '"path":"sceneObjects.[1]","value":$eref:1'
       objectReference: {fileID: 0}
     - target: {fileID: 4079410305224076328, guid: a016da67d59520d40a3731125bda696f, type: 3}
-      propertyPath: 'serializationData.PrefabModifications.Array.data[3]'
+      propertyPath: 'serializationData.PrefabModifications.Array.data[2]'
       value: '"path":"sceneObjects.[2]","value":$eref:2'
       objectReference: {fileID: 0}
     - target: {fileID: 4079410305224076328, guid: a016da67d59520d40a3731125bda696f, type: 3}
-      propertyPath: 'serializationData.PrefabModifications.Array.data[4]'
+      propertyPath: 'serializationData.PrefabModifications.Array.data[3]'
       value: '"path":"sceneObjects.[3]","value":$eref:3'
       objectReference: {fileID: 0}
     - target: {fileID: 4079410305224076328, guid: a016da67d59520d40a3731125bda696f, type: 3}
@@ -9439,14 +9436,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MixerScene
       objectReference: {fileID: 0}
-    - target: {fileID: 5826896085356071366, guid: a016da67d59520d40a3731125bda696f, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 7e0cfcba42feac048b49db4db85d2f50, type: 2}
-    - target: {fileID: 5826896085356071366, guid: a016da67d59520d40a3731125bda696f, type: 3}
-      propertyPath: 'm_Materials.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 1afb00dfc220a694997e16cb0527aac3, type: 2}
     - target: {fileID: 6384043463114807964, guid: a016da67d59520d40a3731125bda696f, type: 3}
       propertyPath: glassSlot
       value: 
@@ -9506,6 +9495,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5026625124996271561, guid: a016da67d59520d40a3731125bda696f, type: 3}
+    - {fileID: 8105331242781919175, guid: a016da67d59520d40a3731125bda696f, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8425001406439724904, guid: a016da67d59520d40a3731125bda696f, type: 3}
       insertIndex: -1
