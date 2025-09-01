@@ -13,6 +13,7 @@ namespace Carry
 
         [Title("Settings")] 
         [SerializeField] private float transitionDuration = 0.2f;
+        [SerializeField] private float ySnapPos = 1.12f;
         
         public event Action CarryStartedEvent;
         public event Action CarryStoppedEvent;
@@ -27,6 +28,9 @@ namespace Carry
         public ICarrieAbleMouse MouseCarry { get; protected set; }
 
         private float _transitionTimer;
+
+        private float _startY;
+        private Vector3 _startDiff;
         
         public bool TryStartCarry(Transform carryTransform, ICarrieAbleMouse mouseCarry)
         {
@@ -45,6 +49,15 @@ namespace Carry
             CarryStartedEvent?.Invoke();
             transform.SetParent(null);
             _transitionTimer = 0;
+            
+            _startY = thisTransform.position.y;
+            if(_isMixerMouse)
+            {
+                Vector3 targetPos = _carryTransform.position;
+                Vector3 diff = thisTransform.position - targetPos;
+                _startDiff = Vector3.Project(diff, _mixerMouse.MixerInteractionPlane.forward);
+            }
+            
             return true;
         }
 
@@ -63,8 +76,6 @@ namespace Carry
         {
             if (!_isCarried || _carryTransform == null)
                 return;
-
-            Debug.Log($"{_carryTransform != null} + {_carryTransform.position}");
             
             _transitionTimer += Time.deltaTime / transitionDuration;
             thisTransform.position = Vector3.Lerp(thisTransform.position, GetTargetPosition(), Mathf.Clamp01(_transitionTimer));
@@ -74,11 +85,11 @@ namespace Carry
         {
             if(!_isMixerMouse)
                 return _carryTransform.position;
-
-            Vector3 targetPos = _carryTransform.position;
-            Vector3 diff = thisTransform.position - targetPos;
-            Vector3 projected = Vector3.Project(diff, _mixerMouse.MixerInteractionPlane.forward);
-            return targetPos + projected;
+            
+            float zeroOne = Mathf.InverseLerp(_startY, 1.12f, thisTransform.position.y);
+            Vector3 projected = _startDiff * (1 - zeroOne);
+            
+            return _carryTransform.position + projected;
         }
         
         public Vector3 GetPosition() => transform.position;
