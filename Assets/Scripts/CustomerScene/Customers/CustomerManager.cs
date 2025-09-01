@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using CSharpTools.Randomization;
+using Events;
 using Fruits;
 using Glasses;
 using JohaToolkit.UnityEngine.Audio;
@@ -29,6 +30,7 @@ namespace CustomerScene.Customers
         private List<CustomerDifficulty> _customersList;
         [SerializeField] private IntVariable playerMoney;
         [SerializeField] private SoundDataAsset orderSuccessSound;
+        [SerializeField] private StartGameTypeVariable startGameTypeVariable;
 
         [Title("Settings")] 
         [SerializeField, InfoBox("Smoothie difficulty * this + timeToPrepareBase = TimeToPrepare")] private float timeToPrepareMultiplier = 2f;
@@ -42,6 +44,8 @@ namespace CustomerScene.Customers
         private float _timer;
         private float _nextOrderCheck;
         private bool _hasInitialized;
+
+        private bool _hasStarted = false;
         
         protected override void Awake()
         {
@@ -60,6 +64,8 @@ namespace CustomerScene.Customers
             {
                 customer.customer.OrderCompletedEvent += OnOrderCompleted;
             }
+
+            startGameTypeVariable.OnValueChanged += (gameMode) => _hasStarted = true;
         }
 
         public void LoadEnd()
@@ -81,6 +87,9 @@ namespace CustomerScene.Customers
 
         private void Update()
         {
+            if (!_hasStarted)
+                return;
+            
             _timer += Time.deltaTime;
             if (_timer >= _nextOrderCheck)
             {

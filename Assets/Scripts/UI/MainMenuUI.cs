@@ -1,3 +1,4 @@
+using Events;
 using Scenes;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,20 +10,28 @@ namespace UI
         [SerializeField] private Button startButton;
         [SerializeField] private Button startWithTimerButton;
         [SerializeField] private GameplayScenes startGameplayScene;
+        [SerializeField] private StartGameTypeVariable startGameTypeVariable;
 
         private void Awake()
         {
-            startButton.onClick.AddListener(OnStartButtonClicked);
+            startButton.onClick.AddListener(OnFreeplayButtonClicked);
             startWithTimerButton.onClick.AddListener(OnStartWithTimerButtonClicked);
+        }
+
+        private void OnFreeplayButtonClicked()
+        {
+            startGameTypeVariable.Value = StartGameType.Freeplay;
+            StartGame();
         }
 
         private void OnStartWithTimerButtonClicked()
         {
             Timer.Instance.StartTimer();
-            OnStartButtonClicked();
+            startGameTypeVariable.Value = StartGameType.Challenge;
+            StartGame();
         }
 
-        private void OnStartButtonClicked()
+        private void StartGame()
         {
             GameplaySceneManager.Instance.LoadGameplayScene(startGameplayScene);
         }
