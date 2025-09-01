@@ -1,3 +1,4 @@
+using System;
 using Carry;
 using DG.Tweening;
 using Events;
@@ -25,6 +26,12 @@ namespace Camera
             gameEventA.Subscribe(GameEventATriggered);
             gameEventB.Subscribe(GameEventBTriggered);
             thisTransform.position = AIsStartPosition ? posA.position : posB.position;
+        }
+
+        private void OnDestroy()
+        {
+            gameEventA.Unsubscribe(GameEventATriggered);
+            gameEventB.Unsubscribe(GameEventBTriggered);
         }
 
         private void GameEventATriggered(object sender, ICarrieAble _)

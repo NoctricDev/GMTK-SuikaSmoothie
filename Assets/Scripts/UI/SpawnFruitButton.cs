@@ -1,3 +1,4 @@
+using System;
 using FruitBowlScene;
 using Fruits;
 using Input;
@@ -22,17 +23,24 @@ namespace UI
         private void Awake()
         {
             inputManager.SpawnFruitHotkeyEvent += OnSpawnFruitHotkeyPressed;
-            spawnButton.onClick.AddListener(() =>
-            {
-                if (!fruitSpawner.SpawnFruit(_nextFruit))
-                    return;
-                PrepareNextFruit();
-            });
+            spawnButton.onClick.AddListener(OnSpawnButtonClicked);
+        }
+
+        private void OnDestroy()
+        {
+            inputManager.SpawnFruitHotkeyEvent -= OnSpawnFruitHotkeyPressed;
+            spawnButton.onClick.RemoveListener(OnSpawnButtonClicked);
+        }
+
+        private void OnSpawnButtonClicked()
+        {
+            if (!fruitSpawner.SpawnFruit(_nextFruit)) return;
+            PrepareNextFruit();
         }
 
         private void OnSpawnFruitHotkeyPressed(bool started)
         {
-            MoveSceneHotKey.PressButton(started, spawnButton);
+            MoveSceneHotKey.PressButton(started, spawnButton.gameObject);
         }
 
         private void Start()

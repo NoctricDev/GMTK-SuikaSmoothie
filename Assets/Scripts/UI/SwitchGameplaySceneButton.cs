@@ -15,6 +15,7 @@ namespace UI
         
         [Title("Settings")]
         [SerializeField] private bool moveLeft;
+        public bool MoveLeft => moveLeft;
         private void Start()
         {
             switchGameplaySceneButton.onClick.AddListener(OnSwitchGameplaySceneButtonClicked);

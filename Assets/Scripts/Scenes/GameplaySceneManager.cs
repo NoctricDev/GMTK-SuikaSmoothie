@@ -104,7 +104,7 @@ namespace Scenes
                 return;
             }
 
-            if (_cts.IsCancellationRequested)
+            if (_cts != null && _cts.IsCancellationRequested)
             {
                 Debug.Log("Loading Scene cancelled");
                 IsLoadingScene = false;

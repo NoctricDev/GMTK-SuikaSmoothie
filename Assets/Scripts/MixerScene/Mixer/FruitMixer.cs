@@ -20,6 +20,7 @@ namespace MixerScene.Mixer
 
         private void OnFruitCountChanged(FruitSO fruitData, int currentCount)
         {
+            return;
             Debug.Log("Count Changed!");
             foreach ((FruitSO key, int value) in fruitCounter.FruitsInMixer)
             {

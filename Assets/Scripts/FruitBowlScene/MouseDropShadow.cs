@@ -1,3 +1,4 @@
+using System;
 using Carry;
 using Events;
 using Sirenix.OdinInspector;
@@ -15,6 +16,12 @@ namespace FruitBowlScene
         {
             payloadPickedUpGameEvent.Subscribe(OnPayLoadPickedUp);
             payloadDroppedGameEvent.Subscribe(OnPayLoadDropped);
+        }
+
+        private void OnDestroy()
+        {
+            payloadDroppedGameEvent.Unsubscribe(OnPayLoadDropped);
+            payloadPickedUpGameEvent.Unsubscribe(OnPayLoadPickedUp);
         }
 
         private void Start()
