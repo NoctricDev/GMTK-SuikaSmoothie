@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 namespace MixerScene.Mixer
 {
-    public class GameObjectButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
+    public class GameObjectButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] private GameplayScenes[] buttonEnabledInScenes;
         
@@ -35,5 +35,10 @@ namespace MixerScene.Mixer
                 return;
             pointerDown?.Invoke();
         }
+
+        public void OnPointerEnter(PointerEventData eventData) { }
+
+        public void OnPointerExit(PointerEventData eventData) { }
+        
     }
 }
