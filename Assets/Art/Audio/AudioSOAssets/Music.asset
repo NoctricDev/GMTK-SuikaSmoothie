@@ -15,7 +15,7 @@ MonoBehaviour:
   soundData:
   - tag: 
     clip: {fileID: 8300000, guid: 7e178ce25aba92a47bcf491fddbe3a5d, type: 3}
-    output: {fileID: -1995491430363757941, guid: 5c3ea0c3a0be23f47a7967fa5cc39c18, type: 2}
+    output: {fileID: -3763298607426275295, guid: 5c3ea0c3a0be23f47a7967fa5cc39c18, type: 2}
     isFrequentSound: 0
     bypassEffects: 0
     bypassListenerEffects: 0
