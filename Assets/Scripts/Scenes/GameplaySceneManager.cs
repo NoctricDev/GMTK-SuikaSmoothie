@@ -84,8 +84,16 @@ namespace Scenes
             IsLoadingScene = true;
             CurrentScene?.Unload();
             CurrentScene = scene;
-            CurrentScene.LoadStart(sceneTransitionDuration);
-            CurrentSceneChangedEvent?.Invoke(false);
+            try
+            {
+                CurrentScene.LoadStart(sceneTransitionDuration);
+                CurrentSceneChangedEvent?.Invoke(false);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"LoadStart: Error while loading scene: {e.Message}");
+            }
+            
 
             try
             {
@@ -93,13 +101,28 @@ namespace Scenes
             }
             catch (OperationCanceledException)
             {
+                Debug.Log("Loading Scene cancelled");
+                IsLoadingScene = false;
                 return;
             }
 
             if (_cts.IsCancellationRequested)
+            {
+                Debug.Log("Loading Scene cancelled");
+                IsLoadingScene = false;
                 return;
-            CurrentScene.LoadEnd();
-            CurrentSceneChangedEvent?.Invoke(true);
+            }
+            
+            try
+            {
+                CurrentScene.LoadEnd();
+                CurrentSceneChangedEvent?.Invoke(true);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"LoadEnd: Error while loading scene: {e.Message}");
+            }
+            
             
             IsLoadingScene = false;
         }
