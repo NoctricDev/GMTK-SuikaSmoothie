@@ -7,6 +7,13 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.cqf.urpvolumetricfog": {
+      "version": "https://github.com/CristianQiu/Unity-URP-Volumetric-Light.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "1bb6477fba8b8208a5eaec04f8c6f55da91a9d3e"
+    },
     "com.johatoolkit.unityengine": {
       "version": "https://github.com/Carjana/com.johatoolkit.unityengine.git",
       "depth": 0,

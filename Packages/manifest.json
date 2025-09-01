@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.cqf.urpvolumetricfog": "https://github.com/CristianQiu/Unity-URP-Volumetric-Light.git",
     "com.johatoolkit.unityengine": "https://github.com/Carjana/com.johatoolkit.unityengine.git",
     "com.johatoolkit.unityengine.cheatconsole": "https://github.com/Carjana/com.johatoolkit.unityengine.cheatconsole.git",
     "com.johatoolkit.unityengine.ui": "https://github.com/Carjana/com.johatoolkit.unityengine.ui.git",

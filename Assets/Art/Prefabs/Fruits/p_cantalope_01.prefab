@@ -121,6 +121,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_cantalope_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1974287830117227794, guid: 51bdb5e5386c0a246b85d8d916bf284a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ebfaf8258189f5d4c9ea2b1bb6d78b39, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -9176865675937731917, guid: 51bdb5e5386c0a246b85d8d916bf284a, type: 3}
