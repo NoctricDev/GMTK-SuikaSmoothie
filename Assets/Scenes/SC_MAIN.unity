@@ -2538,7 +2538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerVariable: {fileID: 11400000, guid: 224872450821ac444b794de2f146e97f, type: 2}
   timerUI: {fileID: 225398192}
-  timerduration: 5
+  timerduration: 600
 --- !u!4 &640108172
 Transform:
   m_ObjectHideFlags: 0
