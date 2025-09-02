@@ -1,3 +1,4 @@
+using System;
 using Carry;
 using Events;
 using JohaToolkit.UnityEngine.ScriptableObjects.Events;
@@ -18,6 +19,12 @@ namespace FruitBowlScene
         {
             fruitMergeEvent.Subscribe(OnFruitMerge);
             payloadDroppedEvent.Subscribe(OnPayloadDropped);
+        }
+
+        private void OnDestroy()
+        {
+            fruitMergeEvent.Unsubscribe(OnFruitMerge);
+            payloadDroppedEvent.Unsubscribe(OnPayloadDropped);
         }
 
         private void OnPayloadDropped(object sender, ICarrieAble _)

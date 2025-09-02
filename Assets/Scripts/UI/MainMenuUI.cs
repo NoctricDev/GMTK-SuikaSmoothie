@@ -20,6 +20,7 @@ namespace UI
 
         private void OnFreeplayButtonClicked()
         {
+            startGameTypeVariable.Value = StartGameType.Dummy;
             startGameTypeVariable.Value = StartGameType.Freeplay;
             StartGame();
         }
@@ -27,6 +28,7 @@ namespace UI
         private void OnStartWithTimerButtonClicked()
         {
             Timer.Instance.StartTimer();
+            startGameTypeVariable.Value = StartGameType.Dummy;
             startGameTypeVariable.Value = StartGameType.Challenge;
             StartGame();
         }

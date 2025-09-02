@@ -1,3 +1,4 @@
+using System;
 using Carry;
 using Events;
 using FruitBowlScene;
@@ -46,6 +47,11 @@ namespace CustomerScene
         public void Unload()
         {
             _isActive = false;
+            inputManager.InteractPrimaryEvent -= OnPrimaryInteract;
+        }
+
+        private void OnDestroy()
+        {
             inputManager.InteractPrimaryEvent -= OnPrimaryInteract;
         }
 

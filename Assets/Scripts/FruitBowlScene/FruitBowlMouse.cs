@@ -1,3 +1,4 @@
+using System;
 using Carry;
 using Events;
 using Helper;
@@ -42,6 +43,11 @@ namespace FruitBowlScene
         {
             _isSceneLoaded = false;
             StopCarry();
+            inputManager.InteractPrimaryEvent -= OnInteractPrimary;
+        }
+
+        private void OnDestroy()
+        {
             inputManager.InteractPrimaryEvent -= OnInteractPrimary;
         }
 

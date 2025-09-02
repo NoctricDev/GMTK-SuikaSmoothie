@@ -1,3 +1,4 @@
+using System;
 using Carry;
 using Events;
 using FruitBowlScene;
@@ -45,6 +46,11 @@ namespace Mixer
         public void Unload()
         {
             _isSceneLoaded = false;
+            inputManager.InteractPrimaryEvent -= OnInteractPrimary;
+        }
+
+        private void OnDestroy()
+        {
             inputManager.InteractPrimaryEvent -= OnInteractPrimary;
         }
 

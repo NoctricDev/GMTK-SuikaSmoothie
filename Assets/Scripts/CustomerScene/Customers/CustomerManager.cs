@@ -65,7 +65,11 @@ namespace CustomerScene.Customers
                 customer.customer.OrderCompletedEvent += OnOrderCompleted;
             }
 
-            startGameTypeVariable.OnValueChanged += (gameMode) => _hasStarted = true;
+            startGameTypeVariable.OnValueChanged += (gameMode) =>
+            {
+                if(gameMode != StartGameType.Dummy)
+                    _hasStarted = true;
+            };
         }
 
         public void LoadEnd()

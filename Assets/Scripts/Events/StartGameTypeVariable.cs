@@ -10,6 +10,7 @@ namespace Events
 
     public enum StartGameType
     {
+        Dummy,
         Tutorial,
         Freeplay,
         Challenge
