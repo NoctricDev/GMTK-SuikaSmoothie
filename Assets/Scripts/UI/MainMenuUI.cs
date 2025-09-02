@@ -37,5 +37,10 @@ namespace UI
         {
             GameplaySceneManager.Instance.LoadGameplayScene(startGameplayScene);
         }
+
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
     }
 }
