@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af337739eb7d4405be7ddf301ee7e209, type: 3}
   m_Name: 5_PeachToPear
   m_EditorClassIdentifier: 
-  fruitA: 4
-  fruitB: 4
+  fruitA: 3
+  fruitB: 3
   resultFruit: {fileID: 11400000, guid: 19a1b802112468d40b85537a30d68c0d, type: 2}

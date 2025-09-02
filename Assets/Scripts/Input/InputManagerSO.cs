@@ -23,6 +23,7 @@ namespace Input
         private InputSystem_Actions _inputActions;
         public InputSystem_Actions InputActions => _inputActions;
         private List<ActionMaps> _enabledActionMaps;
+        public IReadOnlyList<ActionMaps> EnabledActionMaps => _enabledActionMaps.AsReadOnly();
 
         #region Events
 

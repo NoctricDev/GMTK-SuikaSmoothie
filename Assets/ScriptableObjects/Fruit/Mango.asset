@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceed6c95e1cf85540a327207e05c9c1f, type: 3}
   m_Name: Mango
   m_EditorClassIdentifier: 
-  fruitType: 7
+  fruitType: 6
   fruitPrefab: {fileID: 4204011735390969774, guid: 247f624942251f3489389180be1d0147, type: 3}
   fruitIcon: {fileID: 21300000, guid: b24fa7d7d8d5f1a4ba478115cc6a7123, type: 3}
   difficultyRating: 128

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af337739eb7d4405be7ddf301ee7e209, type: 3}
   m_Name: 8_PersimmonToPineapple
   m_EditorClassIdentifier: 
-  fruitA: 8
-  fruitB: 8
+  fruitA: 7
+  fruitB: 7
   resultFruit: {fileID: 11400000, guid: 2f60ae5b8422add4fbbe89675e52397e, type: 2}

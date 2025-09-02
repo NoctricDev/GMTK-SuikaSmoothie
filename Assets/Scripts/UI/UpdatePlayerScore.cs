@@ -1,3 +1,4 @@
+using System;
 using JohaToolkit.UnityEngine.ScriptableObjects.Variables;
 using TMPro;
 using UnityEngine;
@@ -13,6 +14,11 @@ namespace UI
         {
             playerScore.OnValueChanged += UpdatePlayerScoreText;
             UpdatePlayerScoreText(playerScore.Value);
+        }
+
+        private void OnDestroy()
+        {
+            playerScore.OnValueChanged -= UpdatePlayerScoreText;
         }
 
         private void UpdatePlayerScoreText(int newScore) => playerScoreText.text = newScore.ToString();

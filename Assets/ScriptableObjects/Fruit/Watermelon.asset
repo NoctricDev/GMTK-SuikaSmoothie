@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceed6c95e1cf85540a327207e05c9c1f, type: 3}
   m_Name: Watermelon
   m_EditorClassIdentifier: 
-  fruitType: 11
+  fruitType: 10
   fruitPrefab: {fileID: 1055352932052212924, guid: 6178ab53012f54b4c9ad1d4bbbddd546, type: 3}
   fruitIcon: {fileID: 21300000, guid: e3a6b14bf2a7dd94e9b63c66b2609225, type: 3}
   difficultyRating: 2048
   value: 2048
   _smoothieTopColor: {r: 1, g: 0.27058828, b: 0.32330525, a: 1}
-  _smoothieSideColor: {r: 0.7075472, g: 0.21932612, b: 0.08343716, a: 1}
+  _smoothieSideColor: {r: 0.99215686, g: 0.11397912, b: 0.03404235, a: 1}

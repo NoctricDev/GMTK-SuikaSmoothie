@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af337739eb7d4405be7ddf301ee7e209, type: 3}
   m_Name: 10_CantalopeToWaterlemon
   m_EditorClassIdentifier: 
-  fruitA: 10
-  fruitB: 10
+  fruitA: 9
+  fruitB: 9
   resultFruit: {fileID: 11400000, guid: e807aead3ee5fa24faf698a9a6061007, type: 2}

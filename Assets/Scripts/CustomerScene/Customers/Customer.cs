@@ -45,7 +45,7 @@ namespace CustomerScene.Customers
             if (slot.IsLocked || slotObject == null || !HasOrder || slotObject is not Glass glass)
                 return;
 
-            slot.IsLocked = true;
+            //slot.IsLocked = true;
             ProcessOrder(glass);
 
         }
@@ -54,8 +54,8 @@ namespace CustomerScene.Customers
         {
             if (glass.Content is not SmoothieContent content)
             {
-                ResetCustomer();
-                OrderFailedEvent?.Invoke(_currentOrder);
+                //ResetCustomer();
+                //OrderFailedEvent?.Invoke(_currentOrder);
                 return;
             }
 
@@ -63,13 +63,14 @@ namespace CustomerScene.Customers
             if (orderEvaluation.IsAccepted)
             {
                 OrderCompletedEvent?.Invoke(orderEvaluation);
+                EmptySlot();
+                ResetCustomer();
             }
             else
             {
-                OrderFailedEvent?.Invoke(_currentOrder);
+                //OrderFailedEvent?.Invoke(_currentOrder);
             }
             
-            ResetCustomer();
         }
 
         public void SetOrder(CustomerOrder order)
@@ -106,6 +107,11 @@ namespace CustomerScene.Customers
                 CustomerLeaveEvent?.Invoke();
             HasOrder = false;
             _orderTimer = null;
+            slot.IsLocked = false;
+        }
+
+        private void EmptySlot()
+        {
             slot.IsLocked = false;
             if(slot.HasPayload)
                 Destroy(slot.RemoveSlot().GetAttachedGameObject());

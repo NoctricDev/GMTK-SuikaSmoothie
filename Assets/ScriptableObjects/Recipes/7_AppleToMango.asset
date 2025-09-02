@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af337739eb7d4405be7ddf301ee7e209, type: 3}
   m_Name: 7_AppleToMango
   m_EditorClassIdentifier: 
-  fruitA: 6
-  fruitB: 6
+  fruitA: 5
+  fruitB: 5
   resultFruit: {fileID: 11400000, guid: e9b84194e195d4c49a9e02652e59b632, type: 2}

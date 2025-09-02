@@ -69,6 +69,7 @@ namespace CustomerScene.Customers
             {
                 if(gameMode != StartGameType.Dummy)
                     _hasStarted = true;
+                playerMoney.Value = 0;
             };
         }
 
