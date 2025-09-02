@@ -8,6 +8,9 @@ namespace Fruits
         {
             if (!other.transform.TryGetComponent(out Fruit fruit))
                 return;
+
+            if (fruit.IsCarried)
+                return;
             
             Destroy(fruit.gameObject);
         }

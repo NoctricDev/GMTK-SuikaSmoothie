@@ -14,6 +14,7 @@ namespace Fruits
         [HideInInspector] public bool requestedMerge;
         private bool _canMerge;
         private bool _isCarried;
+        public bool IsCarried => _isCarried;
         private bool _firstGrab;
         private Rigidbody _rb = null!;
         
