@@ -8,6 +8,8 @@ namespace Fruits
 {
     public class Fruit : MonoBehaviour
     {
+        [SerializeField] private ParticleSystem mergeParticles;
+        private ParticleSystem? mergeParticlesInstance;
         public const string FRUIT_LAYER = "Fruit";
         public const string FRUIT_MERGEREGION_TAG = "FruitMergeRegion";
         
@@ -65,6 +67,7 @@ namespace Fruits
             requestedMerge = true;
             otherFruit.requestedMerge = true;
             FruitMergeManager.Instance.MergeFruits(this, otherFruit, newFruit);
+            SpawnMergeParticles(); //spawn in particles
         }
 
         public void OnMerge()
@@ -87,6 +90,10 @@ namespace Fruits
             if (!other.CompareTag(FRUIT_MERGEREGION_TAG))
                 return;
             _canMerge = false;
+        }
+        private void SpawnMergeParticles()
+        {
+            mergeParticlesInstance = Instantiate(mergeParticles, transform.position, Quaternion.identity);
         }
     }
 }
