@@ -5,6 +5,7 @@ using CustomerScene.Customers;
 using DG.Tweening;
 using Fruits;
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,12 +19,17 @@ namespace UI
     
         [SerializeField] private Image orderTimerImage;
         [SerializeField] private Image[] fruitImages;
+        [SerializeField, ShowIf(nameof(hasIcon))] private Image iconImage;
+
+        [SerializeField, ShowIf(nameof(hasName))] private TextMeshProUGUI customerName;
 
         [Title("Settings")]
         [SerializeField] private bool slideInOut;
         [SerializeField, ShowIfGroup(nameof(slideInOut))] private float slideDuration = 0.2f;
         [SerializeField, ShowIfGroup(nameof(slideInOut))] private Vector2 slideInPosition;
         [SerializeField, ShowIfGroup(nameof(slideInOut))] private Vector2 slideOutPosition;
+        [SerializeField] private bool hasIcon;
+        [SerializeField] private bool hasName;
 
         private void Awake()
         {
@@ -71,6 +77,15 @@ namespace UI
 
         private void SetImages(CustomerOrder order)
         {
+            if (hasIcon)
+            {
+                iconImage.sprite = order.CustomerInfo.CustomerIcon ?? throw new ArgumentNullException($"{nameof(order.CustomerInfo.CustomerSprite)} is null)");
+            }
+
+            if (hasName)
+            {
+                customerName.text = order.CustomerInfo.Name;
+            }
             List<FruitSO> fruitsInOrder = order.Content.FruitsInSmoothie.Keys.ToList();
             int requiredCount = fruitsInOrder.Count;
 

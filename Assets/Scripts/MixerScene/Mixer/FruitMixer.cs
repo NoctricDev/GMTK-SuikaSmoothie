@@ -1,6 +1,8 @@
+using System;
 using System.Linq;
 using Fruits;
 using Glasses;
+using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -12,6 +14,8 @@ namespace MixerScene.Mixer
         [SerializeField] private FruitCounter fruitCounter = null!;
 
         [SerializeField] private Slot glassSlot = null!;
+
+        public event Action<SmoothieContent> MixerEmpty;
 
         private void Awake()
         {
@@ -53,18 +57,25 @@ namespace MixerScene.Mixer
 
         public void EmptyMixer()
         {
+            MixerEmpty?.Invoke(GetSmoothieContent());
             fruitCounter.EmptyMixer();
         }
 
         private void FillGlass(Glass glassToFill)
         {
             glassSlot.IsLocked = true;
-            SmoothieContent smoothieContent = new(fruitCounter.FruitsInMixer.ToDictionary(k => k.Key, v => v.Value));
+            SmoothieContent smoothieContent = GetSmoothieContent();
             if (!glassToFill.TrySetContent(smoothieContent))
             {
                 Debug.LogError("[Mixer] Failed to fill glass with smoothie content! This should have been caught earlier!");
             }
             glassSlot.IsLocked = false;
+        }
+
+        [CanBeNull]
+        private SmoothieContent GetSmoothieContent()
+        {
+            return fruitCounter.FruitsInMixer.Count == 0 ? null : new SmoothieContent(fruitCounter.FruitsInMixer.ToDictionary(k => k.Key, v => v.Value));
         }
     }
 }

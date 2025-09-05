@@ -1,4 +1,3 @@
-using System;
 using JohaToolkit.UnityEngine.Audio;
 using JohaToolkit.UnityEngine.ScriptableObjects.Variables;
 using Sirenix.OdinInspector;
@@ -25,7 +24,6 @@ namespace Audio
 
         private void OnComboCountChanged(int newCount)
         {
-            Debug.Log($"Play sound for combo count {comboCount} on Gameobject {gameObject.name}");
             if (newCount == 0)
                 return;
             int soundToPlay = Mathf.Clamp(newCount - 1, 0, comboSounds.Length - 1);

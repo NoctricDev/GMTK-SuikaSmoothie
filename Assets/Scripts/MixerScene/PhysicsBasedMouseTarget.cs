@@ -46,7 +46,7 @@ namespace MixerScene
 
         private void OnDrawGizmos()
         {
-            Gizmos.DrawSphere(_startPosition, .2f);
+            Gizmos.DrawSphere(_startPosition, .02f);
         }
 
         private void FixedUpdate()

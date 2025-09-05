@@ -33,7 +33,7 @@ namespace CustomerScene.Customers
             return evaluation;
         }
 
-        private static bool IsFruitCorrect(Dictionary<FruitSO, int> expectedOrder, FruitSO fruit, out int expectedCount)
+        private static bool IsFruitCorrect(IReadOnlyDictionary<FruitSO, int> expectedOrder, FruitSO fruit, out int expectedCount)
         {
             return expectedOrder.TryGetValue(fruit, out expectedCount);
         }

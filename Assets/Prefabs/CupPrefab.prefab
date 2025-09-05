@@ -85,6 +85,10 @@ MonoBehaviour:
   glass: {fileID: 5437001407273899764}
   liquidShader: {fileID: -6465566751694194690, guid: e86d70440dc27854bbbe7a959a309759, type: 3}
   liquidRenderer: {fileID: 7750285662312565174}
+  glassFillTime: 0.7
+  glassFillEase: 10
+  glassEmptyTime: 0.3
+  glassEmptyEase: 10
 --- !u!1001 &7243582279005552481
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MV_Liquid_Green
+  m_Name: MV_LiquidMixer
   m_Shader: {fileID: -6465566751694194690, guid: e86d70440dc27854bbbe7a959a309759, type: 3}
   m_Parent: {fileID: -876546973899608171, guid: e86d70440dc27854bbbe7a959a309759, type: 3}
   m_ModifiedSerializedProperties: 2
@@ -26,13 +26,14 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _Fill: 0.923
+    - _Fill: 0
+    - _Offset: 1
     - _QueueControl: 0
-    - _WobbleX: 0.04
-    - _WobbleZ: 0.09
+    - _WobbleX: 0
+    - _WobbleZ: 0
     m_Colors:
-    - _SideColor: {r: 0.032395884, g: 0.5283019, b: 0.055002782, a: 1}
-    - _TopColor: {r: 0.21412787, g: 0.990566, b: 0.023362402, a: 1}
+    - _SideColor: {r: 0.8962264, g: 0.31222045, b: 0, a: 1}
+    - _TopColor: {r: 1, g: 0.6309549, b: 0.2028302, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &8671023878741212666

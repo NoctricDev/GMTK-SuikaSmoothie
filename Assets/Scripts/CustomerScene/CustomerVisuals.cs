@@ -32,11 +32,11 @@ namespace CustomerScene
             transform.DOLocalMove(HidePosition, moveDuration).OnComplete(() => gameObject.SetActive(false));
         }
 
-        private void OnCustomerArrived()
+        private void OnCustomerArrived(CustomerOrder order)
         {
             transform.DOKill();
             transform.localPosition = HidePosition;
-            spriteRenderer.sprite = customerSprites.Random();
+            spriteRenderer.sprite = order.CustomerInfo.CustomerSprite ?? throw new ArgumentNullException($"{nameof(order.CustomerInfo.CustomerSprite)} is null");
             gameObject.SetActive(true);
             transform.DOLocalMove(ShowPosition, moveDuration);
         }

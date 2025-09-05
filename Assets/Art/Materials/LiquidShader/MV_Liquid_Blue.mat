@@ -13,7 +13,7 @@ Material:
   m_ModifiedSerializedProperties: 2
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
+  m_LightmapFlags: 6
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -26,11 +26,14 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _Fill: 1
+    - _Fill: 0
+    - _Offset: 1.22
     - _QueueControl: 0
-    - _WobbleX: 0.04
-    - _WobbleZ: 0.09
+    - _Test: 1
+    - _WobbleX: 0
+    - _WobbleZ: 0
     m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _SideColor: {r: 0, g: 0.0013723373, b: 1, a: 1}
     - _TopColor: {r: 0.047481313, g: 0.2673331, b: 0.9150943, a: 1}
   m_BuildTextureStacks: []

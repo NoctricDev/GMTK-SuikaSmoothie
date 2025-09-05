@@ -23,7 +23,7 @@ namespace CustomerScene.Customers
 
         private CountdownTimer _orderTimer;
 
-        public event Action CustomerArrivedEvent;
+        public event Action<CustomerOrder> CustomerArrivedEvent;
         public event Action CustomerLeaveEvent;
         
         private void Start()
@@ -77,7 +77,7 @@ namespace CustomerScene.Customers
         {
             if (HasOrder)
                 return;
-            CustomerArrivedEvent?.Invoke();
+            CustomerArrivedEvent?.Invoke(order);
             _currentOrder = order;
             HasOrder = true;
             if(order.TimeToPrepare > 0)
