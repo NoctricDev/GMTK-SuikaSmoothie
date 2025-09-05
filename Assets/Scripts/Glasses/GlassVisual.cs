@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using System.Linq;
 using DG.Tweening;
-using Fruits;
 using JohaToolkit.UnityEngine.Extensions;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -13,6 +11,8 @@ namespace Glasses
         [Title("References")]
         [SerializeField] private Glass glass;
 
+        [SerializeField] private AudioSource fillSoundSource;
+        
         [SerializeField] private Shader liquidShader;
         [SerializeField] private MeshRenderer liquidRenderer;
         [SerializeField] private float glassFillTime;
@@ -38,6 +38,8 @@ namespace Glasses
         {
             if (content == null) 
                 return;
+            
+            fillSoundSource.Play();
             
             _liquidMaterial.DOFloat(fillAmount, _fillID, time).SetEase(ease).onComplete = () =>
             {

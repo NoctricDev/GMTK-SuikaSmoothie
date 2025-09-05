@@ -28,6 +28,7 @@ namespace MixerScene
         private void Start()
         {
             fruitMixer.MixerEmpty += OnMixerEmpty;
+            mixerMaterial.SetFloat(_fillID, 0);
         }
 
         private void OnMixerEmpty(SmoothieContent content)
