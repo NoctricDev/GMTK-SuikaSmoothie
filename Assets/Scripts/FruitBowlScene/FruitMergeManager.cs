@@ -1,3 +1,4 @@
+using System;
 using Fruits;
 using JetBrains.Annotations;
 using JohaToolkit.UnityEngine.DataStructures;
@@ -10,6 +11,15 @@ namespace FruitBowlScene
     {
         [SerializeField] private GameEvent fruitMergedGameEvent;
         [SerializeField] private RecipeSO[] recipes;
+
+        public event EventHandler<FruitMergedEventArgs> FruitMergedEvent;
+
+        public class FruitMergedEventArgs : EventArgs
+        {
+            public GameObject FruitA;
+            public GameObject FruitB;
+            public Vector3 NewSpawnPosition;
+        }
 
         public bool CanMerge(FruitType fruitA, FruitType fruitB, [CanBeNull] out FruitSO fruit)
         {
@@ -29,6 +39,12 @@ namespace FruitBowlScene
         {
             fruitMergedGameEvent?.RaiseEvent(this);
             Vector3 spawnPosition = (fruitA.transform.position + fruitB.transform.position) / 2;
+            FruitMergedEvent?.Invoke(this, new FruitMergedEventArgs
+            {
+                FruitA = fruitA.gameObject,
+                FruitB = fruitB.gameObject,
+                NewSpawnPosition = spawnPosition
+            });
             fruitA.OnMerge();
             fruitB.OnMerge();
             Destroy(fruitA.gameObject);
