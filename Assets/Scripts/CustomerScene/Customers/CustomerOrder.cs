@@ -1,13 +1,17 @@
 using Glasses;
+using JohaToolkit.UnityEngine.Extensions;
+using UnityEngine;
 
 namespace CustomerScene.Customers
 {
     public class CustomerOrder
     {
+        public CustomerInfo CustomerInfo { get; private set; }
         public SmoothieContent Content { get; private set; }
         public float TimeToPrepare { get; private set; }
-        private CustomerOrder(SmoothieContent content, float timeToPrepare)
+        private CustomerOrder(SmoothieContent content, float timeToPrepare, CustomerInfo customerInfo)
         {
+            CustomerInfo = customerInfo;
             Content = content;
             TimeToPrepare = timeToPrepare;
         }
@@ -16,6 +20,7 @@ namespace CustomerScene.Customers
         {
             private SmoothieContent _content;
             private float _timeToPrepare = 0;
+            private CustomerInfo _customerInfo;
             public Builder(SmoothieContent content) => _content = content;
 
             public Builder WithTimeToPrepare(float time)
@@ -24,7 +29,34 @@ namespace CustomerScene.Customers
                 return this;
             }
 
-            public CustomerOrder Build() => new(_content, _timeToPrepare);
+            public Builder WithCustomerInfo(CustomerPool_SO[] customerPools)
+            {
+                _customerInfo = GetCustomerInfo(customerPools);
+                return this;
+            }
+            
+            public CustomerOrder Build() => new(_content, _timeToPrepare, _customerInfo);
+
+            private CustomerInfo GetCustomerInfo(CustomerPool_SO[] customerPools)
+            {
+                CustomerPool_SO pool = customerPools.Random();
+                string randomName = pool.customerNamePool.Random().Names.Random();
+                CustomerSprites sprite = pool.customerSpritePool.Random();
+                return new CustomerInfo
+                {
+                    Name = randomName,
+                    CustomerSprite = sprite.CustomerSprite,
+                    CustomerIcon = sprite.CustomerIcon
+                };
+            }
         }
+    }
+
+    public class CustomerInfo
+    {
+        public string Name;
+        public Sprite CustomerSprite;
+        public Sprite CustomerIcon;
+
     }
 }

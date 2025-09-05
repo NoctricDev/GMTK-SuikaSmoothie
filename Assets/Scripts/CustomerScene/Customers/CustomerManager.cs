@@ -31,6 +31,7 @@ namespace CustomerScene.Customers
         [SerializeField] private IntVariable playerMoney;
         [SerializeField] private SoundDataAsset orderSuccessSound;
         [SerializeField] private StartGameTypeVariable startGameTypeVariable;
+        [SerializeField] private CustomerPool_SO[] customerPools;
 
         [Title("Settings")] 
         [SerializeField, InfoBox("Smoothie difficulty * this + timeToPrepareBase = TimeToPrepare")] private float timeToPrepareMultiplier = 2f;
@@ -126,6 +127,7 @@ namespace CustomerScene.Customers
             
             return new CustomerOrder.Builder(smoothieContent)
                 .WithTimeToPrepare(smoothieContent.FruitsInSmoothie.Keys.Sum(f => f.DifficultyRating) * timeToPrepareMultiplier + timeToPrepareBase)
+                .WithCustomerInfo(customerPools)
                 .Build();
         }
 
