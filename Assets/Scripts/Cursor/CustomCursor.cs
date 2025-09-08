@@ -1,13 +1,19 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Carry;
 using Events;
 using Glasses;
 using Helper;
 using JohaToolkit.UnityEngine.DataStructures;
 using JohaToolkit.UnityEngine.Extensions;
+using MixerScene.Mixer;
 using Scenes;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 
 namespace Cursor
 {
@@ -100,36 +106,54 @@ namespace Cursor
         private void Update()
         {
             bool hasHit = HasHit();
+            bool canClick = HasPointerHandler();
+            if (canClick)
+            {
+                CurrentCursorState = CursorState.Open;
+                return;
+            }
             if(_isCarrying)
             {
                 CurrentCursorState = CursorState.Closed;
                 return;
             }
-
+            
             if (hasHit)
             {
                 CurrentCursorState = CursorState.Open;
                 return;
             }
-            
             CurrentCursorState = CursorState.Point;
-            
+        }
+
+        private bool HasPointerHandler()
+        {
+            InputSystemUIInputModule input = EventSystem.current.currentInputModule as InputSystemUIInputModule;
+            if(input == null)
+                throw new Exception("InputSystemUIInputModule not found");
+            RaycastResult result = input.GetLastRaycastResult(Mouse.current.deviceId);
+            return ExecuteEvents.GetEventHandler<IPointerClickHandler>(result.gameObject) 
+                                     || ExecuteEvents.GetEventHandler<IPointerDownHandler>(result.gameObject)
+                                     || ExecuteEvents.GetEventHandler<IPointerUpHandler>(result.gameObject);
         }
 
         private bool HasHit()
         {
-            bool hitCarryAble = Physics.Raycast(GetMouseToWorldRay(), out RaycastHit hit, float.MaxValue, layerMask, QueryTriggerInteraction.Ignore) &&
-                   !ScreenToWorldHelper.IsMouseOverUI() && (
+            bool isOverUI = ScreenToWorldHelper.IsMouseOverUI(out PointerEventData eventData);
+            
+            bool hitWithoutTrigger = Physics.Raycast(GetMouseToWorldRay(), out RaycastHit hit, float.MaxValue, layerMask, QueryTriggerInteraction.Ignore) &&
+                   !isOverUI && (
                     hit.transform.TryGetComponent<ICarrieAble>(out ICarrieAble carry)
                     && CanCarry(carry)
                     );
-            bool hitSlot = Physics.Raycast(GetMouseToWorldRay(), out hit, float.MaxValue, layerMask, QueryTriggerInteraction.Collide)
-                && !ScreenToWorldHelper.IsMouseOverUI() 
-                && (hit.transform.TryGetComponent<Slot>(out Slot slot) && slot.HasPayload && !IsCustomerScene());
+            bool hitWithTrigger = Physics.Raycast(GetMouseToWorldRay(), out hit, float.MaxValue, layerMask, QueryTriggerInteraction.Collide)
+                && !isOverUI
+                && (
+                    hit.transform.TryGetComponent(out Slot slot) && slot.HasPayload && !IsCustomerScene()
+                    || hit.transform.TryGetComponent(out GameObjectButton _)
+                    );
             
-            Debug.Log(hit.transform.gameObject.name);
-            
-            return hitCarryAble || hitSlot;
+            return hitWithoutTrigger;
         }
         
         private bool CanCarry(ICarrieAble carryAble)
