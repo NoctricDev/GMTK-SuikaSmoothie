@@ -22,6 +22,7 @@ namespace CustomerScene.Customers
         private struct CustomerDifficulty
         {
             public Customer customer;
+            public float minDifficulty;
             public float maxDifficulty;
         }
         [Title("References")]
@@ -113,7 +114,7 @@ namespace CustomerScene.Customers
                 if (customer.customer.HasOrder)
                     continue;
                 
-                customer.customer.SetOrder(GenerateCustomerOrder(customer.maxDifficulty));
+                customer.customer.SetOrder(GenerateCustomerOrder(customer.minDifficulty, customer.maxDifficulty));
                 break;
             }
         }
@@ -121,9 +122,9 @@ namespace CustomerScene.Customers
         private float GetHighestDifficulty() => availableFruits.Select(f => f.DifficultyRating).Max();
         private void AddToPicker(FruitSO fruit, float highestDifficulty) => _fruitPicker.Add(fruit, highestDifficulty - fruit.DifficultyRating / highestDifficulty);
 
-        public CustomerOrder GenerateCustomerOrder(float localMaxDifficulty)
+        public CustomerOrder GenerateCustomerOrder(float minDifficulty, float localMaxDifficulty)
         {
-            SmoothieContent smoothieContent = GenerateRandomSmoothieContent(localMaxDifficulty);
+            SmoothieContent smoothieContent = GenerateRandomSmoothieContent(minDifficulty, localMaxDifficulty);
             
             return new CustomerOrder.Builder(smoothieContent)
                 .WithTimeToPrepare(smoothieContent.FruitsInSmoothie.Keys.Sum(f => f.DifficultyRating) * timeToPrepareMultiplier + timeToPrepareBase)
@@ -131,7 +132,7 @@ namespace CustomerScene.Customers
                 .Build();
         }
 
-        private SmoothieContent GenerateRandomSmoothieContent(float localMaxDifficulty)
+        private SmoothieContent GenerateRandomSmoothieContent(float minDifficulty, float localMaxDifficulty)
         {
             Dictionary<FruitSO, int> fruitsInSmoothie = new();
             SmoothieContent content = new(fruitsInSmoothie);
@@ -153,18 +154,36 @@ namespace CustomerScene.Customers
                 } while (pick.DifficultyRating + currentDifficulty > localMaxDifficulty || _fruitPicker.Count == 0);
 
                 fruitsInSmoothie.Add(pick, 1);
+                
+                if(pick.DifficultyRating + currentDifficulty < minDifficulty)
+                    continue;
+                
                 if (Random.Range(0f, 1f) > chanceForNextFruit)
                     break;
             }
+
+            while (fruitsInSmoothie.Keys.Select(f => f.DifficultyRating).Sum() < minDifficulty && _fruitPicker.Count > 0)
+            {
+                FruitSO lowestFruit = fruitsInSmoothie.Keys.OrderBy(f => f.DifficultyRating).First();
+                fruitsInSmoothie.Remove(lowestFruit);
+                FruitSO pick = _fruitPicker.Pick();
+                pickedFruits.Add(pick);
+                fruitsInSmoothie.Add(pick, 1);
+            }
             
+            ReturnPickedFruitsToPicker(pickedFruits);
+
+            content.SetContent(fruitsInSmoothie);
+            return content;
+        }
+
+        private void ReturnPickedFruitsToPicker(List<FruitSO> pickedFruits)
+        {
             float highestDifficulty = GetHighestDifficulty();
             foreach (FruitSO pickedFruit in pickedFruits)
             {
                 AddToPicker(pickedFruit, highestDifficulty);
             }
-            
-            content.SetContent(fruitsInSmoothie);
-            return content;
         }
     }
 }

@@ -1,7 +1,4 @@
-using System;
 using DG.Tweening;
-using Glasses;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace MixerScene.Mixer

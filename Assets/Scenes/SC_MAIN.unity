@@ -13933,6 +13933,7 @@ MonoBehaviour:
   buttonPressEase: 3
   buttonReleaseDuration: 0.2
   buttonReleaseEase: 2
+  buttonPressedTime: 0.1
 --- !u!1 &2065245834 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4691981521428574368, guid: e810252d472ce6d4d85cab18ff1200a4, type: 3}
@@ -14287,9 +14288,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.02
+  near clip plane: 0.3
   far clip plane: 1000
-  field of view: 41.9
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -14315,8 +14316,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132884389}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.11010691, y: 0, z: 0, w: 0.9939198}
-  m_LocalPosition: {x: 0.917, y: 1.205, z: -0.078}
+  m_LocalRotation: {x: -0.019289872, y: 0.9487812, z: -0.058681376, w: -0.30983657}
+  m_LocalPosition: {x: 1.6512605, y: 1.1331447, z: 1.4378452}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15376,6 +15377,10 @@ PrefabInstance:
       propertyPath: 'availableFruits.Array.data[10]'
       value: 
       objectReference: {fileID: 11400000, guid: e807aead3ee5fa24faf698a9a6061007, type: 2}
+    - target: {fileID: 4428568173353156466, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
+      propertyPath: customers.Array.data[3].minDifficulty
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 4624796143749324086, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
