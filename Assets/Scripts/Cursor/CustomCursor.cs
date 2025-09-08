@@ -123,8 +123,6 @@ namespace Cursor
                 CurrentCursorState = CursorState.Open;
                 return;
             }
-            
-            Debug.Log("NoHit");
             CurrentCursorState = CursorState.Point;
         }
 
