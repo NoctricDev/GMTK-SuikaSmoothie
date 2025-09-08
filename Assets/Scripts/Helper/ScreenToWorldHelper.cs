@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 
 namespace Helper
 {
@@ -36,15 +37,20 @@ namespace Helper
             return heightDiff / Mathf.Cos(angle * Mathf.Deg2Rad);
         }
 
-        public static bool IsMouseOverUI()
+        public static bool IsMouseOverUI() => IsMouseOverUI(out _);
+
+        private static PointerEventData _eventData;
+        
+        public static bool IsMouseOverUI(out PointerEventData eventData)
         {
+            eventData = _eventData;
             if (EventSystem.current == null)
                 return false;
 
-            PointerEventData pointerEventData = new(EventSystem.current);
-            pointerEventData.position = Mouse.current.position.ReadValue();
+            _eventData ??= new(EventSystem.current);
+            _eventData.position = Mouse.current.position.ReadValue();
             List<RaycastResult> results = new();
-            EventSystem.current.RaycastAll(pointerEventData, results);
+            EventSystem.current.RaycastAll(_eventData, results);
             foreach (RaycastResult raycastResult in results)
             {
                 if (raycastResult.gameObject.transform is RectTransform)
