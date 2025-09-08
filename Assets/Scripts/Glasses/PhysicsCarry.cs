@@ -10,6 +10,8 @@ namespace Glasses
         private ICarrieAbleMouse _mouseCarry;
         private bool _isCarried;
         private float _lastDropTime;
+        
+        public bool IsCarried { get => _isCarried; set => _ = value; } 
         public bool TryStartCarry(Transform carryTransform, ICarrieAbleMouse mouseCarry)
         {
             if (_isCarried) 

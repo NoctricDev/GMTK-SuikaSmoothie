@@ -41,9 +41,9 @@ namespace Helper
             if (EventSystem.current == null)
                 return false;
 
-            PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
+            PointerEventData pointerEventData = new(EventSystem.current);
             pointerEventData.position = Mouse.current.position.ReadValue();
-            List<RaycastResult> results = new System.Collections.Generic.List<RaycastResult>();
+            List<RaycastResult> results = new();
             EventSystem.current.RaycastAll(pointerEventData, results);
             foreach (RaycastResult raycastResult in results)
             {

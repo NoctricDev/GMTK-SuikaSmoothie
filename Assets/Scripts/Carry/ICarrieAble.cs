@@ -12,5 +12,7 @@ namespace Carry
         public GameObject GetAttachedGameObject();
         public float GetLastCarryDropTimeSinceLevelLoad();
 
+        public bool IsCarried { get; set; }
+
     }
 }

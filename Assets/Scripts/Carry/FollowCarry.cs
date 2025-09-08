@@ -32,6 +32,8 @@ namespace Carry
         private float _startY;
         private Vector3 _startDiff;
         
+        public bool IsCarried { get; set; }
+        
         public bool TryStartCarry(Transform carryTransform, ICarrieAbleMouse mouseCarry)
         {
             _mixerMouse = mouseCarry as MixerMouse;
@@ -57,7 +59,8 @@ namespace Carry
                 Vector3 diff = thisTransform.position - targetPos;
                 _startDiff = Vector3.Project(diff, _mixerMouse.MixerInteractionPlane.forward);
             }
-            
+
+            IsCarried = true;
             return true;
         }
 
@@ -69,6 +72,7 @@ namespace Carry
             _timeSinceLastDrop = Time.timeSinceLevelLoad;
             _isCarried = false;
             _carryTransform = null;
+            IsCarried = false;
             CarryStoppedEvent?.Invoke();
         }
 
