@@ -15,7 +15,7 @@ MonoBehaviour:
   fruitType: 5
   fruitPrefab: {fileID: 5813592831374681062, guid: 3531469426f37dc46ab4e626282a9592, type: 3}
   fruitIcon: {fileID: 21300000, guid: 106a0fc8603cd9142a56edfbe4df321a, type: 3}
-  difficultyRating: 64
-  value: 64
+  difficultyRating: 32
+  value: 32
   _smoothieTopColor: {r: 1, g: 0.16509432, b: 0.16509432, a: 1}
   _smoothieSideColor: {r: 1, g: 0, b: 0, a: 1}
