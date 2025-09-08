@@ -40,19 +40,15 @@ namespace MixerScene.Mixer
                 return;
             }
             Glass glassToFill = glassSlot.CurrentCarrieAble as Glass;
-            if (glassToFill == null)
+            if (glassToFill == null || !glassToFill.IsEmpty)
             {
                 EmptyMixer();
+                return;
             }
-            else if(glassToFill.IsEmpty)
-            {
-                FillGlass(glassToFill);
-                EmptyMixer();
-            }
-            else
-            {
-                Debug.Log("[Mixer] Glass is not empty, cannot fill it with smoothie!");
-            }
+            
+            FillGlass(glassToFill);
+            EmptyMixer();
+            
         }
 
         public void EmptyMixer()
