@@ -33,9 +33,13 @@ namespace Carry
         private Vector3 _startDiff;
         
         public bool IsCarried { get; set; }
+
+        public bool AllowCarry { get; set; } = true;
         
         public bool TryStartCarry(Transform carryTransform, ICarrieAbleMouse mouseCarry)
         {
+            if (!AllowCarry)
+                return false;
             _mixerMouse = mouseCarry as MixerMouse;
             if (_mixerMouse != null)
             {
