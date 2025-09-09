@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5abb2d5481a4333af9cef37af3f5996, type: 3}
+  m_Name: TutorialSteps
+  m_EditorClassIdentifier: 
+  tutorialSteps:
+  - {fileID: 11400000, guid: 0cc52bf9ebb0b684c89627d3123c67bc, type: 2}
+  - {fileID: 11400000, guid: ccda720a42115654f8d29986af39f906, type: 2}
+  - {fileID: 11400000, guid: 6112638e9dba40448ad92736dfc3cba3, type: 2}
+  - {fileID: 11400000, guid: 2e25fb20dade7794386878f974009353, type: 2}
+  - {fileID: 11400000, guid: 331ebe62fa74e374e8ce076ee6628bb5, type: 2}
+  - {fileID: 11400000, guid: 523823a4e8a125648969faea1f1029b6, type: 2}
+  - {fileID: 11400000, guid: e4b79a9674dbfe648aab4378e96f5d38, type: 2}
+  - {fileID: 11400000, guid: 658197291a9a9924ca0adb10a4a5fb91, type: 2}
+  - {fileID: 11400000, guid: eb4137036c284fa45a79901394bd0fbe, type: 2}
+  - {fileID: 11400000, guid: 6079c888d5d82ae4b9b1b22c4daa9938, type: 2}
+  - {fileID: 11400000, guid: 23964855c2607304b90d62b475ed3d6e, type: 2}
+  - {fileID: 11400000, guid: 280dda61dd7f6604c95ff77e043d2613, type: 2}
+  - {fileID: 11400000, guid: c3f08aa455024de46968e2b8a9165e3e, type: 2}
+  - {fileID: 11400000, guid: 90f3373e605e2224d887e7a86b516b5a, type: 2}

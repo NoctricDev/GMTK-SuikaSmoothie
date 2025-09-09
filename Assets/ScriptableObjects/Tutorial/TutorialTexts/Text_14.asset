@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6ade6d8012d4c328a7a11ffc43cc42b, type: 3}
+  m_Name: Text_14
+  m_EditorClassIdentifier: 
+  uniqueID: 14
+  headerText: Serve or Trash Smoothie
+  contentText: "Press E or click the UI element to return to the Customer Screen.
+    Click on the smoothie with LMB, then hover over a serving plate and press LMB
+    to serve it to a customer. Alternatively, trash it if it\u2019s wrong."

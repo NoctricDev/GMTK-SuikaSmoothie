@@ -1,7 +1,6 @@
 using System;
 using System.Threading;
 using Carry;
-using DG.Tweening;
 using Events;
 using Helper;
 using Input;
@@ -27,6 +26,16 @@ namespace FruitBowlScene
 
         private bool _isCarrying;
         private UnityEngine.Camera _mainCam;
+
+        private UnityEngine.Camera MainCam
+        {
+            get
+            {
+                if (_mainCam == null)
+                    _mainCam = UnityEngine.Camera.main;
+                return _mainCam;
+            }
+        }
         
         private ICarrieAble _activePayload;
         private GameObject _activePayloadGameObject;
@@ -37,7 +46,6 @@ namespace FruitBowlScene
         
         public void LoadEnd()
         {
-            _mainCam = UnityEngine.Camera.main;
             inputManager.InteractPrimaryEvent += OnInteractSecondary;
             payloadPickedUpGameEvent.Subscribe(OnPayLoadPickedUp);
             payloadDroppedGameEvent.Subscribe(OnPayLoadDropped);
@@ -45,10 +53,15 @@ namespace FruitBowlScene
 
         public void Unload()
         {
-            StopCarry();
             inputManager.InteractPrimaryEvent -= OnInteractSecondary;
             payloadPickedUpGameEvent.Unsubscribe(OnPayLoadPickedUp);
             payloadDroppedGameEvent.Unsubscribe(OnPayLoadDropped);
+            StopCarry();
+        }
+
+        private void OnDestroy()
+        {
+            Unload();
         }
 
         private void OnPayLoadPickedUp(object arg1, ICarrieAble arg2) => _isCarrying = true;
@@ -64,7 +77,7 @@ namespace FruitBowlScene
             if (ScreenToWorldHelper.IsMouseOverUI())
                 return;
             
-            Ray ray = ScreenToWorldHelper.GetMouseToWorldRay(_mainCam);
+            Ray ray = ScreenToWorldHelper.GetMouseToWorldRay(MainCam);
             ray.direction = ray.direction.normalized * 100;
             if (!Physics.Raycast(ray, out RaycastHit hit, 10, layerMask, QueryTriggerInteraction.Ignore))
                 return;

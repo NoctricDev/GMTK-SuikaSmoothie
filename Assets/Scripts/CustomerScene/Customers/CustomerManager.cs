@@ -72,7 +72,7 @@ namespace CustomerScene.Customers
 
             startGameTypeVariable.OnValueChanged += (gameMode) =>
             {
-                if(gameMode != StartGameType.Dummy)
+                if(gameMode is not (StartGameType.Dummy or StartGameType.Tutorial))
                     _hasStarted = true;
                 playerMoney.Value = 0;
             };
@@ -90,7 +90,7 @@ namespace CustomerScene.Customers
 
         public void LoadEnd()
         {
-            if (_hasInitialized)
+            if (_hasInitialized || !_hasStarted)
                 return;
             _hasInitialized = true;
             TryPlaceOrder();
@@ -179,6 +179,7 @@ namespace CustomerScene.Customers
                 FruitSO lowestFruit = fruitsInSmoothie.Keys.OrderBy(f => f.DifficultyRating).First();
                 fruitsInSmoothie.Remove(lowestFruit);
                 FruitSO pick = _fruitPicker.Pick();
+                _fruitPicker.Remove(pick);
                 fruitsInSmoothie.Add(pick, 1);
             }
 

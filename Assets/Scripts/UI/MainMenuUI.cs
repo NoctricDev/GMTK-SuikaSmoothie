@@ -1,3 +1,4 @@
+using System;
 using Events;
 using Scenes;
 using UnityEngine;
@@ -9,13 +10,30 @@ namespace UI
     {
         [SerializeField] private Button startButton;
         [SerializeField] private Button startWithTimerButton;
+        [SerializeField] private Button startTutorialButton;
         [SerializeField] private GameplayScenes startGameplayScene;
+        [SerializeField] private GameplayScenes startTutorialGameplayScene;
         [SerializeField] private StartGameTypeVariable startGameTypeVariable;
 
         private void Awake()
         {
             startButton.onClick.AddListener(OnFreeplayButtonClicked);
             startWithTimerButton.onClick.AddListener(OnStartWithTimerButtonClicked);
+            startTutorialButton.onClick.AddListener(OnTutorialButtonClicked);
+        }
+
+        private void OnDestroy()
+        {
+            startButton.onClick.RemoveListener(OnFreeplayButtonClicked);
+            startWithTimerButton.onClick.RemoveListener(OnStartWithTimerButtonClicked);
+            startTutorialButton.onClick.RemoveListener(OnTutorialButtonClicked);
+        }
+
+        private void OnTutorialButtonClicked()
+        {
+            startGameTypeVariable.Value = StartGameType.Dummy;
+            startGameTypeVariable.Value = StartGameType.Tutorial;
+            StartGame(startTutorialGameplayScene);
         }
 
         private void OnFreeplayButtonClicked()
@@ -33,9 +51,11 @@ namespace UI
             StartGame();
         }
 
-        private void StartGame()
+        private void StartGame() => StartGame(startGameplayScene);
+        
+        private void StartGame(GameplayScenes gameplayScene)
         {
-            GameplaySceneManager.Instance.LoadGameplayScene(startGameplayScene);
+            GameplaySceneManager.Instance.LoadGameplayScene(gameplayScene);
         }
 
         public void QuitGame()

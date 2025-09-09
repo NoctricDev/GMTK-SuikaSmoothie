@@ -1,3 +1,4 @@
+using System;
 using JohaToolkit.UnityEngine.ScriptableObjects.Variables;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Events
     public class StartGameTypeVariable : SOVariableBase<StartGameType>
     { }
 
+    [Flags]
     public enum StartGameType
     {
         Dummy,
