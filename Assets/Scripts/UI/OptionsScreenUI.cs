@@ -1,17 +1,33 @@
+using System;
 using System.Collections.Generic;
 using Input;
 using JohaToolkit.UnityEngine.DataStructures;
+using UnityEngine;
 
 namespace UI
 {
+    public interface IInitOptions
+    {
+        public void Init();
+    }
     public class OptionsScreenUI : MonoBehaviourSingleton<OptionsScreenUI>
     {
         private List<InputManagerSO.ActionMaps> _enabledActionMapsCache;
         private bool _isShown = false;
+        public event Action<bool> VisibilityChangedEvent;
 
         protected override void Awake()
         {
             base.Awake();
+
+            foreach (Transform child in transform)
+            {
+                if (child.TryGetComponent(out IInitOptions initOptions))
+                {
+                    initOptions.Init();
+                }
+            }
+            
             gameObject.SetActive(false);
         }
 
@@ -22,6 +38,7 @@ namespace UI
             CacheAndDisableEnabledActionMaps();
             _isShown = true;
             gameObject.SetActive(true);
+            VisibilityChangedEvent?.Invoke(true);
         }
 
 
@@ -32,6 +49,7 @@ namespace UI
             EnableCachedActionMaps();
             _isShown = false;
             gameObject.SetActive(false);
+            VisibilityChangedEvent?.Invoke(false);
         }
         
         private void CacheAndDisableEnabledActionMaps()

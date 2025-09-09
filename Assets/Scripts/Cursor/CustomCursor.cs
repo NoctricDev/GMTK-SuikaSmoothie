@@ -169,7 +169,11 @@ namespace Cursor
 
         public void SetCursor(CursorState state)
         {
+#if !UNITY_WEBGL
             UnityEngine.Cursor.SetCursor(CursorStateToTexture(state), hotSpot, CursorMode.Auto);
+            return;
+#endif
+            UnityEngine.Cursor.SetCursor(CursorStateToTexture(state), hotSpot, CursorMode.ForceSoftware);
         }
 
         private Texture2D CursorStateToTexture(CursorState state)
