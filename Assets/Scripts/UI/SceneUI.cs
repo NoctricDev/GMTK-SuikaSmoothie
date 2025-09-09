@@ -14,7 +14,7 @@ namespace UI
         [Title("Settings")]
         [SerializeField] private float fadeDuration = 0.5f;
 
-        private void Awake()
+        private void Start()
         {
             gameObject.SetActive(false);
         }

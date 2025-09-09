@@ -118,7 +118,8 @@ namespace Scenes
             }
             catch (Exception e)
             {
-                Debug.LogError($"LoadEnd: Error while loading scene: {e.Message}");
+                Debug.LogError($"LoadEnd: Error while loading scene({CurrentScene}): {e.Message}");
+                Debug.LogError(e.StackTrace);
             }
             
             

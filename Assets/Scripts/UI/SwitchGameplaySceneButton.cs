@@ -16,7 +16,13 @@ namespace UI
         [Title("Settings")]
         [SerializeField] private bool moveLeft;
         public bool MoveLeft => moveLeft;
-        private void Start()
+
+        private async void Awake()
+        {
+            await Awaitable.EndOfFrameAsync();
+            Init();
+        }
+        private void Init()
         {
             switchGameplaySceneButton.onClick.AddListener(OnSwitchGameplaySceneButtonClicked);
             GameplaySceneManager.Instance.CurrentSceneChangedEvent += OnCurrentSceneChanged;
@@ -40,6 +46,7 @@ namespace UI
                 GameplayScenes.Mixer when !moveLeft=> GameplayScenes.Customer,
                 GameplayScenes.Customer when moveLeft=> GameplayScenes.Mixer,
                 GameplayScenes.Customer when !moveLeft=> GameplayScenes.Bowl,
+                GameplayScenes.MainMenu => GameplayScenes.MainMenu,
                 _ => throw new ArgumentOutOfRangeException()
             };
         }

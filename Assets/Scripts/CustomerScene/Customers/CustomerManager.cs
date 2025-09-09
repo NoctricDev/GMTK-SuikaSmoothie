@@ -52,12 +52,6 @@ namespace CustomerScene.Customers
         protected override void Awake()
         {
             base.Awake();
-            _fruitPicker = new WeightedPicker<FruitSO>();
-            float highestDifficulty = GetHighestDifficulty();
-            foreach (FruitSO fruit in availableFruits)
-            {
-                AddToPicker(fruit, highestDifficulty);
-            }
 
             _nextOrderCheck = customerOrderSpawnRate.RandomRange();
             _customersList = customers.ToList();
@@ -73,6 +67,16 @@ namespace CustomerScene.Customers
                     _hasStarted = true;
                 playerMoney.Value = 0;
             };
+        }
+
+        private void ResetPicker()
+        {
+            _fruitPicker = new WeightedPicker<FruitSO>();
+            float highestDifficulty = GetHighestDifficulty();
+            foreach (FruitSO fruit in availableFruits)
+            {
+                AddToPicker(fruit, highestDifficulty);
+            }
         }
 
         public void LoadEnd()
@@ -137,7 +141,7 @@ namespace CustomerScene.Customers
             Dictionary<FruitSO, int> fruitsInSmoothie = new();
             SmoothieContent content = new(fruitsInSmoothie);
 
-            List<FruitSO> pickedFruits = new();
+            ResetPicker();
             
             for (int i = 0; i < maxFruitsInSmoothie; i++)
             {
@@ -150,7 +154,6 @@ namespace CustomerScene.Customers
                 {
                     pick = _fruitPicker.Pick();
                     _fruitPicker.Remove(pick);
-                    pickedFruits.Add(pick);
                 } while (pick.DifficultyRating + currentDifficulty > localMaxDifficulty || _fruitPicker.Count == 0);
 
                 fruitsInSmoothie.Add(pick, 1);
@@ -167,23 +170,11 @@ namespace CustomerScene.Customers
                 FruitSO lowestFruit = fruitsInSmoothie.Keys.OrderBy(f => f.DifficultyRating).First();
                 fruitsInSmoothie.Remove(lowestFruit);
                 FruitSO pick = _fruitPicker.Pick();
-                pickedFruits.Add(pick);
                 fruitsInSmoothie.Add(pick, 1);
             }
-            
-            ReturnPickedFruitsToPicker(pickedFruits);
 
             content.SetContent(fruitsInSmoothie);
             return content;
-        }
-
-        private void ReturnPickedFruitsToPicker(List<FruitSO> pickedFruits)
-        {
-            float highestDifficulty = GetHighestDifficulty();
-            foreach (FruitSO pickedFruit in pickedFruits)
-            {
-                AddToPicker(pickedFruit, highestDifficulty);
-            }
         }
     }
 }
