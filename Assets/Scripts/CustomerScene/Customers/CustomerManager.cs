@@ -42,6 +42,11 @@ namespace CustomerScene.Customers
         [SerializeField, InfoBox("This settings checks every Random(X,Y) seconds, if a order can be placed")] private Vector2 customerOrderSpawnRate = new(1f, 3f);
         [SerializeField, Range(0, 1)] private float chanceForNextFruit;
 
+        [Title("Order Evaluation")]
+        [SerializeField] private float oneFruitMultiplier = 1f;
+        [SerializeField] private float twoFruitMultiplier = 1.2f;
+        [SerializeField] private float threeFruitMultiplier = 2f;
+        
         private WeightedPicker<FruitSO> _fruitPicker;
         private float _timer;
         private float _nextOrderCheck;
@@ -52,6 +57,10 @@ namespace CustomerScene.Customers
         protected override void Awake()
         {
             base.Awake();
+            
+            OrderEvaluator.OneFruitMultiplier = oneFruitMultiplier;
+            OrderEvaluator.TwoFruitsMultiplier = twoFruitMultiplier;
+            OrderEvaluator.ThreeFruitsMultiplier = threeFruitMultiplier;
 
             _nextOrderCheck = customerOrderSpawnRate.RandomRange();
             _customersList = customers.ToList();

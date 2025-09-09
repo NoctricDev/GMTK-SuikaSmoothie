@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Fruits;
 using Glasses;
 using UnityEngine;
@@ -7,6 +8,9 @@ namespace CustomerScene.Customers
 {
     public static class OrderEvaluator
     {
+        public static float OneFruitMultiplier = 1f;
+        public static float TwoFruitsMultiplier = 1.5f;
+        public static float ThreeFruitsMultiplier = 2f;
         public static OrderEvaluation EvaluateOrder(CustomerOrder order, SmoothieContent content)
         {
             OrderEvaluation evaluation = new();
@@ -28,9 +32,19 @@ namespace CustomerScene.Customers
             pricePaid = Mathf.Max(0, pricePaid);
             
             evaluation.IsAccepted = pricePaid > 0;
-            evaluation.PricePaid = pricePaid;
-            
+            evaluation.PricePaid = Mathf.CeilToInt(pricePaid * GetMultiplier(order));
             return evaluation;
+        }
+
+        private static float GetMultiplier(CustomerOrder order)
+        {
+            return order.Content.FruitsInSmoothie.Keys.Count() switch
+            {
+                1 => OneFruitMultiplier,
+                2 => TwoFruitsMultiplier,
+                3 => ThreeFruitsMultiplier,
+                _ => 1f
+            };
         }
 
         private static bool IsFruitCorrect(IReadOnlyDictionary<FruitSO, int> expectedOrder, FruitSO fruit, out int expectedCount)
