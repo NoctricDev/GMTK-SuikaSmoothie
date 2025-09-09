@@ -24,9 +24,12 @@ namespace Fruits
         public bool CanMerge => _canMerge && !requestedMerge && !_firstGrab;
 
         private FollowCarry? _followCarry;
+
+        public bool HasCollided;
         
         public void Init(FruitSO fruitSO, bool spawnProtection)
         {
+            HasCollided = false;
             _firstGrab = spawnProtection;
             _rb = GetComponent<Rigidbody>();
             FruitSO = fruitSO;
@@ -56,6 +59,7 @@ namespace Fruits
 
         private void OnCollisionEnter(Collision other)
         {
+            HasCollided = true;
             if (!CanMerge || !other.transform.TryGetComponent(out Fruit otherFruit) || !otherFruit.CanMerge)
                 return;
             

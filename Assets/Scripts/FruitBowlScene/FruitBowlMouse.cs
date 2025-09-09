@@ -1,6 +1,7 @@
 using System;
 using Carry;
 using Events;
+using Fruits;
 using Helper;
 using Input;
 using JetBrains.Annotations;
@@ -71,7 +72,16 @@ namespace FruitBowlScene
             
             if(!GetFirstOverlappingPayload(out ICarrieAble carrieAble))
                 return;
-            
+
+
+            if (carrieAble is FollowCarry followCarry)
+            {
+                if (followCarry.TryGetComponent(out Fruit fruit))
+                {
+                    if (!fruit.HasCollided)
+                        return;
+                }
+            }
             
             StartCarry(carrieAble);
         }
