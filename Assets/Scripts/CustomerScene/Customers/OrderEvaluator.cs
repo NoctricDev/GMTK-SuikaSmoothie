@@ -29,7 +29,7 @@ namespace CustomerScene.Customers
                 }
             }
 
-            pricePaid = Mathf.Max(0, pricePaid);
+            pricePaid = Mathf.Max(1, pricePaid);
             
             evaluation.IsAccepted = pricePaid > 0;
             evaluation.PricePaid = Mathf.CeilToInt(pricePaid * GetMultiplier(order));

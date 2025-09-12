@@ -15,20 +15,30 @@ namespace UI
         private List<InputManagerSO.ActionMaps> _enabledActionMapsCache;
         private bool _isShown = false;
         public event Action<bool> VisibilityChangedEvent;
+        [SerializeField] private int maxDepth = 2;
 
         protected override void Awake()
         {
             base.Awake();
 
-            foreach (Transform child in transform)
+            InitChild(1, transform);
+            
+            gameObject.SetActive(false);
+        }
+
+        private void InitChild(int currentDepth, Transform parent)
+        {
+            foreach (Transform child in parent)
             {
                 if (child.TryGetComponent(out IInitOptions initOptions))
                 {
                     initOptions.Init();
                 }
+                if (currentDepth < maxDepth)
+                {
+                    InitChild(currentDepth + 1, child);
+                }
             }
-            
-            gameObject.SetActive(false);
         }
 
         public void Show()

@@ -93,7 +93,7 @@ namespace Mixer
         {
             carrieAble = null;
             (Ray ray, float dist) ray = GetMouseToWorldRay();
-            return Physics.SphereCast(ray.ray.origin, interactionRadius, ray.ray.direction, out RaycastHit hit, ray.dist, layerMask, QueryTriggerInteraction.Ignore) 
+            return Physics.SphereCast(ray.ray.origin, interactionRadius, ray.ray.direction, out RaycastHit hit, ray.dist + .2f, layerMask, QueryTriggerInteraction.Ignore) 
                    && hit.transform.TryGetComponent(out carrieAble);
         }
         
