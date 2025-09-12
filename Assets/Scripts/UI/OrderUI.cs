@@ -23,6 +23,8 @@ namespace UI
 
         [SerializeField, ShowIf(nameof(hasName))] private TextMeshProUGUI customerName;
 
+        [SerializeField] private Button cancelOrderButton;
+
         [Title("Settings")]
         [SerializeField] private bool slideInOut;
         [SerializeField, ShowIfGroup(nameof(slideInOut))] private float slideDuration = 0.2f;
@@ -40,10 +42,15 @@ namespace UI
             connectedCustomer.OrderTimeUpdatedEvent += OrderTimerUpdated;
             orderContainer.position = slideInOut? slideOutPosition : orderContainer.position;
             orderContainer.gameObject.SetActive(false);
+            cancelOrderButton?.onClick.AddListener(CancelOrder);
         }
 
-        [Button]
-        private void CancelOrder()
+        private void OnDestroy()
+        {
+            cancelOrderButton?.onClick.RemoveListener(CancelOrder);
+        }
+
+        public void CancelOrder()
         {
             connectedCustomer.CancelOrder();
         }
@@ -66,6 +73,8 @@ namespace UI
 
         private void OnNewOrderPlaced(CustomerOrder order)
         {
+            cancelOrderButton?.gameObject.SetActive(order.CanCancelOrderAllowed);
+            OrderTimerUpdated(1f);
             orderContainer.gameObject.SetActive(true);
             SetImages(order);
             if (!slideInOut)

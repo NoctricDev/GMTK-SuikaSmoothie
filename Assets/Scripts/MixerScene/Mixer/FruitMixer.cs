@@ -1,8 +1,10 @@
 using System;
 using System.Linq;
+using Carry;
 using Fruits;
 using Glasses;
 using JetBrains.Annotations;
+using JohaToolkit.UnityEngine.ScriptableObjects.Events;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -13,6 +15,10 @@ namespace MixerScene.Mixer
         [Title("References")]
         [SerializeField] private FruitCounter fruitCounter = null!;
 
+        [SerializeField] private GameEvent mixerGlassSlotPlacedEvent;
+        [SerializeField] private GameEvent mixerFruitCountChangedEvent;
+        [SerializeField] private GameEvent mixerMixedEvent;
+
         [SerializeField] private Slot glassSlot = null!;
 
         public event Action<SmoothieContent> MixerEmpty;
@@ -20,10 +26,20 @@ namespace MixerScene.Mixer
         private void Awake()
         {
             fruitCounter.FruitCountChangedEvent += OnFruitCountChanged;
+            glassSlot.SlotContentChangedEvent += OnGlassSlotChanged;
+        }
+
+        private void OnGlassSlotChanged(ICarrieAble obj, bool added)
+        {
+            if (!added)
+                return;
+            mixerGlassSlotPlacedEvent?.RaiseEvent(this);
         }
 
         private void OnFruitCountChanged(FruitSO fruitData, int currentCount)
         {
+            if(currentCount > 0)
+                mixerFruitCountChangedEvent?.RaiseEvent(this);
             return;
             Debug.Log("Count Changed!");
             foreach ((FruitSO key, int value) in fruitCounter.FruitsInMixer)
@@ -45,10 +61,9 @@ namespace MixerScene.Mixer
                 EmptyMixer();
                 return;
             }
-            
             FillGlass(glassToFill);
             EmptyMixer();
-            
+            mixerMixedEvent?.RaiseEvent(this);
         }
 
         public void EmptyMixer()

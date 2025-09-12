@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a07ed996fa4f759f88fef628bc4eb8, type: 3}
   m_Name: WaitForMergeEvent
   m_EditorClassIdentifier: 
-  grabEvent: {fileID: 11400000, guid: 05b17ad66892e144b8d98fd9dedee509, type: 2}
+  eventsToWaitFor:
+  - {fileID: 11400000, guid: 05b17ad66892e144b8d98fd9dedee509, type: 2}
+  minCallCount: 1
+  minDifferentSendersCount: 1
+  minDifferentSendersCallCount: 1

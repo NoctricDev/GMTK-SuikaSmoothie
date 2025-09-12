@@ -9,19 +9,26 @@ namespace CustomerScene.Customers
         public CustomerInfo CustomerInfo { get; private set; }
         public SmoothieContent Content { get; private set; }
         public float TimeToPrepare { get; private set; }
-        private CustomerOrder(SmoothieContent content, float timeToPrepare, CustomerInfo customerInfo)
+        public bool CanCancelOrderAllowed;
+        private CustomerOrder(SmoothieContent content, float timeToPrepare, CustomerInfo customerInfo, bool canCancelOrderAllowed = true)
         {
             CustomerInfo = customerInfo;
             Content = content;
             TimeToPrepare = timeToPrepare;
+            CanCancelOrderAllowed = canCancelOrderAllowed;
         }
 
         public class Builder
         {
             private SmoothieContent _content;
             private float _timeToPrepare = 0;
+            private bool _canCancelOrderAllowed;
             private CustomerInfo _customerInfo;
-            public Builder(SmoothieContent content) => _content = content;
+            public Builder(SmoothieContent content)
+            {
+                _content = content;
+                _canCancelOrderAllowed = true;
+            }
 
             public Builder WithTimeToPrepare(float time)
             {
@@ -31,13 +38,19 @@ namespace CustomerScene.Customers
 
             public Builder WithCustomerInfo(CustomerPool_SO[] customerPools)
             {
-                _customerInfo = GetCustomerInfo(customerPools);
+                _customerInfo = SetRandomCustomerInfo(customerPools);
                 return this;
             }
             
-            public CustomerOrder Build() => new(_content, _timeToPrepare, _customerInfo);
+            public Builder WithCanCancelOrderAllowed(bool canCancelOrderAllowed)
+            {
+                _canCancelOrderAllowed = canCancelOrderAllowed;
+                return this;
+            }
+            
+            public CustomerOrder Build() => new(_content, _timeToPrepare, _customerInfo, _canCancelOrderAllowed);
 
-            private CustomerInfo GetCustomerInfo(CustomerPool_SO[] customerPools)
+            private CustomerInfo SetRandomCustomerInfo(CustomerPool_SO[] customerPools)
             {
                 CustomerPool_SO pool = customerPools.Random();
                 string randomName = pool.customerNamePool.Random().Names.Random();

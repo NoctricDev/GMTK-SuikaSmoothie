@@ -8,6 +8,7 @@ using Glasses;
 using JohaToolkit.UnityEngine.Audio;
 using JohaToolkit.UnityEngine.DataStructures;
 using JohaToolkit.UnityEngine.Extensions;
+using JohaToolkit.UnityEngine.ScriptableObjects.Events;
 using JohaToolkit.UnityEngine.ScriptableObjects.Variables;
 using Scenes;
 using Sirenix.OdinInspector;
@@ -19,7 +20,7 @@ namespace CustomerScene.Customers
     public class CustomerManager : MonoBehaviourSingleton<CustomerManager>, IGameplaySceneObject
     {
         [Serializable]
-        private struct CustomerDifficulty
+        public struct CustomerDifficulty
         {
             public Customer customer;
             public float minDifficulty;
@@ -33,6 +34,7 @@ namespace CustomerScene.Customers
         [SerializeField] private SoundDataAsset orderSuccessSound;
         [SerializeField] private StartGameTypeVariable startGameTypeVariable;
         [SerializeField] private CustomerPool_SO[] customerPools;
+        [SerializeField] private GameEvent orderCompletedEvent;
 
         [Title("Settings")] 
         [SerializeField, InfoBox("Smoothie difficulty * this + timeToPrepareBase = TimeToPrepare")] private float timeToPrepareMultiplier = 2f;
@@ -98,6 +100,7 @@ namespace CustomerScene.Customers
 
         private void OnOrderCompleted(OrderEvaluation orderEvaluation)
         {
+            orderCompletedEvent?.RaiseEvent(this);
             if (orderEvaluation.IsAccepted)
             {
                 SoundManager.Instance.Play(orderSuccessSound);
@@ -119,17 +122,23 @@ namespace CustomerScene.Customers
             }
         }
 
+        public void TryPlaceOrder(CustomerDifficulty customer, CustomerOrder order)
+        {
+            customer.customer.SetOrder(order);
+        }
+
         public void TryPlaceOrder()
         {
+            if (!TryGetRandomCustomerWithoutOrder(out CustomerDifficulty customer))
+                return;
+            TryPlaceOrder(customer, GenerateCustomerOrder(customer.minDifficulty, customer.maxDifficulty));
+        }
+
+        public bool TryGetRandomCustomerWithoutOrder(out CustomerDifficulty customer)
+        {
             _customersList.FisherYatesShuffle();
-            foreach (CustomerDifficulty customer in _customersList)
-            {
-                if (customer.customer.HasOrder)
-                    continue;
-                
-                customer.customer.SetOrder(GenerateCustomerOrder(customer.minDifficulty, customer.maxDifficulty));
-                break;
-            }
+            customer = _customersList.FirstOrDefault(c => !c.customer.HasOrder);
+            return customer.customer != null;
         }
 
         private float GetHighestDifficulty() => availableFruits.Select(f => f.DifficultyRating).Max();

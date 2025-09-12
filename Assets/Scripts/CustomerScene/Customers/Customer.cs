@@ -40,9 +40,9 @@ namespace CustomerScene.Customers
             OrderTimeUpdatedEvent?.Invoke(_orderTimer?.Progress ?? 0);
         }
 
-        private void OnSlotContentChanged([CanBeNull] ICarrieAble slotObject)
+        private void OnSlotContentChanged([CanBeNull] ICarrieAble slotObject, bool added)
         {
-            if (slot.IsLocked || slotObject == null || !HasOrder || slotObject is not Glass glass)
+            if (slot.IsLocked || slotObject == null || !HasOrder || slotObject is not Glass glass || !added)
                 return;
 
             //slot.IsLocked = true;

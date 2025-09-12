@@ -14,7 +14,7 @@ namespace Glasses
         public bool HasPayload => CurrentCarrieAble != null;
         public bool IsLocked { get; set; }
 
-        public Action<ICarrieAble> SlotContentChangedEvent;
+        public event Action<ICarrieAble, bool> SlotContentChangedEvent;
 
         public void SetSlot(ICarrieAble carrieAble)
         {
@@ -52,7 +52,7 @@ namespace Glasses
             
             CurrentCarrieAble = carry;
             carry.TryStartCarry(slotTransform, null);
-            SlotContentChangedEvent?.Invoke(CurrentCarrieAble);
+            SlotContentChangedEvent?.Invoke(CurrentCarrieAble, true);
         }
 
         public void StopCarry()
@@ -66,6 +66,7 @@ namespace Glasses
                 return;
             }
             CurrentCarrieAble.OnStopCarry();
+            SlotContentChangedEvent?.Invoke(CurrentCarrieAble, false);
             CurrentCarrieAble = null;
         }
     }

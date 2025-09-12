@@ -66,16 +66,18 @@ namespace Cursor
             SetCursor(CursorState.Point);
         }
 
-        private void OnEnable()
+        protected override void OnEnable()
         {
             SubscribeToEvents(payloadPickedUpEvent, OnPayloadPickedUp);
             SubscribeToEvents(payloadDroppedEvent, OnPayloadDropped);
+            base.OnEnable();
         }
 
-        private void OnDisable()
+        protected override void OnDisable()
         {
             UnSubscribeFromEvents(payloadPickedUpEvent, OnPayloadPickedUp);
             UnSubscribeFromEvents(payloadDroppedEvent, OnPayloadDropped);
+            base.OnDisable();
         }
 
         private void SubscribeToEvents(GameEventICarrieAble[] events, Action<object, ICarrieAble> action)

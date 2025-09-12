@@ -15,4 +15,5 @@ MonoBehaviour:
   uniqueID: 7
   headerText: Understand Customer Orders
   contentText: "Here, you can view each customer's smoothie order and their patience
-    bar. Don\u2019t let it run out, and don\u2019t serve the wrong smoothie!\n"
+    bar. Don\u2019t let it run out, and don\u2019t serve the wrong smoothie!\n(Press
+    LMB to continue)"

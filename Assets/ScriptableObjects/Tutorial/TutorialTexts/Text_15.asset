@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Text_15
   m_EditorClassIdentifier: 
   uniqueID: 15
-  headerText: Complete All remaining Orders
-  contentText: Now you know everything! Time to complete the 3 orders. You can always
-    check the order list at the bottom left if you forget what a customer wants!
+  headerText: Serve or Trash Smoothie
+  contentText: "Click on the smoothie with LMB, then hover over a serving plate and
+    press LMB to serve it to a customer. Alternatively, trash it if it\u2019s wrong."

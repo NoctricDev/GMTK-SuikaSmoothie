@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c15ffd413c44bccbc33011910a0e16c, type: 3}
+  m_Name: SpawnBlueberryOrder
+  m_EditorClassIdentifier: 
+  smoothieContent:
+    m_Keys:
+    - {fileID: 11400000, guid: 821bfe6b4a7a353418de97f9fcc31659, type: 2}
+    m_Values: 01000000
+  customerPool:
+  - {fileID: 11400000, guid: 9c604f99935630043a96404d4d55d2dd, type: 2}
+  - {fileID: 11400000, guid: 6c7acf00a41af124b9e20929e45d6022, type: 2}

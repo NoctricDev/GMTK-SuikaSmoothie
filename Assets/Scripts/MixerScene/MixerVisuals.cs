@@ -44,7 +44,7 @@ namespace MixerScene
         {
             _sequence = DOTween.Sequence()
                 .Append(mixerMaterial.DOFloat(fillAmount, _fillID, fillDuration).SetEase(fillEase))
-                .Append(mixerMaterial.DOFloat(0, _fillID, 0.2f).SetEase(emptyEase));
+                .Append(mixerMaterial.DOFloat(0, _fillID, emptyDuration).SetEase(emptyEase));
             return _sequence;
         }
     }

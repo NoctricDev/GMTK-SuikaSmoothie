@@ -22,6 +22,7 @@ namespace Tutorial
         private void OnDestroy()
         {
             startGameTypeVariable.OnValueChanged -= OnStartGameTypeChanged;
+            _currentStep?.OnEndStep();
         }
 
         private void OnStartGameTypeChanged(StartGameType gameMode)

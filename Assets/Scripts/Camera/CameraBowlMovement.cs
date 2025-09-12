@@ -1,5 +1,6 @@
 using System;
 using Input;
+using JohaToolkit.UnityEngine.ScriptableObjects.Events;
 using Scenes;
 using Sirenix.OdinInspector;
 using Unity.Cinemachine;
@@ -12,6 +13,8 @@ namespace Camera
         [Title("References")]
         [SerializeField, Required] private InputManagerSO inputManager;
         [SerializeField, Required, ChildGameObjectsOnly] private CinemachineSplineDolly cinemachineSplineDolly;
+        [SerializeField] private GameEvent moveLeftEvent;
+        [SerializeField] private GameEvent moveRightEvent;
         
         [Title("Settings")]
         [SerializeField] private float speed;
@@ -23,6 +26,16 @@ namespace Camera
 
         private void OnCameraMove(float dir)
         {
+            switch (dir)
+            {
+                case < 0:
+                    moveLeftEvent.RaiseEvent(this);
+                    break;
+                case > 0:
+                    moveRightEvent.RaiseEvent(this);
+                    break;
+            }
+
             _desiredDelta = dir * speed;
         }
 
@@ -41,6 +54,11 @@ namespace Camera
         }
 
         public void Unload()
+        {
+            inputManager.BowlSceneCameraMoveEvent -= OnCameraMove;
+        }
+
+        public void OnDestroy()
         {
             inputManager.BowlSceneCameraMoveEvent -= OnCameraMove;
         }

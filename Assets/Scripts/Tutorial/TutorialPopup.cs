@@ -57,8 +57,8 @@ namespace Tutorial
         private Sequence GetHideSequence()
         {
             return DOTween.Sequence()
-                .Append(_canvasGroup.DOFade(0f, fadeInDuration).SetEase(fadeOutEase))
-                .Join(transform.DOLocalMove(hidePos, fadeInDuration).SetEase(fadeOutEase))
+                .Append(_canvasGroup.DOFade(0f, fadeOutDuration).SetEase(fadeOutEase))
+                .Join(transform.DOLocalMove(hidePos, fadeOutDuration).SetEase(fadeOutEase))
                 ;
         }
     }

@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: Text_14
   m_EditorClassIdentifier: 
   uniqueID: 14
-  headerText: Serve or Trash Smoothie
-  contentText: "Press E or click the UI element to return to the Customer Screen.
-    Click on the smoothie with LMB, then hover over a serving plate and press LMB
-    to serve it to a customer. Alternatively, trash it if it\u2019s wrong."
+  headerText: Return to Customer Screen
+  contentText: Press E or click the UI element to return to the Customer Screen

@@ -603,6 +603,7 @@ MonoBehaviour:
   fruitImages: []
   iconImage: {fileID: 0}
   customerName: {fileID: 0}
+  cancelOrderButton: {fileID: 39549403831630210}
   slideInOut: 0
   slideDuration: 0.2
   slideInPosition: {x: 0, y: 0}
