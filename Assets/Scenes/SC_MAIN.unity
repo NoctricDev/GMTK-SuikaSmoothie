@@ -13471,6 +13471,10 @@ PrefabInstance:
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4428568173353156466, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
+      propertyPath: chanceForNextFruit
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4428568173353156466, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
       propertyPath: orderCompletedEvent
       value: 
       objectReference: {fileID: 11400000, guid: daa05f485c55cd543a0adaff5a28b25a, type: 2}
@@ -13483,12 +13487,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: ccae1243f272d0343a538033e0e93fd8, type: 2}
     - target: {fileID: 4428568173353156466, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
+      propertyPath: timeToPrepareMultiplier
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4428568173353156466, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
       propertyPath: customerOrderSpawnRate.x
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4428568173353156466, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
       propertyPath: customerOrderSpawnRate.y
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4428568173353156466, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
       propertyPath: customerPools.Array.size
@@ -13556,7 +13564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4428568173353156466, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
       propertyPath: customers.Array.data[2].maxDifficulty
-      value: 511
+      value: 272
       objectReference: {fileID: 0}
     - target: {fileID: 4428568173353156466, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
       propertyPath: customers.Array.data[2].minDifficulty

@@ -84,7 +84,8 @@ namespace CustomerScene.Customers
 
         private void ResetPicker()
         {
-            _fruitPicker = new WeightedPicker<FruitSO>();
+            _fruitPicker ??= new WeightedPicker<FruitSO>(); 
+            _fruitPicker.Clear();
             float highestDifficulty = GetHighestDifficulty();
             foreach (FruitSO fruit in availableFruits)
             {
@@ -144,7 +145,7 @@ namespace CustomerScene.Customers
         }
 
         private float GetHighestDifficulty() => availableFruits.Select(f => f.DifficultyRating).Max();
-        private void AddToPicker(FruitSO fruit, float highestDifficulty) => _fruitPicker.Add(fruit, highestDifficulty - fruit.DifficultyRating / highestDifficulty);
+        private void AddToPicker(FruitSO fruit, float highestDifficulty) => _fruitPicker.Add(fruit, (highestDifficulty - fruit.DifficultyRating + 1) / (highestDifficulty + 1));
 
         public CustomerOrder GenerateCustomerOrder(float minDifficulty, float localMaxDifficulty)
         {
@@ -159,43 +160,75 @@ namespace CustomerScene.Customers
         private SmoothieContent GenerateRandomSmoothieContent(float minDifficulty, float localMaxDifficulty)
         {
             Dictionary<FruitSO, int> fruitsInSmoothie = new();
-            SmoothieContent content = new(fruitsInSmoothie);
 
             ResetPicker();
+
+            int desiredFruitCount = GetDesiredFruitCount();
             
-            for (int i = 0; i < maxFruitsInSmoothie; i++)
-            {
-                float currentDifficulty = fruitsInSmoothie.Keys.Select(f => f.DifficultyRating).Sum();
-                if (currentDifficulty >= localMaxDifficulty)
-                    break;
+            PickFruit(fruitsInSmoothie, minDifficulty, localMaxDifficulty, desiredFruitCount);
+            
+            return new SmoothieContent(fruitsInSmoothie);
+        }
 
-                FruitSO pick;
-                do
+        private int GetDesiredFruitCount()
+        {
+            int fruitCount = 1;
+            for (int i = 1; i < maxFruitsInSmoothie; i++)
+            {
+                if (Random.value <= chanceForNextFruit)
+                    fruitCount++;
+                else
+                    break;
+            }
+
+            return fruitCount;
+        }
+        
+        private float GetCurrentDifficulty(Dictionary<FruitSO, int> fruitsInSmoothie) => fruitsInSmoothie.Keys.Sum(f => f.DifficultyRating);
+
+        private void PickFruit(Dictionary<FruitSO, int> fruitsInSmoothie, float minDifficulty, float maxDifficulty, int desiredFruitCount)
+        {
+            for (int i = 0; i < desiredFruitCount; i++)
+            {
+                SimplePick(fruitsInSmoothie);
+            }
+            
+            while(IsSmoothieTooEasy(fruitsInSmoothie, minDifficulty) || IsSmoothieTooHard(fruitsInSmoothie, maxDifficulty))
+            {
+                if (_fruitPicker.Count == 0)
                 {
-                    pick = _fruitPicker.Pick();
-                    _fruitPicker.Remove(pick);
-                } while (pick.DifficultyRating + currentDifficulty > localMaxDifficulty || _fruitPicker.Count == 0);
-
-                fruitsInSmoothie.Add(pick, 1);
-                
-                if(pick.DifficultyRating + currentDifficulty < minDifficulty)
-                    continue;
-                
-                if (Random.Range(0f, 1f) > chanceForNextFruit)
+                    Debug.LogError("No more fruits to pick from, cannot adjust smoothie difficulty further");
                     break;
+                }
+                if (IsSmoothieTooEasy(fruitsInSmoothie, minDifficulty))
+                    MakeHarder(fruitsInSmoothie);
+                else
+                    MakeEasier(fruitsInSmoothie);
             }
+        }
+        
+        private bool IsSmoothieTooEasy(Dictionary<FruitSO, int> fruitsInSmoothie, float minDifficulty) => GetCurrentDifficulty(fruitsInSmoothie) < minDifficulty;
+        private bool IsSmoothieTooHard(Dictionary<FruitSO, int> fruitsInSmoothie, float maxDifficulty) => GetCurrentDifficulty(fruitsInSmoothie) > maxDifficulty;
 
-            while (fruitsInSmoothie.Keys.Select(f => f.DifficultyRating).Sum() < minDifficulty && _fruitPicker.Count > 0)
-            {
-                FruitSO lowestFruit = fruitsInSmoothie.Keys.OrderBy(f => f.DifficultyRating).First();
-                fruitsInSmoothie.Remove(lowestFruit);
-                FruitSO pick = _fruitPicker.Pick();
-                _fruitPicker.Remove(pick);
-                fruitsInSmoothie.Add(pick, 1);
-            }
+        private void MakeEasier(Dictionary<FruitSO, int> fruitsInSmoothie)
+        {
+            FruitSO hardestFruit = fruitsInSmoothie.Keys.OrderByDescending(f => f.DifficultyRating).First();
+            fruitsInSmoothie.Remove(hardestFruit);
+            SimplePick(fruitsInSmoothie);
+        }
 
-            content.SetContent(fruitsInSmoothie);
-            return content;
+        private void MakeHarder(Dictionary<FruitSO, int> fruitsInSmoothie)
+        {
+            FruitSO easiestFruit = fruitsInSmoothie.Keys.OrderBy(f => f.DifficultyRating).First();
+            fruitsInSmoothie.Remove(easiestFruit);
+            SimplePick(fruitsInSmoothie);
+        }
+
+        private void SimplePick(Dictionary<FruitSO, int> fruitsInSmoothie)
+        {
+            FruitSO pick = _fruitPicker.Pick();
+            _fruitPicker.Remove(pick);
+            fruitsInSmoothie.Add(pick, 1);
         }
     }
 }
