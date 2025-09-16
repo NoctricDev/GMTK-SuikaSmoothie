@@ -60,6 +60,9 @@ namespace UI
 
         public void QuitGame()
         {
+#if UNITY_WEBGL
+            Screen.fullScreen = false;
+#endif
             Application.Quit();
         }
     }
