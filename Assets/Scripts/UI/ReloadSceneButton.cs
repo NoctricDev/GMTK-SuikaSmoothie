@@ -15,7 +15,7 @@ namespace UI
 
         private void OnReloadSceneButtonClicked()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            LoadSceneManagement.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

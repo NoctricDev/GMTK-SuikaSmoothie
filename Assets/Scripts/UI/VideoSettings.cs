@@ -36,12 +36,6 @@ namespace UI
             {
                 dropDown.value = (int)Screen.fullScreenMode;
             }
-            else
-            {
-                Debug.LogError("currentFullscreenMode is not in allowedFullscreenModes");
-                dropDown.value = 0;
-                Screen.fullScreenMode = allowedFullscreenModes[0];
-            }
             
         }
 #endif
@@ -67,6 +61,7 @@ namespace UI
         
         private void SetFullscreen(bool isFullscreen)
         {
+            Debug.Log("SettFullscreen");
             Screen.fullScreen = isFullscreen;
             fullscreenToggle.isOn = isFullscreen;
         }

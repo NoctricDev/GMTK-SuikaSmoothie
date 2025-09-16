@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Input;
 using JohaToolkit.UnityEngine.DataStructures;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace UI
 {
@@ -19,10 +20,13 @@ namespace UI
 
         protected override void Awake()
         {
+            IsPersistent = true;
             base.Awake();
+        }
 
+        private void Start()
+        {
             InitChild(1, transform);
-            
             gameObject.SetActive(false);
         }
 
