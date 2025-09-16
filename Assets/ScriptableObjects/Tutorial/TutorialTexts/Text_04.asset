@@ -15,5 +15,5 @@ MonoBehaviour:
   uniqueID: 4
   headerText: Pick Up Fruit from the Bowl
   contentText: Hover over a fruit in the bowl and press LMB to pick it up. This enters
-    fruit drop mode. Move over the wooden tray and press LMB on the fruit again to
-    drop the fruit.
+    fruit drop mode. Move over the wooden tray next to the bowl and press LMB on
+    the fruit again to drop the fruit.

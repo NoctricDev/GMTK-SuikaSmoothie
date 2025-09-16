@@ -15,5 +15,5 @@ MonoBehaviour:
   uniqueID: 1
   headerText: Learn to Grab Fruit
   contentText: "Press Left Mouse Button (LMB) on the highlighted fruit UI, or press
-    the F key to grab the fruit shown in the UI. NOTE: Only the first three fruits
+    the F key to grab the fruit shown in the UI. \nNOTE: Only the first three fruits
     can spawn\u2014Blueberry, Strawberry, and Plum."
