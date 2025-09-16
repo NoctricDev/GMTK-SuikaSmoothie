@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueID: 2
   headerText: Drop Fruit into Bowl
-  contentText: "Hover over the bowl, then press LMB again to drop the fruit from
-    your hand into the bowl. Repeat this until you\u2019ve created a larger fruit
-    through merging."
+  contentText: Hover over the bowl, then press LMB again to drop the fruit from your
+    hand into the bowl

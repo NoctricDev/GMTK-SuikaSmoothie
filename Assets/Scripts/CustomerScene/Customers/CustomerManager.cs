@@ -56,6 +56,8 @@ namespace CustomerScene.Customers
 
         private bool _hasStarted = false;
         
+        public IEnumerable<Customer> CustomersWithOrders => customers.Select(c => c.customer).Where(c => c.HasOrder);
+        
         protected override void Awake()
         {
             base.Awake();

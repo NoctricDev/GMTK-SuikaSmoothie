@@ -51,11 +51,13 @@ namespace Camera
         public void LoadEnd()
         {
             inputManager.BowlSceneCameraMoveEvent += OnCameraMove;
+            _desiredDelta = 0;
         }
 
         public void Unload()
         {
             inputManager.BowlSceneCameraMoveEvent -= OnCameraMove;
+            _desiredDelta = 0;
         }
 
         public void OnDestroy()

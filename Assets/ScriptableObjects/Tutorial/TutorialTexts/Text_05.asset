@@ -15,4 +15,4 @@ MonoBehaviour:
   uniqueID: 5
   headerText: Move the Table View
   contentText: Press A or D to move the table left or right. This helps with more
-    precise fruit drops.
+    precise fruit drops. Move the cam with A or D to continue.

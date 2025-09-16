@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Text_10
   m_EditorClassIdentifier: 
   uniqueID: 10
-  headerText: Back to Mixing
-  contentText: "Let\u2019s return to the Mixing Screen. Press Q or click the UI button."
+  headerText: Time for Mixing
+  contentText: "Let\u2019s go to the Mixing Screen. Press Q or click the UI button."

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueID: 11
   headerText: Prepare the Mixer
-  contentText: Place a cup under the mixer again by clicking LMB on the cup stack.
-    If a cup is already there, trash it and place it again
+  contentText: Place a cup under the mixer again by clicking LMB on the cup stack
+    left of the mixer. If a cup is already there, trash it and place it again.

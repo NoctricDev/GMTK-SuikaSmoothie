@@ -15,4 +15,5 @@ MonoBehaviour:
   uniqueID: 3
   headerText: Merge Fruit
   contentText: When two fruits of the same type touch, they will merge into the next
-    fruit in the evolution line.
+    fruit in the evolution line. Check the evolution line on the left. Merge a fruit
+    to continue.
