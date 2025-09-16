@@ -16,11 +16,13 @@ namespace CustomerScene.Customers
             OrderEvaluation evaluation = new();
 
             int pricePaid = 0;
+            bool atLeastOneFruitCorrect = false;
             
             foreach ((FruitSO fruit, int count) in content.FruitsInSmoothie)
             {
                 if (IsFruitCorrect(order.Content.FruitsInSmoothie, fruit, out int expectedCount))
                 {
+                    atLeastOneFruitCorrect = true;
                     pricePaid += fruit.FruitValue;
                 }
                 else
@@ -31,7 +33,7 @@ namespace CustomerScene.Customers
 
             pricePaid = Mathf.Max(1, pricePaid);
             
-            evaluation.IsAccepted = pricePaid > 0;
+            evaluation.IsAccepted = pricePaid > 0 && atLeastOneFruitCorrect;
             evaluation.PricePaid = Mathf.CeilToInt(pricePaid * GetMultiplier(order));
             return evaluation;
         }
