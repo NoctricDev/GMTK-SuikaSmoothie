@@ -353,12 +353,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 53569522}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 369650101}
+  m_Father: {fileID: 1041799227}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -892,30 +892,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
+    SerializedFormat: 0
+    SerializedBytes: 01010c0000007300630065006e0065004f0062006a0065006300740073002f00000000012e0000005300630065006e00650073002e004900470061006d00650070006c00610079005300630065006e0065004f0062006a006500630074005b005d002c00200041007300730065006d0062006c0079002d00430053006800610072007000000000000601000000000000000c000000000705
     ReferencedUnityObjects:
     - {fileID: 974103443}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: sceneObjects
-      Entry: 7
-      Data: 0|Scenes.IGameplaySceneObject[], Assembly-CSharp
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 10
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
   inputManager: {fileID: 11400000, guid: 540685f8bfeb8ed4e93ec33aafac89b0, type: 2}
   sceneCamera: {fileID: 162100694}
   gameplayScene: 4
@@ -5901,6 +5886,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 53569523}
   - {fileID: 1512365935}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13437,9 +13423,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2433990497052038940, guid: cb8c6cb967016c94e97455d918c04c87, type: 3}
       insertIndex: -1
       addedObject: {fileID: 705928727}
-    - targetCorrespondingSourceObject: {fileID: 2433990497052038940, guid: cb8c6cb967016c94e97455d918c04c87, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 53569523}
     - targetCorrespondingSourceObject: {fileID: 2433990497052038940, guid: cb8c6cb967016c94e97455d918c04c87, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1462068709}
