@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Text_12
   m_EditorClassIdentifier: 
   uniqueID: 12
-  headerText: Add Fruit to Mixer
-  contentText: "Grab a fruit from the tray on the left using LMB, then hover over
-    the mixer and press LMB again to drop it in. If you don\u2019t have fruit on
-    the tray, go back to the Fruit Bowl Screen and place one there first."
+  headerText: Add fruit to mixer
+  contentText: "Grab a <b>fruit</b> from the <b>tray</b> on the left using <b>LMB</b>,
+    then hover above the <b>mixer</b> and press <b>LMB</b> again to drop it in. If
+    you don\u2019t have <b>fruit</b> on the <b>tray</b>, go back to the <b>fruit
+    bowl screen</b> and place one there first."

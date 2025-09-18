@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Text_13
   m_EditorClassIdentifier: 
   uniqueID: 13
-  headerText: Blend the Smoothie
-  contentText: Press the big red button on the mixer using LMB to start blending.
+  headerText: Blend smoothies
+  contentText: Press the <b>big red button</b> on the <b>mixer</b> using <b>LMB</b>
+    to start <b>blending</b>.

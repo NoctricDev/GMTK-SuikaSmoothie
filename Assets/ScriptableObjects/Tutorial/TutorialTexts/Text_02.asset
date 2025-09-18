@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Text_02
   m_EditorClassIdentifier: 
   uniqueID: 2
-  headerText: Drop Fruit into Bowl
-  contentText: Hover over the bowl, then press LMB again to drop the fruit from your
-    hand into the bowl
+  headerText: Drop fruit into bowl
+  contentText: Hover over the <b>bowl</b>, then press <b>LMB</b> to drop the <b>fruit</b>.

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Text_04
   m_EditorClassIdentifier: 
   uniqueID: 4
-  headerText: Pick Up Fruit from the Bowl
-  contentText: Hover over a fruit in the bowl and press LMB to pick it up. This enters
-    fruit drop mode. Move over the wooden tray next to the bowl and press LMB on
-    the fruit again to drop the fruit.
+  headerText: Pick up fruit from the bowl
+  contentText: Hover over a fruit in the bowl and press <b>LMB</b> to pick it up.
+    This enters <b>fruit drop mode</b>. Move over the <b>wooden tray</b> next to
+    the <b>bowl</b> and press <b>LMB</b> on the <b>fruit</b> again to drop the <b>fruit</b>.

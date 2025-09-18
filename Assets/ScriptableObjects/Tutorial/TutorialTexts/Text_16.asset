@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Text_16
   m_EditorClassIdentifier: 
   uniqueID: 16
-  headerText: Complete All remaining Orders
-  contentText: Now you know everything! Time to complete the 3 orders. You can always
-    check the order list at the bottom left if you forget what a customer wants!
+  headerText: Complete all remaining orders
+  contentText: Now you know everything! Time to <b>complete the 3 orders</b>. You
+    can always check the <b>order list</b> at the <b>bottom left</b> if you forget
+    what a customer wants!

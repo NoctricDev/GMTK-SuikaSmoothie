@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Text_15
   m_EditorClassIdentifier: 
   uniqueID: 15
-  headerText: Serve or Trash Smoothie
-  contentText: "Click on the smoothie with LMB, then hover over a serving plate and
-    press LMB to serve it to a customer. Alternatively, trash it if it\u2019s wrong."
+  headerText: Serve or trash Smoothie
+  contentText: "Click on the <b>smoothie</b> with <b>LMB</b>, then hover over a <b>serving
+    plate</b> and <b>press LMB</b> to serve it to a <b>customer</b>. Alternatively,
+    <b>trash it</b> if it\u2019s wrong."

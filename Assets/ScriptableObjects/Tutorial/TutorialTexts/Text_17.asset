@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Text_17
   m_EditorClassIdentifier: 
   uniqueID: 17
-  headerText: Tutorial Completed
-  contentText: Great job! Now, you are truly ready to challange the time in challenge
-    mode or just relax and prepare some smoothies in freeplay. Just return to the
-    main Menu and continue from there.
+  headerText: Tutorial completed
+  contentText: Great job! Now, you are truly ready to beat a highscore in <b>challenge
+    mode</b> or just relax and prepare some smoothies in <b>freeplay</b>. Just return
+    to the <b>main menu</b> and continue from there.

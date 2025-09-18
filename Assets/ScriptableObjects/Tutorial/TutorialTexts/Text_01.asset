@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Text_01
   m_EditorClassIdentifier: 
   uniqueID: 1
-  headerText: Learn to Grab Fruit
-  contentText: "Press Left Mouse Button (LMB) on the highlighted fruit UI, or press
-    the F key to grab the fruit shown in the UI. \nNOTE: Only the first three fruits
-    can spawn\u2014Blueberry, Strawberry, and Plum."
+  headerText: Learn to grab fruit
+  contentText: "Press <b>Left Mouse Button (LMB)</b> on the <b>highlighted fruit
+    button</b>, or press the <b>F key</b> to grab the <b>fruit</b> shown in the button.
+    \n<b>NOTE:</b> Only the first three fruits can spawn: <b>Blueberry</b>, <b>Strawberry</b>,
+    and <b>Plum</b>."

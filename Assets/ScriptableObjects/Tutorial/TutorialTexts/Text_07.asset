@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Text_07
   m_EditorClassIdentifier: 
   uniqueID: 7
-  headerText: Understand Customer Orders
-  contentText: "Here, you can view each customer's smoothie order and their patience
-    bar. Don\u2019t let it run out, and don\u2019t serve the wrong smoothie!\n(Press
-    LMB to continue)"
+  headerText: Understand customer orders
+  contentText: "Here, you can view each <b>customer's smoothie order</b> and their
+    <b>patience bar</b>. Don\u2019t let it run out, and don\u2019t serve the wrong
+    smoothie!\n<b>(Press LMB to continue)</b>"

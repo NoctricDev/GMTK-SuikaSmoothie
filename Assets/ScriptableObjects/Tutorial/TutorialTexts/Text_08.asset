@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Text_08
   m_EditorClassIdentifier: 
   uniqueID: 8
-  headerText: Place a Cup Under the Mixer
-  contentText: Click LMB on the cup stack next to the mixer to place a cup underneath
-    the mixer.
+  headerText: Place a cup under the mixer
+  contentText: Click <b>LMB</b> on the <b>cup stack</b> next to the <b>mixer</b>
+    to place a <b>cup</b> underneath the <b>mixer</b>.

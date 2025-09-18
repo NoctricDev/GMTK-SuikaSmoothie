@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Text_09
   m_EditorClassIdentifier: 
   uniqueID: 9
-  headerText: Trash Mistakes
-  contentText: You can throw away incorrect smoothies or empty cups. Just grab them
-    with LMB, hover over the trashcan on the right, and press LMB again.
+  headerText: Trash mistakes
+  contentText: You can throw away <b>incorrect smoothies</b> or <b>empty cups</b>.
+    Grab them with <b>LMB</b>, hover over the <b>trashcan</b> on the right, and press
+    <b>LMB</b> again.

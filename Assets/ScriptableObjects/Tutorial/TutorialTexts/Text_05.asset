@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Text_05
   m_EditorClassIdentifier: 
   uniqueID: 5
-  headerText: Move the Table View
-  contentText: Press A or D to move the table left or right. You can even do this
-    while holding a fruit. This helps with more precise fruit drops and pick ups.
-    Move the cam with A or D to continue.
+  headerText: Move the table view
+  contentText: Press <b>A or D</b> to move around the table. You can do this while
+    holding a fruit. <b> Move the cam with A or D to continue.</b>

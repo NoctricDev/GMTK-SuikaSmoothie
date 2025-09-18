@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Text_06
   m_EditorClassIdentifier: 
   uniqueID: 6
-  headerText: Switch to Customer Screen
-  contentText: Press Q or click the highlighted UI button to go to the Customer Screen.
+  headerText: Switch to customer screen
+  contentText: <b>Press Q</b> or <b>click the highlighted UI</b> button to go to
+    the <b>customer screen.</b>

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Text_14
   m_EditorClassIdentifier: 
   uniqueID: 14
-  headerText: Return to Customer Screen
-  contentText: Press E or click the UI element to return to the Customer Screen
+  headerText: Return to customer screen
+  contentText: <b>Press E</b> or <b>click the highlighted button</b> to return to
+    the <b>customer screen</b>.
