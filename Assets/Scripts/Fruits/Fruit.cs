@@ -1,7 +1,6 @@
 #nullable enable
 using Carry;
 using FruitBowlScene;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Fruits
@@ -10,7 +9,8 @@ namespace Fruits
     {
         public const string FRUIT_LAYER = "Fruit";
         public const string FRUIT_MERGEREGION_TAG = "FruitMergeRegion";
-        
+
+        [SerializeField] private float maxVelocity;
         [HideInInspector] public bool requestedMerge;
         private bool _canMerge;
         private bool _isCarried;
@@ -91,6 +91,19 @@ namespace Fruits
             if (!other.CompareTag(FRUIT_MERGEREGION_TAG))
                 return;
             _canMerge = false;
+        }
+
+        private void FixedUpdate()
+        {
+            if (!_canMerge)
+                return;
+            
+            // limit max velocity
+            float sqrMagnitude = _rb.linearVelocity.sqrMagnitude;;
+            if (sqrMagnitude > maxVelocity * maxVelocity)
+            {
+                _rb.linearVelocity = _rb.linearVelocity.normalized * maxVelocity;
+            }
         }
     }
 }

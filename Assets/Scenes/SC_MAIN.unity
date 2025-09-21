@@ -892,15 +892,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 01010c0000007300630065006e0065004f0062006a0065006300740073002f00000000012e0000005300630065006e00650073002e004900470061006d00650070006c00610079005300630065006e0065004f0062006a006500630074005b005d002c00200041007300730065006d0062006c0079002d00430053006800610072007000000000000601000000000000000c000000000705
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 974103443}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: sceneObjects
+      Entry: 7
+      Data: 0|Scenes.IGameplaySceneObject[], Assembly-CSharp
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   inputManager: {fileID: 11400000, guid: 540685f8bfeb8ed4e93ec33aafac89b0, type: 2}
   sceneCamera: {fileID: 162100694}
   gameplayScene: 4
@@ -12529,8 +12544,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132884389}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.11010691, y: 0, z: 0, w: 0.9939198}
-  m_LocalPosition: {x: 0.917, y: 1.205, z: -0.078}
+  m_LocalRotation: {x: 0.112502195, y: -0.4235714, z: 0.053108014, w: 0.89727926}
+  m_LocalPosition: {x: 0.908, y: 1.173, z: -0.178}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

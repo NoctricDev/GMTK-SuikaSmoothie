@@ -49,8 +49,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78ddd4e3e3cca04e83186bbf946723c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mergeParticles: {fileID: 2839893198240166590}
+  maxVelocity: 0.2
   requestedMerge: 0
+  HasCollided: 0
 --- !u!114 &3250543104685999631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,10 +191,5 @@ PrefabInstance:
 --- !u!4 &766101448839949799 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8454604363511664022, guid: 7c822f1e4bbad074d9151be258bccb68, type: 3}
-  m_PrefabInstance: {fileID: 9220404363628961905}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &2839893198240166590 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6385021510267425487, guid: 7c822f1e4bbad074d9151be258bccb68, type: 3}
   m_PrefabInstance: {fileID: 9220404363628961905}
   m_PrefabAsset: {fileID: 0}
