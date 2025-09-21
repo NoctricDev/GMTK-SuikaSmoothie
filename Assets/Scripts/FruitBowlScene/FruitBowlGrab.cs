@@ -6,7 +6,9 @@ using Helper;
 using Input;
 using Scenes;
 using Sirenix.OdinInspector;
+using Tutorial;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace FruitBowlScene
 {
@@ -41,6 +43,7 @@ namespace FruitBowlScene
         private GameObject _activePayloadGameObject;
         
         private CancellationTokenSource _cancellationTokenSource;
+        private CancellationTokenSource _waitForLeftClickCts;
         
         public bool HasPayload => _activePayloadGameObject;
         
@@ -94,8 +97,10 @@ namespace FruitBowlScene
             StartCarry(carrieAble);
             payloadGrabPickedUpGameEvent?.RaiseEvent(this, carrieAble);
         }
+        
+        
 
-        public void StartCarry(ICarrieAble carrieAble)
+        public async void StartCarry(ICarrieAble carrieAble)
         {
             if (_activePayloadGameObject)
                 return;
@@ -108,11 +113,24 @@ namespace FruitBowlScene
             _activePayload = carrieAble;
             _activePayloadGameObject = carrieAble.GetAttachedGameObject();
             _cancellationTokenSource = new CancellationTokenSource();
+            _waitForLeftClickCts?.Cancel();
+            _waitForLeftClickCts = new CancellationTokenSource();
             _ = WaitForPayloadToArrive();
+            
+            try
+            {
+                await AwaitLeftClick();
+                StopCarry();
+            }
+            catch (OperationCanceledException e)
+            {
+                
+            }
         }
 
         public void StopCarry()
         {
+            _waitForLeftClickCts?.Cancel();
             if (_activePayload == null || !_activePayloadGameObject)
                 return;
             payloadGrabDroppedGameEvent?.RaiseEvent(this, _activePayload);
@@ -139,6 +157,26 @@ namespace FruitBowlScene
                 travelStartPoint.position = Vector3.Lerp(startPos, travelEndPoint.position, timer);
                 await Awaitable.EndOfFrameAsync(_cancellationTokenSource.Token);
             }
+        }
+        
+        private async Awaitable AwaitLeftClick()
+        {
+            bool pressedDown = false;
+            while (Mouse.current.leftButton.isPressed && !_waitForLeftClickCts.IsCancellationRequested)
+            {
+                _waitForLeftClickCts.Token.ThrowIfCancellationRequested();
+                await Awaitable.NextFrameAsync(_waitForLeftClickCts.Token);
+            }
+            while (!_waitForLeftClickCts.IsCancellationRequested)
+            {
+                if (Mouse.current.leftButton.wasPressedThisFrame)
+                    pressedDown = true;
+                if (pressedDown && Mouse.current.leftButton.wasReleasedThisFrame)
+                    return;
+                await Awaitable.NextFrameAsync(_waitForLeftClickCts.Token);
+            }
+            
+            _cancellationTokenSource.Token.ThrowIfCancellationRequested();
         }
     }
 }
