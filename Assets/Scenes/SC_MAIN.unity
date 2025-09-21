@@ -1071,7 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f966dece3004a428ac5460caded8fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squishDecalPrefab: {fileID: 0}
+  squishDecalPrefab: {fileID: 3985852122539038933, guid: 8c1616f3dcc9c7f41851d991ca17adda, type: 3}
 --- !u!65 &148966557
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1853,7 +1853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f966dece3004a428ac5460caded8fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squishDecalPrefab: {fileID: 0}
+  squishDecalPrefab: {fileID: 3985852122539038933, guid: 8c1616f3dcc9c7f41851d991ca17adda, type: 3}
 --- !u!65 &253688527
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5214,7 +5214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f966dece3004a428ac5460caded8fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squishDecalPrefab: {fileID: 0}
+  squishDecalPrefab: {fileID: 3985852122539038933, guid: 8c1616f3dcc9c7f41851d991ca17adda, type: 3}
 --- !u!65 &904922236
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16789,6 +16789,10 @@ PrefabInstance:
       propertyPath: 'recipes.Array.data[9]'
       value: 
       objectReference: {fileID: 11400000, guid: c3b1df710e8732d43a1a5196015049b4, type: 2}
+    - target: {fileID: 8800797750335422760, guid: a3ef3106961eb674c910f20a29d8fb28, type: 3}
+      propertyPath: squishDecalPrefab
+      value: 
+      objectReference: {fileID: 3985852122539038933, guid: 8c1616f3dcc9c7f41851d991ca17adda, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
