@@ -32,10 +32,11 @@ namespace CustomerScene.Customers
         private List<CustomerDifficulty> _customersList;
         [SerializeField] private IntVariable playerMoney;
         [SerializeField] private SoundDataAsset orderSuccessSound;
+        [SerializeField] private SoundDataAsset newCustomerSound;
         [SerializeField] private StartGameTypeVariable startGameTypeVariable;
         [SerializeField] private CustomerPool_SO[] customerPools;
         [SerializeField] private GameEvent orderCompletedEvent;
-
+        
         [Title("Settings")] 
         [SerializeField, InfoBox("Smoothie difficulty * this + timeToPrepareBase = TimeToPrepare")] private float timeToPrepareMultiplier = 2f;
 
@@ -127,6 +128,7 @@ namespace CustomerScene.Customers
 
         public void TryPlaceOrder(CustomerDifficulty customer, CustomerOrder order)
         {
+            SoundManager.Instance.Play(newCustomerSound);
             customer.customer.SetOrder(order);
         }
 

@@ -4,6 +4,7 @@ namespace Fruits
 {
     public class DestroyFruits : MonoBehaviour
     {
+        [SerializeField] private GameObject squishDecalPrefab;
         private void OnTriggerEnter(Collider other)
         {
             if (!other.transform.TryGetComponent(out Fruit fruit))
@@ -13,6 +14,8 @@ namespace Fruits
                 return;
             
             Destroy(fruit.gameObject);
+            if(squishDecalPrefab != null)
+                Instantiate(squishDecalPrefab, other.transform.position, Quaternion.LookRotation(-transform.up, Vector3.up));
         }
     }
 }

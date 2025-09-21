@@ -1071,6 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f966dece3004a428ac5460caded8fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  squishDecalPrefab: {fileID: 0}
 --- !u!65 &148966557
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1852,6 +1853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f966dece3004a428ac5460caded8fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  squishDecalPrefab: {fileID: 0}
 --- !u!65 &253688527
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5212,6 +5214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f966dece3004a428ac5460caded8fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  squishDecalPrefab: {fileID: 0}
 --- !u!65 &904922236
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12794,9 +12797,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.02
+  near clip plane: 0.3
   far clip plane: 1000
-  field of view: 41.9
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -12822,8 +12825,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132884389}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.112502195, y: -0.4235714, z: 0.053108014, w: 0.89727926}
-  m_LocalPosition: {x: 0.908, y: 1.173, z: -0.178}
+  m_LocalRotation: {x: -0.019289872, y: 0.9487812, z: -0.058681376, w: -0.30983657}
+  m_LocalPosition: {x: 1.6512605, y: 1.1331447, z: 1.4378452}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14287,6 +14290,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8108627ac5fc93b4cb58e8b7ad09592e, type: 2}
+    - target: {fileID: 4428568173353156466, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
+      propertyPath: newCustomerSound
+      value: 
+      objectReference: {fileID: 11400000, guid: a1921e2067740ac45856b2c32c3f2425, type: 2}
     - target: {fileID: 4428568173353156466, guid: a4ecfb4e2d0b9b04d86102f483d9e8bd, type: 3}
       propertyPath: orderSuccessSound
       value: 
@@ -15946,6 +15953,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1.206
       objectReference: {fileID: 0}
+    - target: {fileID: 2020374693697462579, guid: a016da67d59520d40a3731125bda696f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0038
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020374693697462579, guid: a016da67d59520d40a3731125bda696f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3325
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020374693697462579, guid: a016da67d59520d40a3731125bda696f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0281
+      objectReference: {fileID: 0}
     - target: {fileID: 2485730009281560108, guid: a016da67d59520d40a3731125bda696f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -16101,6 +16120,18 @@ PrefabInstance:
     - target: {fileID: 5609594487824347236, guid: a016da67d59520d40a3731125bda696f, type: 3}
       propertyPath: m_Name
       value: MixerScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307744534069806075, guid: a016da67d59520d40a3731125bda696f, type: 3}
+      propertyPath: m_Size.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307744534069806075, guid: a016da67d59520d40a3731125bda696f, type: 3}
+      propertyPath: m_Size.y
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307744534069806075, guid: a016da67d59520d40a3731125bda696f, type: 3}
+      propertyPath: m_Size.z
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6384043463114807964, guid: a016da67d59520d40a3731125bda696f, type: 3}
       propertyPath: glassSlot
