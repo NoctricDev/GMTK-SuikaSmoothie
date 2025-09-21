@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RotateFruitTrigger : MonoBehaviour
 {
+    
     private void OnTriggerEnter(Collider other)
     {
         if (!other.transform.TryGetComponent(out Fruit fruit))
