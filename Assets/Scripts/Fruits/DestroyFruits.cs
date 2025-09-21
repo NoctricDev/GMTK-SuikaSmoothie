@@ -15,7 +15,11 @@ namespace Fruits
             
             Destroy(fruit.gameObject);
             if(squishDecalPrefab != null)
-                Instantiate(squishDecalPrefab, other.transform.position, Quaternion.LookRotation(-transform.up, Vector3.up));
+            {
+                
+                GameObject decal = Instantiate(squishDecalPrefab, other.transform.position, Quaternion.LookRotation(-transform.up, Vector3.up));
+                decal.GetComponent<FruitDecal>().Init(fruit.FruitSO);
+            }
         }
     }
 }

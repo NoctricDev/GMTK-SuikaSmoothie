@@ -72,3 +72,4 @@ MonoBehaviour:
   decalProjector: {fileID: 4712419060851520354}
   lifeTimeRange: {x: 5, y: 10}
   fadeDuration: 1
+  baseMaterial: {fileID: 2100000, guid: b15c13dc755b19347b3a2301832eb852, type: 2}
