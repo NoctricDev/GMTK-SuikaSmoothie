@@ -1,5 +1,6 @@
 using System;
 using Fruits;
+using JohaToolkit.UnityEngine.Audio;
 using JohaToolkit.UnityEngine.Extensions;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -11,6 +12,7 @@ public class FruitDecal : MonoBehaviour
     [SerializeField] private Vector2 lifeTimeRange = new(5, 10);
     [SerializeField] private float fadeDuration = 1;
     [SerializeField] private Material baseMaterial;
+    [SerializeField] private SoundDataAsset squishSound;
     
     private Awaitable _currentAwaitable;
     
@@ -22,6 +24,7 @@ public class FruitDecal : MonoBehaviour
         decalProjector.fadeFactor = 1;
         _lifeTime = lifeTimeRange.RandomRange();
         _currentAwaitable  = WaitAndFade();
+        SoundManager.Instance.Play(squishSound);
     }
     
     
